@@ -1,0 +1,43 @@
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="{{or site.url (or siteRootUrl siteRootPath)}}"><img src="{{uiRootPath}}/img/logo_navbar.png" alt="Logo" height="50px"> {{site.title}}</a>
+
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="{{site.RootPath}}/{{page.component.name}}/{{page.version}}/index.html">Home</a>
+        <a class="navbar-item" href="{{site.RootPath}}/{{page.component.name}}/{{page.version}}/features.html">Features</a>
+        <a class="navbar-item" href="{{site.RootPath}}/{{page.component.name}}/{{page.version}}/download.html">Download</a>
+        <a class="navbar-item" href="{{site.RootPath}}/{{page.component.name}}/{{page.version}}/faq.html">FAQ</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">Documentation</div>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="{{site.RootPath}}/{{page.component.name}}/{{page.version}}/introduction/introduction.html">Introduction</a>
+            <a class="navbar-item" href="{{site.RootPath}}/{{page.component.name}}/{{page.version}}/quickstart/quickstart-intro.html">Quick Start</a>
+            <a class="navbar-item" href="{{site.RootPath}}/{{page.component.name}}/{{page.version}}/managing/managing-intro.html">Managing </a>
+            <a class="navbar-item" href="{{site.RootPath}}/{{page.component.name}}/{{page.version}}/integrating/integrating-intro.html">Integrating </a>
+            <a class="navbar-item" href="{{site.RootPath}}/{{page.component.name}}/{{page.version}}/developing/devcomponents/custom-applications.html">Developing Components</a>
+            <a class="navbar-item" href="{{site.RootPath}}/{{page.component.name}}/{{page.version}}/architectures/data-intro.html"> Architecture Reference</a>
+            <a class="navbar-item" href="{{site.RootPath}}/{{page.component.name}}/{{page.version}}/reference/appReferences/mg-admin.html">Reference</a>
+            <a class="navbar-item" href="{{site.RootPath}}/{{page.component.name}}/{{page.version}}/metadataReference/metadata-attributes-intro.html">Metadata Reference</a>
+          </div>
+        </div>
+        <a class="navbar-item" href="{{site.RootPath}}/{{page.component.name}}/{{page.version}}/support.html">Support</a>
+          {{#if env.DOCSEARCH_ENABLED}}
+            <div class="navbar-item">
+              <input id="search-input" type="text" placeholder="Search">
+            </div>
+          {{/if}}
+        </div>
+
+
+      </div>
+    </div>
+  </nav>
+</header>
