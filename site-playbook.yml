@@ -21,7 +21,7 @@ asciidoc:
     ddf-branding: DDF
     ddf-branding-lowercase: ddf
     ddf-branding-expanded: Distributed Data Framework
-    version: 2.22.0
+    version: 2.25.0
     admin-console: Admin Console
     secure_url: https://localhost:8993
     public_url: http://{FQDN}:{PORT}
