@@ -1,0 +1,2333 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Dependency List :: DDF</title>
+    <link rel="canonical" href="http://localhost:5000/docs/2.25.0/reference/dependencyList/ddf-dependency-list.html">
+    <meta name="generator" content="Antora 2.3.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+<link rel="stylesheet" href="../../../../_/css/search.css">
+<link rel="stylesheet" href="../../../../_/css/nase.css">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="http://localhost:5000"><img src="../../../../_/img/logo_navbar.png" alt="Logo" height="50px"> DDF</a>
+
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="/docs/2.25.0/index.html">Home</a>
+        <a class="navbar-item" href="/docs/2.25.0/features.html">Features</a>
+        <a class="navbar-item" href="/docs/2.25.0/download.html">Download</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="/docs/2.25.0/introduction/introduction.html">Documentation</a>
+          <div class="navbar-dropdown">
+                <a href="" class="navbar-item"></a>
+                <a href="/docs/2.25.0/introduction/introduction.html" class="navbar-item">Introduction</a>
+                <a href="/docs/2.25.0/quickstart/quickstart-intro.html" class="navbar-item">Quick Start Tutorial</a>
+                <a href="/docs/2.25.0/managing/managing-intro.html" class="navbar-item">Managing</a>
+                <a href="/docs/2.25.0/integrating/integrating-intro.html" class="navbar-item">Integrating Intro</a>
+                <a href="/docs/2.25.0/architectures/architecture-intro.html" class="navbar-item">Architectures</a>
+                <a href="/docs/2.25.0/developing/developing-intro.html" class="navbar-item">Developing</a>
+                <a href="" class="navbar-item">Reference</a>
+                <a href="/docs/2.25.0/metadatareference/metadata-attributes-intro.html" class="navbar-item">Metadata Reference</a>
+          </div>
+        </div>
+        <a class="navbar-item" href="/docs/2.25.0/support.html">Support</a>
+            <div class="navbar-item">
+              <input id="search-input" type="text" placeholder="Search">
+            </div>
+        </div>
+
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="docs" data-version="2.25.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">DDF</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../features.html">Features</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../download.html">Download</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../faq.html">FAQ</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../support.html">Support</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><em>Documentation:</em></span>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../introduction/introduction.html">Introduction</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../introduction/applications.html">Component Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../introduction/documentation-notes.html">Documentation Guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../introduction/coreconcepts/core-concepts-intro.html">Core Concepts</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../introduction/coreconcepts/search-intro.html">Introduction to Search</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../introduction/coreconcepts/metadata-intro.html">Introduction to Metadata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../introduction/coreconcepts/ingest-intro.html">Introduction to Ingest</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../introduction/coreconcepts/resources-intro.html">Introduction to Resources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../introduction/coreconcepts/catalog-framework-intro.html">Introduction to the Catalog Framework</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../introduction/coreconcepts/federation-intro.html">Introduction to Federation and Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../introduction/coreconcepts/events-subscriptions-intro.html">Introduction to Events and Subscriptions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../introduction/coreconcepts/endpoints-intro.html">Introduction to Endpoints</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../introduction/coreconcepts/high-availability-intro.html">Introduction to High Availability</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../introduction/coreconcepts/high-availability-supported-capabilities.html">High Availability Supported Capabilities</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../introduction/coreconcepts/standards-intro.html">Standards Supported by DDF</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../introduction/coreconcepts/service-standards.html">Catalog Service Standards</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../introduction/coreconcepts/data-standards.html">Data Formats</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../introduction/coreconcepts/map-standards.html">Map Formats</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../introduction/coreconcepts/security-standards.html">Security Standards</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../introduction/coreconcepts/attribute-stores.html">Attribute Stores</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../introduction/coreconcepts/transport-protocols.html">Transport Protocols</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../introduction/coreconcepts/sso-standards.html">Single Sign On Standards</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../introduction/coreconcepts/security-sso-endpoints.html">Single Sign On Endpoints Provided by DDF</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../introduction/coreconcepts/authentication-standards.html">Authentication Standards</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../introduction/coreconcepts/cryptography-standards.html">Cryptography Standards</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../quickstart/quickstart-intro.html">Quick Start Tutorial</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../quickstart/quickstart-installing.html">Installing (Quick Start)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../quickstart/quickstart-certificates.html">Certificates (Quick Start)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../quickstart/quickstart-configuring.html">Configuring (Quick Start)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../quickstart/quickstart-ingesting.html">Ingesting (Quick Start)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/managing-intro.html">Managing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/securing/securing-intro.html">Security Hardening</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../managing/securing/auditing.html">Auditing</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/securing/hardening-intro.html">Hardening</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../managing/securing/hardening-checklist.html">Hardening Checklist</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/installing/installing-intro.html">Installing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/installing/install-prereqs.html">Installation Prerequisites</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/hardware-reqs.html">Hardware Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/java-reqs.html">Java Requirements</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/installing/install-with-zip.html">Installing with the Distributions Zip</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/file-system-access.html">Configuring Operating Permissions and Allocations</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/installing/managing-certificates.html">Managing Keystores and Certificates</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/installing/managing-certificates.html">Managing Certificates</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/installing/managing-crl.html">Managing Certificate Revocation List</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/installing/managing-keystores.html">Managing Keystores</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/installing/initial-startup.html">Initial Startup</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/installing/installing-from-admin-console.html">Completing Installation from Admin Console</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/installing/ddf-setup-types.html">Setup Types</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/installing/guest-claims-attributes.html">Guest Claims Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/installing/system-configuration-settings.html">System Configuration Settings</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/installing/configure-single-sign-on.html">Configuring Single Sign On</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/installing/finish-page.html">Finish Page</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/installing-from-the-command-line.html">Completing Installation from Command Console</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/firewall-config.html">FireWall Port Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/ie11-configuration.html">Internet Explorer 11 Enhanced Security Configuration</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/installing/high-availability-initial-setup.html">High Availability Initial Setup</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/high-availability-initial-setup-exceptions.html">High Availability Setup Exceptions</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/configure-single-sign-on.html">Configuring Single Sign On</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/ddf-setup-types.html">Setup Types</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/finish-page.html">Finish Page</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/guest-claims-attributes.html">Guest Claims Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/installing-from-admin-console.html">Completing Installation from Admin Console</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/installing-from-the-command-line.html">Completing Installation from Command Console</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/system-configuration-settings.html">System configuration Settings</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/configuring-intro.html">Configuring</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../managing/configuring/admin-console-tutorial.html">Admin Console Tutorial</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/console-commands-ref.html">Console Command Reference</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/feature-commands.html">Feature Commands</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/configuration-files.html">Configuration Files</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/global-settings.html">Configuring Global Settings with custom.system.properties</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/config-files.html">Configuring with .config Files</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/config-templates.html">Configuration Templates</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/configuring-user-access.html">Configuring User Access</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/configuring-guest-access.html">Configuring Guest Access</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/configuring-rest-for-users.html">Configuring REST Services for Users</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/securing-idp-sp.html">Securing IdP SP</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/configuring-oidc.html">Configuring OIDC</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/connecting-to-external-idp.html">Connecting to an Identity Provider</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/no-idp.html">Configuring Without an Identity Provider</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/configuring-multi-factor-auth.html">Configuring Multi-Factor Authentication</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/ldap-server.html">Connecting to an LDAP Server</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/updating-system-users.html">Updating System Users</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/securing-admin-console.html">Restricting Access to the Admin Console</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/remove-default-users.html">Removing Default Users</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/remove-default-users-cont.html">Removing Default Users (Continued)</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/disallowing-login-wo-certs.html">Disallowing Login Without Certificates</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/configuring-data-management.html">Configuring Data Management</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/configuring-solr.html">Configuring Solr</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/solr-synonyms.html">Configuring Solr Catalog Provider Synonyms</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/hardening-solr.html">Hardening Solr</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/solr-admin-ui.html">Accessing the Solr Admin UI</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/catalog-provider.html">Changing Catalog Providers</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/changing-hostname.html">Changing Hostname</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/errors-and-warnings.html">Configuring Errors and Warnings</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/enforcing-errors.html">Enforcing Errors and Warnings</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/hiding-errors.html">Hiding Errors or Warnings from Queries</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/hiding-errors-by-role.html">Hiding Errors and Warnings from Users Based on Role</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/product-cache.html">Product Caching</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/configuring-product-caching.html">Configuring Product Caching</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/content-directory-monitor.html">Content Directory Monitor</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/configuring-system-message.html">Configuring System Usage Message</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/configuring-data-policy-plugins.html">Configuring Data Policy Plugins</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/configuring-access-plugins.html">Configuring Data Access Plugins</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/configuring-security-policies.html">Configuring Security Policies</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/web-context-policy-manager.html">Configuring the Web Context Policy Manager</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/catalog-filtering.html">Configuring Catalog Filtering Policies</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/filter-policy-plugins.html">Filter Policy Plugins</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/catalog-authorization.html">Catalog Operation Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/setting-internal-policies.html">Setting Internal Policies</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/setting-xacml-policies.html">Setting XACML Policies</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/configuring-federation.html">Configuring Federation</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/enabling-ssl.html">Enabling SSL for Clients</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/http-port.html">Configuring HTTPS Ports</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/http-proxy.html">Configuring HTTP Proxy</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/connecting-to-sources.html">Connecting to Sources</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/confluence-federated-source.html">Federated Source for Atlassian Confluence&#174;</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/csw-federated-source.html">CSW Specification Profile Federated Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/csw-federation-profile-source.html">CSW Federation Profile Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/default-storage-provider.html">Content File System Storage Provider</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/gmd-csw-source.html">GMD CSW Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/opensearch-source.html">OpenSearch Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/solr-catalog-provider.html">Solr Catalog Provider</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/wfs-10-source.html">WFS 1.0 Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/wfs-11-source.html">WFS 1.1 Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/wfs-20-source.html">WFS 2.0 Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/catalog-provider-intro.html">Catalog Provider Intro</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/federation-strategy.html">Federation Strategy</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/configuring-endpoints.html">Configuring Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/configuring-csw-endpoint.html">Configuring CSW Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/configuring-catalog-rest-endpoint.html">Configuring Catalog REST Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/configuring-kml-endpoint.html">Configuring KML Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/configuring-opensearch-endpoint.html">Configuring OpenSearch Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/compression-services.html">Configuring Compression Services</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../managing/configuring/environment-hardening.html">Environment Hardening</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/special-configurations.html">Configuring for Special Deployments</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/multiple-installations.html">Multiple Installations</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/reusing-configurations.html">Reusing Configurations</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/isolating-solrcloud-zookeeper.html">Isolating SolrCloud and Zookeeper</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/configuring-fanout-proxy.html">Configuring for a Fanout Proxy</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/high-availability-config.html">Configuring for a Highly Available Cluster</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/admin-theming-configurations.html">Configuring UI Themes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/landing-page.html">Configuring Landing Page</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/logout-theming.html">Configuring Logout Page</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/platform-ui-theming.html">Platform UI Theming</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/miscellaneous-config.html">Miscellaneous Configurations</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/thread-pools.html">Configuring Thread Pools</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/jetty-threadpool-settings.html">Configuring Jetty Thread Pools</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/encryption-service.html">Encrypting Passwords</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/decanter-services.html">Decanter Services</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/running/running-intro.html">Running</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../managing/running/starting-intro.html">Starting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/running/os-services.html">Managed Services</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/running/ddf-service.html">Run DDF as a Managed Service</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/running/console-commands.html">Console Commands</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/running/console-commands-help.html">Console Commands Help</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/running/cql-syntax.html">CQL Syntax</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/running/available-console-commands.html">Available Console Commands</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/running/catalog-commands.html">Catalog Commands</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/running/solr-commands.html">Solr Commands</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/running/subscription-commands.html">Subscription Commands</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/running/platform-commands.html">Platform Commands</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/running/migrate-commands.html">Migrate Commands</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/running/store-commands.html">Persistence Store Commands</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/running/command-scheduler.html">Command Scheduler</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../managing/running/monitoring.html">Monitoring</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../managing/running/troubleshooting.html">Troubleshooting</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Data Management</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/datamanagement/ingesting.html">Ingesting Data</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/ingest-command.html">Ingest Command</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/directory-monitor-ingest.html">Content Directory Monitor Ingest</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/external-ingest.html">External Methods of Ingest</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/forms-commands.html">Creating And Managing System Search Forms Through Karaf</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/other-ingest.html">Other Methods of Ingest</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/datamanagement/validating-data.html">Validating Data</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/validator-plugins.html">Validator Plugins on Ingest</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/schematron-validation.html">Configuring Schematron Services</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/viewing-invalid.html">Viewing Invalid Metacards</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/editing-attributes.html">Manually Editing Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/injecting-attributes.html">Injecting Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/overriding-attributes.html">Overriding Attributes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../managing/datamanagement/catalog-backup.html">Backing Up the Catalog</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/datamanagement/removing-expired-records.html">Removing Expired Records from the Catalog</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/auto-removing-expired.html">Automated Removal of Expired Resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/manual-removal-expired.html">Manually Removing Expired Resources</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/datamanagement/data-migration-intro.html">Migrating Data</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/exporting-metadata.html">Exporting Metadata</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/ingesting-exported-metadata.html">Ingesting Exported Metadata</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/datamanagement/automatically-added-metacard-attributes.html">Automatically Added Metacard Attributes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/datamanagement/attributes-added-on-ingest.html">Attributes Added on Ingest</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/datamanagement/attributes-added-by-input-transformers.html">Attributes Added by Input Transformers</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/datamanagement/attributes-added-by-attribute-injection.html">Attributes Added by Attribute Injection</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/datamanagement/attributes-added-by-default-attribute-types.html">Attributes Added by Default Attribute Types</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/datamanagement/attributes-added-by-attribute-overrides-ingest.html">Attributes Added by Attribute Overrides (Ingest)</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/datamanagement/attributes-added-by-pre-authorization-plugins.html">Attributes Added by Pre-Authorization Plugins</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/datamanagement/attributes-added-by-pre-ingest-plugins.html">Attributes Added by Pre-Ingest Plugins</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/datamanagement/attributes-added-on-query.html">Attributes Added on Query</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/datamanagement/attributes-added-by-attribute-overrides-query.html">Attributes Added by Attribute Overrides (Query)</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integrating/integrating-intro.html">Integrating Intro</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../integrating/high-availability-integrating-warning.html">High Availability Warning</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integrating/endpoints/endpoint-intro.html">Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integrating/endpoints/ingest-endpoints-intro.html">Ingest Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../integrating/endpoints/catalog-rest-endpoint.html">Catalog REST Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../integrating/endpoints/csw-endpoint.html">CSW Endpoint</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integrating/endpoints/crud-endpoints-intro.html">CRUD Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../integrating/endpoints/catalog-rest-endpoint.html">Catalog REST Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../integrating/endpoints/csw-endpoint.html">CSW Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../integrating/endpoints/query-endpoints.html">Queries Endpoint</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integrating/endpoints/query-endpoints-intro.html">Query Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../integrating/endpoints/csw-endpoint.html">CSW Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../integrating/endpoints/opensearch-endpoint.html">OpenSearch Endpoint</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integrating/endpoints/content-endpoints-intro.html">Content Retrieval Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../integrating/endpoints/catalog-rest-endpoint.html">Catalog REST Endpoint</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integrating/endpoints/pub-sub-endpoints-intro.html">Pub-Sub Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../integrating/endpoints/csw-endpoint.html">CSW Endpoint</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/architecture-intro.html">Architectures</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../architectures/catalog-api.html">Catalog API</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../architectures/data-intro.html">Data</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../architectures/operations-intro.html">Operations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/resources-intro.html">Resources</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/content-item.html">Content Item</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../architectures/retrieving-resources.html">Retrieving Resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../architectures/retrieving-resources-options.html">Retrieving Resource Options</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../architectures/storing-resources.html">Storing Resources</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../architectures/resource-components-intro.html">Resource Components</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/resource-readers-intro.html">Resource Readers</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../architectures/url-resource-reader.html">URL Resource Reader</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../architectures/resource-writers-intro.html">Resource Writers</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/queries-intro.html">Queries</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/filter-intro.html">Filters</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../architectures/filterbuilder-api.html">FilterBuilder API</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/metrics-intro.html">Metrics</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/metrics-collection.html">Metrics Collection Application</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../architectures/catalog-metrics.html">Catalog Metrics</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../architectures/source-metrics.html">Source Metrics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/metrics-reporting.html">Metrics Reporting Application</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../architectures/viewing-metrics-tab.html">Viewing Metrics</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/action-framework-intro.html">Action Framework</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../architectures/action-providers.html">Action Providers</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../architectures/processing-framework-intro.html">Asynchronous Processing Framework</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../architectures/eventing-intro.html">Eventing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../architectures/migration-api.html">Migration API</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../developing/developing-intro.html">Developing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Developing Custom Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../developing/devguidelines/highly-available-link.html">Highly Available Cluster Notice</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../developing/devcomponents/custom-applications.html">Developing Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../developing/devcomponents/custom-catalog-frameworks.html">Developing Complementary Catalog Frameworks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../developing/devcomponents/metacard-type.html">Developing Metacard Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../developing/devcomponents/global-attribute-validators.html">Developing Global Attribute Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../developing/devcomponents/attribute-type.html">Developing Attribute Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../developing/devcomponents/default-attribute-values.html">Developing Default Attribute Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../developing/devcomponents/attribute-injection.html">Developing Attribute Injections</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../developing/devcomponents/custom-endpoints.html">Developing Endpoints</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../developing/devcomponents/custom-transformers-input.html">Developing Input Transformers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../developing/devcomponents/custom-transformers-metacard.html">Developing Metacard Transformers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../developing/devcomponents/transformers-query-response.html">Developing Query Response Transformers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../developing/devcomponents/custom-sources.html">Developing Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../developing/devcomponents/custom-plugins.html">Developing Catalog Plugins</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../developing/devcomponents/custom-token-validators.html">Developing Token Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../developing/devcomponents/custom-sts-claims-handlers.html">Developing STS Claims Handlers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../developing/devcomponents/custom-registry-clients.html">Developing Registry Clients</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../developing/devcomponents/custom-resource-readers.html">Developing Resource Readers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../developing/devcomponents/custom-resource-writers.html">Developing Resource Writers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../developing/devcomponents/custom-filters.html">Developing Filters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../developing/devcomponents/filter-delegates.html">Developing Filter Delegates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../developing/devcomponents/custom-action-components.html">Developing Action Components</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../developing/devcomponents/custom-query-options.html">Developing Query Options</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../developing/devcomponents/managed-service-factories.html">Configuring Managed Service Factory Bundles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../developing/devcomponents/custom-xacml-policies.html">Developing XACML Policies</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../developing/devcomponents/assuring-bundles-and-apps.html">Assuring Authenticity of Bundles and Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../developing/devcomponents/json-definition-files.html">JSON Definition Files</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Development Guidelines</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../developing/devguidelines/contributing-intro.html">Contributing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../developing/devguidelines/high-availability-guidance.html">High Availability Guidance</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../developing/devguidelines/editing-docs.html"> Contributing to Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../developing/devguidelines/osgi-basics.html">OSGi Basics</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Application References</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appReferences/mg-admin.html">Admin Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appReferences/mg-catalog.html">Catalog Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appReferences/mg-platform.html">Platform Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appReferences/mg-security.html">Security Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appReferences/mg-solr.html">Solr Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appReferences/mg-spatial.html">Spatial Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appReferences/mg-ui.html">Intrigue Application Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../whitelists/whitelist-intro.html">Application Whitelists</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../whitelists/removed-whitelist.html">Packages Removed From Whitelist</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../whitelists/catalog-whitelist.html">Catalog Whitelist</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../whitelists/platform-whitelist.html">Platform Whitelist</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../whitelists/security-whitelist.html">Security Whitelist</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../whitelists/solr-whitelist.html">Solr Whitelist</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../whitelists/spatial-whitelist.html">Spatial Whitelist</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="dependency-list-intro.html">DDF Dependency List</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="ddf-dependency-list.html">Java Dependency List</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="js-dependency-list.html">JavaScript Dependency List</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../metadatareference/metadata-attributes-intro.html">Metadata Reference</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../metadatareference/common-metadata-attributes.html">Common Metadata Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../metadatareference/format-specific-attributes.html">File Format-specific Attributes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/mp4-attributes.html">Mp4 Additional Attribute</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/complete-list-file-types.html">All File Formats Supported</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../metadatareference/catalog-taxonomy-intro.html">Catalog Taxonomy Definitions</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/core-attributes-table.html">Core Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/associations-attributes-table.html">Associations Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/contact-attributes-table.html">Contact Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/datetime-attributes-table.html">DateTime Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/history-attributes-table.html">History Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/location-attributes-table.html">Location Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/media-attributes-table.html">Media Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/metacard-attributes-table.html">Metacard Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/security-attributes-table.html">Security Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/topic-attributes-table.html">Topic Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/validation-attributes-table.html">Validation Attributes</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">DDF</span>
+    <span class="version">2.25.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">DDF</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">2.25.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">DDF</a></li>
+    <li>Reference</li>
+    <li><a href="dependency-list-intro.html">DDF Dependency List</a></li>
+    <li><a href="ddf-dependency-list.html">Java Dependency List</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Dependency List</h1>
+<div class="ulist">
+<ul>
+<li>
+<p>ch.qos.logback:logback-access:jar:1.2.3</p>
+</li>
+<li>
+<p>ch.qos.logback:logback-classic:jar:1.2.3</p>
+</li>
+<li>
+<p>ch.qos.logback:logback-core:jar:1.2.3</p>
+</li>
+<li>
+<p>com.auth0:java-jwt:jar:3.8.1</p>
+</li>
+<li>
+<p>com.codahale.metrics:metrics-core:jar:3.0.1</p>
+</li>
+<li>
+<p>com.connexta.arbitro:arbitro-core:jar:1.0.0</p>
+</li>
+<li>
+<p>com.fasterxml.jackson.core:jackson-annotations:jar:2.9.8</p>
+</li>
+<li>
+<p>com.fasterxml.jackson.core:jackson-core:jar:2.9.8</p>
+</li>
+<li>
+<p>com.fasterxml.jackson.core:jackson-databind:jar:2.9.8</p>
+</li>
+<li>
+<p>com.fasterxml.woodstox:woodstox-core:jar:5.3.0</p>
+</li>
+<li>
+<p>com.github.drapostolos:type-parser:jar:0.5.0</p>
+</li>
+<li>
+<p>com.github.jai-imageio:jai-imageio-core:jar:1.3.1</p>
+</li>
+<li>
+<p>com.github.jai-imageio:jai-imageio-jpeg2000:jar:1.3.1_CODICE_3</p>
+</li>
+<li>
+<p>com.github.jknack:handlebars:jar:2.0.0</p>
+</li>
+<li>
+<p>com.github.lookfirst:sardine:jar:5.7</p>
+</li>
+<li>
+<p>com.google.code.gson:gson:jar:2.8.5</p>
+</li>
+<li>
+<p>com.google.crypto.tink:tink:jar:1.2.2</p>
+</li>
+<li>
+<p>com.google.guava:guava:jar:25.1-jre</p>
+</li>
+<li>
+<p>com.google.http-client:google-http-client:jar:1.22.0</p>
+</li>
+<li>
+<p>com.google.protobuf:protobuf-java:jar:3.6.1</p>
+</li>
+<li>
+<p>com.googlecode.json-simple:json-simple:jar:1.1.1</p>
+</li>
+<li>
+<p>com.googlecode.owasp-java-html-sanitizer:owasp-java-html-sanitizer:jar:20171016.1</p>
+</li>
+<li>
+<p>com.hazelcast:hazelcast:jar:3.2.1</p>
+</li>
+<li>
+<p>com.jayway.restassured:rest-assured:jar:2.9.0</p>
+</li>
+<li>
+<p>com.jhlabs:filters:jar:2.0.235-1</p>
+</li>
+<li>
+<p>com.nimbusds:lang-tag:jar:1.4.4</p>
+</li>
+<li>
+<p>com.nimbusds:nimbus-jose-jwt:jar:6.5</p>
+</li>
+<li>
+<p>com.nimbusds:oauth2-oidc-sdk:jar:6.5</p>
+</li>
+<li>
+<p>com.rometools:rome-utils:jar:1.9.0</p>
+</li>
+<li>
+<p>com.rometools:rome:jar:1.9.0</p>
+</li>
+<li>
+<p>com.sparkjava:spark-core:jar:2.5.5</p>
+</li>
+<li>
+<p>com.sun.xml.bind:jaxb-core:jar:2.2.11</p>
+</li>
+<li>
+<p>com.sun.xml.bind:jaxb-impl:jar:2.2.11</p>
+</li>
+<li>
+<p>com.thoughtworks.xstream:xstream:jar:1.4.9</p>
+</li>
+<li>
+<p>com.unboundid:unboundid-ldapsdk:jar:3.2.1</p>
+</li>
+<li>
+<p>com.vividsolutions:jts-core:jar:1.14.0</p>
+</li>
+<li>
+<p>com.vividsolutions:jts-io:jar:1.14.0</p>
+</li>
+<li>
+<p>com.xebialabs.restito:restito:jar:0.8.2</p>
+</li>
+<li>
+<p>com.zensols.jrtf:tutego.jrtf:jar:0.1.0</p>
+</li>
+<li>
+<p>commons-beanutils:commons-beanutils:jar:1.9.4</p>
+</li>
+<li>
+<p>commons-codec:commons-codec:jar:1.12</p>
+</li>
+<li>
+<p>commons-collections:commons-collections:jar:3.2.2</p>
+</li>
+<li>
+<p>commons-configuration:commons-configuration:jar:1.10</p>
+</li>
+<li>
+<p>commons-digester:commons-digester:jar:1.8.1</p>
+</li>
+<li>
+<p>commons-fileupload:commons-fileupload:jar:1.3.3</p>
+</li>
+<li>
+<p>commons-io:commons-io:jar:2.1</p>
+</li>
+<li>
+<p>commons-io:commons-io:jar:2.4</p>
+</li>
+<li>
+<p>commons-io:commons-io:jar:2.6</p>
+</li>
+<li>
+<p>commons-lang:commons-lang:jar:2.6</p>
+</li>
+<li>
+<p>commons-logging:commons-logging:jar:1.2</p>
+</li>
+<li>
+<p>commons-net:commons-net:jar:3.5</p>
+</li>
+<li>
+<p>commons-validator:commons-validator:jar:1.6</p>
+</li>
+<li>
+<p>de.micromata.jak:JavaAPIforKml:jar:2.2.0</p>
+</li>
+<li>
+<p>de.micromata.jak:JavaAPIforKml:jar:2.2.1_CODICE_1</p>
+</li>
+<li>
+<p>io.dropwizard.metrics:metrics-core:jar:3.2.6</p>
+</li>
+<li>
+<p>io.sgr:s2-geometry-library-java:jar:1.0.0</p>
+</li>
+<li>
+<p>javax.annotation:javax.annotation-api:jar:1.2</p>
+</li>
+<li>
+<p>javax.inject:javax.inject:jar:1</p>
+</li>
+<li>
+<p>javax.mail:javax.mail-api:jar:1.6.2</p>
+</li>
+<li>
+<p>javax.servlet:javax.servlet-api:jar:3.1.0</p>
+</li>
+<li>
+<p>javax.servlet:servlet-api:jar:2.5</p>
+</li>
+<li>
+<p>javax.validation:validation-api:jar:1.1.0.Final</p>
+</li>
+<li>
+<p>javax.ws.rs:javax.ws.rs-api:jar:2.1</p>
+</li>
+<li>
+<p>javax.xml.bind:jaxb-api:jar:2.2.11</p>
+</li>
+<li>
+<p>joda-time:joda-time:jar:2.10.3</p>
+</li>
+<li>
+<p>junit:junit:jar:4.12</p>
+</li>
+<li>
+<p>log4j:log4j:jar:1.2.17</p>
+</li>
+<li>
+<p>net.jodah:failsafe:jar:0.9.3</p>
+</li>
+<li>
+<p>net.jodah:failsafe:jar:0.9.5</p>
+</li>
+<li>
+<p>net.jodah:failsafe:jar:1.0.0</p>
+</li>
+<li>
+<p>net.minidev:accessors-smart:jar:1.2</p>
+</li>
+<li>
+<p>net.minidev:asm:jar:1.0.2</p>
+</li>
+<li>
+<p>net.minidev:json-smart:jar:2.3</p>
+</li>
+<li>
+<p>net.sf.saxon:Saxon-HE:jar:9.5.1-3</p>
+</li>
+<li>
+<p>net.sf.saxon:Saxon-HE:jar:9.6.0-4</p>
+</li>
+<li>
+<p>org.antlr:antlr4-runtime:jar:4.3</p>
+</li>
+<li>
+<p>org.apache.abdera:abdera-extensions-geo:jar:1.1.3</p>
+</li>
+<li>
+<p>org.apache.abdera:abdera-extensions-opensearch:jar:1.1.3</p>
+</li>
+<li>
+<p>org.apache.ant:ant-launcher:jar:1.9.7</p>
+</li>
+<li>
+<p>org.apache.ant:ant:jar:1.9.7</p>
+</li>
+<li>
+<p>org.apache.aries.jmx:org.apache.aries.jmx.api:jar:1.1.5</p>
+</li>
+<li>
+<p>org.apache.aries.jmx:org.apache.aries.jmx.core:jar:1.1.8</p>
+</li>
+<li>
+<p>org.apache.aries.proxy:org.apache.aries.proxy:jar:1.1.4</p>
+</li>
+<li>
+<p>org.apache.aries:org.apache.aries.util:jar:1.1.3</p>
+</li>
+<li>
+<p>org.apache.camel:camel-aws:jar:2.24.2</p>
+</li>
+<li>
+<p>org.apache.camel:camel-blueprint:jar:2.24.2</p>
+</li>
+<li>
+<p>org.apache.camel:camel-context:jar:2.24.2</p>
+</li>
+<li>
+<p>org.apache.camel:camel-core-osgi:jar:2.24.2</p>
+</li>
+<li>
+<p>org.apache.camel:camel-core:jar:2.24.2</p>
+</li>
+<li>
+<p>org.apache.camel:camel-http-common:jar:2.24.2</p>
+</li>
+<li>
+<p>org.apache.camel:camel-http4:jar:2.24.2</p>
+</li>
+<li>
+<p>org.apache.camel:camel-http:jar:2.24.2</p>
+</li>
+<li>
+<p>org.apache.camel:camel-quartz:jar:2.24.2</p>
+</li>
+<li>
+<p>org.apache.camel:camel-saxon:jar:2.24.2</p>
+</li>
+<li>
+<p>org.apache.camel:camel-servlet:jar:2.24.2</p>
+</li>
+<li>
+<p>org.apache.commons:commons-collections4:jar:4.1</p>
+</li>
+<li>
+<p>org.apache.commons:commons-compress:jar:1.18</p>
+</li>
+<li>
+<p>org.apache.commons:commons-csv:jar:1.4</p>
+</li>
+<li>
+<p>org.apache.commons:commons-exec:jar:1.3</p>
+</li>
+<li>
+<p>org.apache.commons:commons-lang3:jar:3.0</p>
+</li>
+<li>
+<p>org.apache.commons:commons-lang3:jar:3.3.2</p>
+</li>
+<li>
+<p>org.apache.commons:commons-lang3:jar:3.4</p>
+</li>
+<li>
+<p>org.apache.commons:commons-lang3:jar:3.9</p>
+</li>
+<li>
+<p>org.apache.commons:commons-math3:jar:3.6.1</p>
+</li>
+<li>
+<p>org.apache.commons:commons-math:jar:2.2</p>
+</li>
+<li>
+<p>org.apache.commons:commons-pool2:jar:2.5.0</p>
+</li>
+<li>
+<p>org.apache.commons:commons-text:jar:1.6</p>
+</li>
+<li>
+<p>org.apache.cxf:cxf-core:jar:3.2.9</p>
+</li>
+<li>
+<p>org.apache.cxf:cxf-rt-frontend-jaxrs:jar:3.2.9</p>
+</li>
+<li>
+<p>org.apache.cxf:cxf-rt-frontend-jaxws:jar:3.2.9</p>
+</li>
+<li>
+<p>org.apache.cxf:cxf-rt-rs-client:jar:3.2.9</p>
+</li>
+<li>
+<p>org.apache.cxf:cxf-rt-rs-security-jose-jaxrs:jar:3.2.9</p>
+</li>
+<li>
+<p>org.apache.cxf:cxf-rt-rs-security-jose:jar:3.2.9</p>
+</li>
+<li>
+<p>org.apache.cxf:cxf-rt-rs-security-sso-saml:jar:3.2.9</p>
+</li>
+<li>
+<p>org.apache.cxf:cxf-rt-rs-security-xml:jar:3.2.9</p>
+</li>
+<li>
+<p>org.apache.cxf:cxf-rt-transports-http:jar:3.2.9</p>
+</li>
+<li>
+<p>org.apache.cxf:cxf-rt-ws-policy:jar:3.2.9</p>
+</li>
+<li>
+<p>org.apache.cxf:cxf-rt-ws-security:jar:3.2.9</p>
+</li>
+<li>
+<p>org.apache.felix:org.apache.felix.configadmin:jar:1.9.14</p>
+</li>
+<li>
+<p>org.apache.felix:org.apache.felix.fileinstall:jar:3.6.4</p>
+</li>
+<li>
+<p>org.apache.felix:org.apache.felix.framework:jar:5.6.12</p>
+</li>
+<li>
+<p>org.apache.felix:org.apache.felix.scr:jar:2.0.14</p>
+</li>
+<li>
+<p>org.apache.felix:org.apache.felix.utils:jar:1.11.2</p>
+</li>
+<li>
+<p>org.apache.ftpserver:ftplet-api:jar:1.0.6</p>
+</li>
+<li>
+<p>org.apache.ftpserver:ftpserver-core:jar:1.0.6</p>
+</li>
+<li>
+<p>org.apache.httpcomponents:httpclient:jar:4.5.3</p>
+</li>
+<li>
+<p>org.apache.httpcomponents:httpclient:jar:4.5.6</p>
+</li>
+<li>
+<p>org.apache.httpcomponents:httpcore:jar:4.4.10</p>
+</li>
+<li>
+<p>org.apache.httpcomponents:httpmime:jar:4.5.3</p>
+</li>
+<li>
+<p>org.apache.httpcomponents:httpmime:jar:4.5.6</p>
+</li>
+<li>
+<p>org.apache.karaf.bundle:org.apache.karaf.bundle.core:jar:4.2.6</p>
+</li>
+<li>
+<p>org.apache.karaf.features:org.apache.karaf.features.core:jar:4.2.6</p>
+</li>
+<li>
+<p>org.apache.karaf.features:standard:xml:features:4.2.6</p>
+</li>
+<li>
+<p>org.apache.karaf.itests:common:jar:4.2.6</p>
+</li>
+<li>
+<p>org.apache.karaf.jaas:org.apache.karaf.jaas.boot:jar:4.2.6</p>
+</li>
+<li>
+<p>org.apache.karaf.jaas:org.apache.karaf.jaas.config:jar:4.2.6</p>
+</li>
+<li>
+<p>org.apache.karaf.jaas:org.apache.karaf.jaas.modules:jar:4.2.6</p>
+</li>
+<li>
+<p>org.apache.karaf.log:org.apache.karaf.log.core:jar:4.2.6</p>
+</li>
+<li>
+<p>org.apache.karaf.shell:org.apache.karaf.shell.console:jar:4.2.6</p>
+</li>
+<li>
+<p>org.apache.karaf.shell:org.apache.karaf.shell.core:jar:4.2.6</p>
+</li>
+<li>
+<p>org.apache.karaf.system:org.apache.karaf.system.core:jar:4.2.6</p>
+</li>
+<li>
+<p>org.apache.karaf:apache-karaf:tar.gz:4.2.6</p>
+</li>
+<li>
+<p>org.apache.karaf:apache-karaf:zip:4.2.6</p>
+</li>
+<li>
+<p>org.apache.karaf:org.apache.karaf.util:jar:4.2.6</p>
+</li>
+<li>
+<p>org.apache.logging.log4j:log4j-1.2-api:jar:2.11.0</p>
+</li>
+<li>
+<p>org.apache.logging.log4j:log4j-api:jar:2.11.0</p>
+</li>
+<li>
+<p>org.apache.logging.log4j:log4j-api:jar:2.8.2</p>
+</li>
+<li>
+<p>org.apache.logging.log4j:log4j-core:jar:2.11.0</p>
+</li>
+<li>
+<p>org.apache.logging.log4j:log4j-slf4j-impl:jar:2.11.0</p>
+</li>
+<li>
+<p>org.apache.lucene:lucene-analyzers-common:jar:7.7.2</p>
+</li>
+<li>
+<p>org.apache.lucene:lucene-core:jar:3.0.2</p>
+</li>
+<li>
+<p>org.apache.lucene:lucene-core:jar:7.7.2</p>
+</li>
+<li>
+<p>org.apache.lucene:lucene-queries:jar:7.7.2</p>
+</li>
+<li>
+<p>org.apache.lucene:lucene-queryparser:jar:7.7.2</p>
+</li>
+<li>
+<p>org.apache.lucene:lucene-sandbox:jar:7.7.2</p>
+</li>
+<li>
+<p>org.apache.lucene:lucene-spatial-extras:jar:7.7.2</p>
+</li>
+<li>
+<p>org.apache.lucene:lucene-spatial3d:jar:7.7.2</p>
+</li>
+<li>
+<p>org.apache.lucene:lucene-spatial:jar:7.7.2</p>
+</li>
+<li>
+<p>org.apache.mina:mina-core:jar:2.0.6</p>
+</li>
+<li>
+<p>org.apache.pdfbox:fontbox:jar:2.0.11</p>
+</li>
+<li>
+<p>org.apache.pdfbox:pdfbox-tools:jar:2.0.11</p>
+</li>
+<li>
+<p>org.apache.pdfbox:pdfbox:jar:2.0.11</p>
+</li>
+<li>
+<p>org.apache.poi:poi-ooxml:jar:3.17</p>
+</li>
+<li>
+<p>org.apache.poi:poi-scratchpad:jar:3.17</p>
+</li>
+<li>
+<p>org.apache.poi:poi:jar:3.17</p>
+</li>
+<li>
+<p>org.apache.servicemix.bundles:org.apache.servicemix.bundles.poi:jar:3.17_1</p>
+</li>
+<li>
+<p>org.apache.servicemix.specs:org.apache.servicemix.specs.jsr339-api-2.0:jar:2.6.0</p>
+</li>
+<li>
+<p>org.apache.shiro:shiro-core:jar:1.4.0</p>
+</li>
+<li>
+<p>org.apache.solr:solr-core:jar:7.7.2</p>
+</li>
+<li>
+<p>org.apache.solr:solr-solrj:jar:7.7.2</p>
+</li>
+<li>
+<p>org.apache.tika:tika-core:jar:1.18</p>
+</li>
+<li>
+<p>org.apache.tika:tika-parsers:jar:1.18</p>
+</li>
+<li>
+<p>org.apache.ws.commons.axiom:axiom-api:jar:1.2.14</p>
+</li>
+<li>
+<p>org.apache.ws.xmlschema:xmlschema-core:jar:2.2.2</p>
+</li>
+<li>
+<p>org.apache.ws.xmlschema:xmlschema-core:jar:2.2.3</p>
+</li>
+<li>
+<p>org.apache.wss4j:wss4j-bindings:jar:2.2.3</p>
+</li>
+<li>
+<p>org.apache.wss4j:wss4j-policy:jar:2.2.3</p>
+</li>
+<li>
+<p>org.apache.wss4j:wss4j-ws-security-common:jar:2.2.3</p>
+</li>
+<li>
+<p>org.apache.wss4j:wss4j-ws-security-dom:jar:2.2.3</p>
+</li>
+<li>
+<p>org.apache.wss4j:wss4j-ws-security-policy-stax:jar:2.2.3</p>
+</li>
+<li>
+<p>org.apache.wss4j:wss4j-ws-security-stax:jar:2.2.3</p>
+</li>
+<li>
+<p>org.apache.zookeeper:zookeeper:jar:3.4.14</p>
+</li>
+<li>
+<p>org.asciidoctor:asciidoctorj-diagram:jar:1.5.4.1</p>
+</li>
+<li>
+<p>org.asciidoctor:asciidoctorj:jar:1.5.6</p>
+</li>
+<li>
+<p>org.assertj:assertj-core:jar:2.1.0</p>
+</li>
+<li>
+<p>org.awaitility:awaitility:jar:3.1.5</p>
+</li>
+<li>
+<p>org.bouncycastle:bcmail-jdk15on:jar:1.61</p>
+</li>
+<li>
+<p>org.bouncycastle:bcpkix-jdk15on:jar:1.61</p>
+</li>
+<li>
+<p>org.bouncycastle:bcprov-jdk15on:jar:1.61</p>
+</li>
+<li>
+<p>org.codehaus.woodstox:stax2-api:jar:4.2</p>
+</li>
+<li>
+<p>org.codice.acdebugger:acdebugger-api:jar:1.7</p>
+</li>
+<li>
+<p>org.codice.acdebugger:acdebugger-backdoor:jar:1.7</p>
+</li>
+<li>
+<p>org.codice.countrycode:converter:jar:0.1.8</p>
+</li>
+<li>
+<p>org.codice.geowebcache:geowebcache-server-standalone:war:0.7.0</p>
+</li>
+<li>
+<p>org.codice.geowebcache:geowebcache-server-standalone:xml:geowebcache:0.7.0</p>
+</li>
+<li>
+<p>org.codice.httpproxy:proxy-camel-route:jar:2.21.0-SNAPSHOT</p>
+</li>
+<li>
+<p>org.codice.httpproxy:proxy-camel-servlet:jar:2.21.0-SNAPSHOT</p>
+</li>
+<li>
+<p>org.codice.opendj.embedded:opendj-embedded-app:xml:features:1.3.3</p>
+</li>
+<li>
+<p>org.codice.pro-grade:pro-grade:jar:1.1.3</p>
+</li>
+<li>
+<p>org.codice.thirdparty:commons-httpclient:jar:3.1.0_1</p>
+</li>
+<li>
+<p>org.codice.thirdparty:ffmpeg:zip:bin:4.0_2</p>
+</li>
+<li>
+<p>org.codice.thirdparty:geotools-suite:jar:19.1_2</p>
+</li>
+<li>
+<p>org.codice.thirdparty:gt-opengis:jar:19.1_1</p>
+</li>
+<li>
+<p>org.codice.thirdparty:jts:jar:1.14.0_1</p>
+</li>
+<li>
+<p>org.codice.thirdparty:lucene-core:jar:3.0.2_1</p>
+</li>
+<li>
+<p>org.codice.thirdparty:ogc-filter-v_1_1_0-schema:jar:1.1.0_5</p>
+</li>
+<li>
+<p>org.codice.thirdparty:picocontainer:jar:1.3_1</p>
+</li>
+<li>
+<p>org.codice.thirdparty:tika-bundle:jar:1.18.0_5</p>
+</li>
+<li>
+<p>org.codice.usng4j:usng4j-api:jar:0.4</p>
+</li>
+<li>
+<p>org.codice.usng4j:usng4j-impl:jar:0.4</p>
+</li>
+<li>
+<p>org.codice:lux:jar:1.2</p>
+</li>
+<li>
+<p>org.cryptomator:siv-mode:jar:1.2.2</p>
+</li>
+<li>
+<p>org.eclipse.jetty:jetty-http:jar:9.4.18.v20190429</p>
+</li>
+<li>
+<p>org.eclipse.jetty:jetty-security:jar:9.4.18.v20190429</p>
+</li>
+<li>
+<p>org.eclipse.jetty:jetty-server:jar:9.4.18.v20190429</p>
+</li>
+<li>
+<p>org.eclipse.jetty:jetty-servlet:jar:9.4.18.v20190429</p>
+</li>
+<li>
+<p>org.eclipse.jetty:jetty-servlets:jar:9.2.19.v20160908</p>
+</li>
+<li>
+<p>org.eclipse.jetty:jetty-util:jar:9.4.18.v20190429</p>
+</li>
+<li>
+<p>org.eclipse.platform:org.eclipse.osgi:jar:3.13.0</p>
+</li>
+<li>
+<p>org.forgerock.commons:forgerock-util:jar:3.0.2</p>
+</li>
+<li>
+<p>org.forgerock.commons:i18n-core:jar:1.4.2</p>
+</li>
+<li>
+<p>org.forgerock.commons:i18n-slf4j:jar:1.4.2</p>
+</li>
+<li>
+<p>org.forgerock.opendj:opendj-core:jar:3.0.0</p>
+</li>
+<li>
+<p>org.forgerock.opendj:opendj-grizzly:jar:3.0.0</p>
+</li>
+<li>
+<p>org.fusesource.jansi:jansi:jar:1.18</p>
+</li>
+<li>
+<p>org.geotools.xsd:gt-xsd-gml3:jar:19.1</p>
+</li>
+<li>
+<p>org.geotools:gt-cql:jar:19.1</p>
+</li>
+<li>
+<p>org.geotools:gt-epsg-hsql:jar:19.1</p>
+</li>
+<li>
+<p>org.geotools:gt-jts-wrapper:jar:19.1</p>
+</li>
+<li>
+<p>org.geotools:gt-main:jar:19.1</p>
+</li>
+<li>
+<p>org.geotools:gt-opengis:jar:19.1</p>
+</li>
+<li>
+<p>org.geotools:gt-referencing:jar:19.1</p>
+</li>
+<li>
+<p>org.geotools:gt-shapefile:jar:19.1</p>
+</li>
+<li>
+<p>org.geotools:gt-xml:jar:19.1</p>
+</li>
+<li>
+<p>org.glassfish.grizzly:grizzly-framework:jar:2.3.30</p>
+</li>
+<li>
+<p>org.glassfish.grizzly:grizzly-http-server:jar:2.3.25</p>
+</li>
+<li>
+<p>org.hamcrest:hamcrest-all:jar:1.3</p>
+</li>
+<li>
+<p>org.hisrc.w3c:xlink-v_1_0:jar:1.4.0</p>
+</li>
+<li>
+<p>org.hisrc.w3c:xmlschema-v_1_0:jar:1.4.0</p>
+</li>
+<li>
+<p>org.imgscalr:imgscalr-lib:jar:4.2</p>
+</li>
+<li>
+<p>org.jasypt:jasypt:jar:1.9.0</p>
+</li>
+<li>
+<p>org.jasypt:jasypt:jar:1.9.2</p>
+</li>
+<li>
+<p>org.jcodec:jcodec:jar:0.2.0_1</p>
+</li>
+<li>
+<p>org.jdom:jdom2:jar:2.0.6</p>
+</li>
+<li>
+<p>org.joda:joda-convert:jar:1.2</p>
+</li>
+<li>
+<p>org.jolokia:jolokia-osgi:jar:1.2.3</p>
+</li>
+<li>
+<p>org.jruby:jruby-complete:jar:9.0.4.0</p>
+</li>
+<li>
+<p>org.jscience:jscience:jar:4.3.1</p>
+</li>
+<li>
+<p>org.json:json:jar:20170516</p>
+</li>
+<li>
+<p>org.jsoup:jsoup:jar:1.11.3</p>
+</li>
+<li>
+<p>org.jvnet.jaxb2_commons:jaxb2-basics-runtime:jar:0.10.0</p>
+</li>
+<li>
+<p>org.jvnet.jaxb2_commons:jaxb2-basics-runtime:jar:0.11.0</p>
+</li>
+<li>
+<p>org.jvnet.jaxb2_commons:jaxb2-basics-runtime:jar:0.6.0</p>
+</li>
+<li>
+<p>org.jvnet.ogc:filter-v_1_1_0:jar:2.6.1</p>
+</li>
+<li>
+<p>org.jvnet.ogc:filter-v_2_0:jar:2.6.1</p>
+</li>
+<li>
+<p>org.jvnet.ogc:filter-v_2_0_0-schema:jar:1.1.0</p>
+</li>
+<li>
+<p>org.jvnet.ogc:gml-v_3_1_1-schema:jar:1.1.0</p>
+</li>
+<li>
+<p>org.jvnet.ogc:gml-v_3_1_1:jar:2.6.1</p>
+</li>
+<li>
+<p>org.jvnet.ogc:gml-v_3_2_1-schema:jar:1.1.0</p>
+</li>
+<li>
+<p>org.jvnet.ogc:gml-v_3_2_1:pom:1.1.0</p>
+</li>
+<li>
+<p>org.jvnet.ogc:ogc-tools-gml-jts:jar:1.0.3</p>
+</li>
+<li>
+<p>org.jvnet.ogc:ows-v_1_0_0-schema:jar:1.1.0</p>
+</li>
+<li>
+<p>org.jvnet.ogc:ows-v_1_0_0:jar:2.6.1</p>
+</li>
+<li>
+<p>org.jvnet.ogc:ows-v_1_1_0-schema:jar:1.1.0</p>
+</li>
+<li>
+<p>org.jvnet.ogc:ows-v_2_0:jar:2.6.1</p>
+</li>
+<li>
+<p>org.jvnet.ogc:wcs-v_1_0_0-schema:jar:1.1.0</p>
+</li>
+<li>
+<p>org.jvnet.ogc:wfs-v_1_1_0:jar:2.6.1</p>
+</li>
+<li>
+<p>org.la4j:la4j:jar:0.6.0</p>
+</li>
+<li>
+<p>org.locationtech.jts:jts-core:jar:1.15.0</p>
+</li>
+<li>
+<p>org.locationtech.spatial4j:spatial4j:jar:0.6</p>
+</li>
+<li>
+<p>org.locationtech.spatial4j:spatial4j:jar:0.7</p>
+</li>
+<li>
+<p>org.mindrot:jbcrypt:jar:0.4</p>
+</li>
+<li>
+<p>org.mockito:mockito-core:jar:1.10.19</p>
+</li>
+<li>
+<p>org.noggit:noggit:jar:0.6</p>
+</li>
+<li>
+<p>org.noggit:noggit:jar:0.8</p>
+</li>
+<li>
+<p>org.objenesis:objenesis:jar:2.5.1</p>
+</li>
+<li>
+<p>org.openexi:nagasena-rta:jar:0000.0002.0049.0</p>
+</li>
+<li>
+<p>org.openexi:nagasena:jar:0000.0002.0049.0</p>
+</li>
+<li>
+<p>org.opensaml:opensaml-core:jar:3.3.0</p>
+</li>
+<li>
+<p>org.opensaml:opensaml-messaging-api:jar:3.3.0</p>
+</li>
+<li>
+<p>org.opensaml:opensaml-profile-api:jar:3.3.0</p>
+</li>
+<li>
+<p>org.opensaml:opensaml-saml-api:jar:3.3.0</p>
+</li>
+<li>
+<p>org.opensaml:opensaml-saml-impl:jar:3.3.0</p>
+</li>
+<li>
+<p>org.opensaml:opensaml-security-api:jar:3.3.0</p>
+</li>
+<li>
+<p>org.opensaml:opensaml-security-impl:jar:3.3.0</p>
+</li>
+<li>
+<p>org.opensaml:opensaml-soap-api:jar:3.3.0</p>
+</li>
+<li>
+<p>org.opensaml:opensaml-soap-impl:jar:3.3.0</p>
+</li>
+<li>
+<p>org.opensaml:opensaml-storage-api:jar:3.3.0</p>
+</li>
+<li>
+<p>org.opensaml:opensaml-xacml-api:jar:3.3.0</p>
+</li>
+<li>
+<p>org.opensaml:opensaml-xacml-impl:jar:3.3.0</p>
+</li>
+<li>
+<p>org.opensaml:opensaml-xacml-saml-api:jar:3.3.0</p>
+</li>
+<li>
+<p>org.opensaml:opensaml-xacml-saml-impl:jar:3.3.0</p>
+</li>
+<li>
+<p>org.opensaml:opensaml-xmlsec-api:jar:3.3.0</p>
+</li>
+<li>
+<p>org.opensaml:opensaml-xmlsec-impl:jar:3.3.0</p>
+</li>
+<li>
+<p>org.ops4j.pax.exam:pax-exam-container-karaf:jar:4.13.2.CODICE</p>
+</li>
+<li>
+<p>org.ops4j.pax.exam:pax-exam-features:xml:4.13.2.CODICE</p>
+</li>
+<li>
+<p>org.ops4j.pax.exam:pax-exam-junit4:jar:4.13.2.CODICE</p>
+</li>
+<li>
+<p>org.ops4j.pax.exam:pax-exam-link-mvn:jar:4.13.2.CODICE</p>
+</li>
+<li>
+<p>org.ops4j.pax.exam:pax-exam:jar:4.13.2.CODICE</p>
+</li>
+<li>
+<p>org.ops4j.pax.swissbox:pax-swissbox-extender:jar:1.8.2</p>
+</li>
+<li>
+<p>org.ops4j.pax.tinybundles:tinybundles:jar:2.1.1</p>
+</li>
+<li>
+<p>org.ops4j.pax.url:pax-url-aether:jar:2.4.5</p>
+</li>
+<li>
+<p>org.ops4j.pax.url:pax-url-wrap:jar:2.4.5</p>
+</li>
+<li>
+<p>org.ops4j.pax.web:pax-web-api:jar:7.2.11</p>
+</li>
+<li>
+<p>org.ops4j.pax.web:pax-web-jsp:jar:7.2.11</p>
+</li>
+<li>
+<p>org.osgi:org.osgi.compendium:jar:4.3.1</p>
+</li>
+<li>
+<p>org.osgi:org.osgi.compendium:jar:5.0.0</p>
+</li>
+<li>
+<p>org.osgi:org.osgi.core:jar:5.0.0</p>
+</li>
+<li>
+<p>org.osgi:org.osgi.enterprise:jar:5.0.0</p>
+</li>
+<li>
+<p>org.ow2.asm:asm-analysis:jar:6.2.1</p>
+</li>
+<li>
+<p>org.ow2.asm:asm-tree:jar:6.2.1</p>
+</li>
+<li>
+<p>org.ow2.asm:asm:jar:5.2</p>
+</li>
+<li>
+<p>org.ow2.asm:asm:jar:6.2.1</p>
+</li>
+<li>
+<p>org.pac4j:pac4j-core:jar:3.8.2</p>
+</li>
+<li>
+<p>org.pac4j:pac4j-jwt:jar:3.8.2</p>
+</li>
+<li>
+<p>org.pac4j:pac4j-oauth:jar:3.8.2</p>
+</li>
+<li>
+<p>org.pac4j:pac4j-oidc:jar:3.8.2</p>
+</li>
+<li>
+<p>org.parboiled:parboiled-core:jar:1.2.0</p>
+</li>
+<li>
+<p>org.parboiled:parboiled-java:jar:1.2.0</p>
+</li>
+<li>
+<p>org.quartz-scheduler:quartz-jobs:jar:2.2.3</p>
+</li>
+<li>
+<p>org.quartz-scheduler:quartz:jar:2.1.7</p>
+</li>
+<li>
+<p>org.quartz-scheduler:quartz:jar:2.2.3</p>
+</li>
+<li>
+<p>org.rrd4j:rrd4j:jar:3.3.1</p>
+</li>
+<li>
+<p>org.slf4j:jcl-over-slf4j:jar:1.7.24</p>
+</li>
+<li>
+<p>org.slf4j:jul-to-slf4j:jar:1.7.24</p>
+</li>
+<li>
+<p>org.slf4j:slf4j-api:jar:1.7.1</p>
+</li>
+<li>
+<p>org.slf4j:slf4j-api:jar:1.7.24</p>
+</li>
+<li>
+<p>org.slf4j:slf4j-ext:jar:1.7.1</p>
+</li>
+<li>
+<p>org.slf4j:slf4j-log4j12:jar:1.7.24</p>
+</li>
+<li>
+<p>org.slf4j:slf4j-simple:jar:1.7.1</p>
+</li>
+<li>
+<p>org.springframework.ldap:spring-ldap-core:jar:2.3.2.RELEASE</p>
+</li>
+<li>
+<p>org.springframework.osgi:spring-osgi-core:jar:1.2.1</p>
+</li>
+<li>
+<p>org.springframework:spring-core:jar:5.1.7.RELEASE</p>
+</li>
+<li>
+<p>org.taktik:mpegts-streamer:jar:0.1.0_2</p>
+</li>
+<li>
+<p>org.xmlunit:xmlunit-matchers:jar:2.5.1</p>
+</li>
+<li>
+<p>xalan:serializer:jar:2.7.2</p>
+</li>
+<li>
+<p>xalan:xalan:jar:2.7.2</p>
+</li>
+<li>
+<p>xerces:xercesImpl:jar:2.11.0</p>
+</li>
+<li>
+<p>xerces:xercesImpl:jar:2.9.1</p>
+</li>
+<li>
+<p>xml-apis:xml-apis:jar:1.4.01</p>
+</li>
+<li>
+<p>xpp3:xpp3:jar:1.1.4c</p>
+</li>
+</ul>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (c) Codice Foundation.</p>
+  <p>This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0">Creative Commons Attribution 4.0 International License</a>.</p>
+</footer>
+<script type="text/javascript">
+  window.antora = window.antora || {}
+  window.antora.basePath = '../../../..'
+  window.antora.pagePath = '/docs/2.25.0/reference/dependencyList/ddf-dependency-list.html'
+</script>
+<script src="../../../../_/js/site.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/vendor/search.js"></script>
+<script async src="../../../../_/../search-index.js"></script>
+<script src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/jquery-1.11.3.min.js"></script>
+<script src="../../../../_/js/script.js"></script>
+<script>hljs.initHighlighting()</script>
+  </body>
+</html>
