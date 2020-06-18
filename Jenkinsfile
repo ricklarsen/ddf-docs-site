@@ -43,14 +43,16 @@ pipeline {
                 dir('build/site') {
                     stash name: 'site'
                 }
-                dir('tmp') {
-                    // Clone gh-pages branch here
-                    // stash name: 'git_folder', includes: './.git'
-                    deleteDir()
-                    // unstash name: 'git_folder'
-                    unstash name: 'site'
-                    sh 'ls -a' // Making sure the site is what I would expect
-                    //git push 
+                sshagent(['github-key']) {
+                    sh 'git clone -b gh-pages $(git config remote.origin.url) tmp'
+                    sh 'git config --global user.email "cxbot@connexta.com"'
+                    sh 'git config --global user.name "cxbot"'
+                    dir('tmp') {
+                        unstash name: 'site'
+                        sh 'git add .'
+                        sh 'git commit -m "Publishing updates from master commit $(cd .. && git rev-parse HEAD)"'
+                        sh 'git push'
+                    }
                 }
             }
         }
