@@ -1,5 +1,11 @@
 //"Jenkins Pipeline is a suite of plugins which supports implementing and integrating continuous delivery pipelines into Jenkins. Pipeline provides an extensible set of tools for modeling delivery pipelines "as code" via the Pipeline DSL."
 //More information can be found on the Jenkins Documentation page https://jenkins.io/doc/
+
+/****
+NOTE: When configuring this build you must select the option CHECKOUT OVER SSH
+Makes sure the credential you select when doing this is called github-key.
+****/
+
 pipeline {
     agent {
         node {
@@ -36,7 +42,7 @@ pipeline {
         }
         stage('Publish Site') {
             when {
-                branch 'add_jenkinsfile'
+                branch 'master'
             }
             steps {
                 echo 'Instructions in Jenkinsfile'
