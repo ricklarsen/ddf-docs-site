@@ -1,0 +1,1842 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Migration API :: DDF</title>
+    <link rel="canonical" href="https://ricklarsen.github.com/ddf-docs-site/2.25.0/architectures/migration-api.html">
+    <meta name="generator" content="Antora 2.3.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/search.css">
+<link rel="stylesheet" href="../../../_/css/nase.css">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://ricklarsen.github.com"><img src="../../../_/img/logo_navbar.png" alt="Logo" height="50px"> DDF</a>
+
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://ricklarsen.github.com/ddf-docs-site/2.25.0/index.html">Home</a>
+        <a class="navbar-item" href="https://ricklarsen.github.com/ddf-docs-site/2.25.0/features.html">Features</a>
+        <a class="navbar-item" href="https://ricklarsen.github.com/ddf-docs-site/2.25.0/download.html">Download</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="https://ricklarsen.github.com/ddf-docs-site/2.25.0/introduction/introduction.html">Documentation</a>
+          <div class="navbar-dropdown">
+                <a href="" class="navbar-item"></a>
+                <a href="/ddf-docs-site/2.25.0/release-notes/release-notes.html" class="navbar-item">Release Notes</a>
+                <a href="/ddf-docs-site/2.25.0/introduction/introduction.html" class="navbar-item">Introduction</a>
+                <a href="/ddf-docs-site/2.25.0/quickstart/quickstart-intro.html" class="navbar-item">Quick Start Tutorial</a>
+                <a href="/ddf-docs-site/2.25.0/managing/managing-intro.html" class="navbar-item">Managing</a>
+                <a href="/ddf-docs-site/2.25.0/integrating/integrating-intro.html" class="navbar-item">Integrating Intro</a>
+                <a href="/ddf-docs-site/2.25.0/architectures/architecture-intro.html" class="navbar-item">Architectures</a>
+                <a href="/ddf-docs-site/2.25.0/developing/developing-intro.html" class="navbar-item">Developing</a>
+                <a href="" class="navbar-item">Reference</a>
+                <a href="/ddf-docs-site/2.25.0/metadatareference/metadata-attributes-intro.html" class="navbar-item">Metadata Reference</a>
+          </div>
+        </div>
+        <a class="navbar-item" href="https://ricklarsen.github.com/ddf-docs-site/2.25.0/support.html">Support</a>
+            <div class="navbar-item">
+              <input id="search-input" type="text" placeholder="Search">
+            </div>
+        </div>
+
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="ddf-docs-site" data-version="2.25.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">DDF</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features.html">Features</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../download.html">Download</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../faq.html">FAQ</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../support.html">Support</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><em>Documentation:</em></span>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../release-notes/release-notes.html">Release Notes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../release-notes/archive.html">Archive</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction/introduction.html">Introduction</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../introduction/applications.html">Component Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../introduction/documentation-notes.html">Documentation Guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction/coreconcepts/core-concepts-intro.html">Core Concepts</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/coreconcepts/search-intro.html">Introduction to Search</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/coreconcepts/metadata-intro.html">Introduction to Metadata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/coreconcepts/ingest-intro.html">Introduction to Ingest</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/coreconcepts/resources-intro.html">Introduction to Resources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/coreconcepts/catalog-framework-intro.html">Introduction to the Catalog Framework</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/coreconcepts/federation-intro.html">Introduction to Federation and Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/coreconcepts/events-subscriptions-intro.html">Introduction to Events and Subscriptions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/coreconcepts/endpoints-intro.html">Introduction to Endpoints</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction/coreconcepts/high-availability-intro.html">Introduction to High Availability</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../introduction/coreconcepts/high-availability-supported-capabilities.html">High Availability Supported Capabilities</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction/coreconcepts/standards-intro.html">Standards Supported by DDF</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../introduction/coreconcepts/service-standards.html">Catalog Service Standards</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../introduction/coreconcepts/data-standards.html">Data Formats</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../introduction/coreconcepts/map-standards.html">Map Formats</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction/coreconcepts/security-standards.html">Security Standards</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../introduction/coreconcepts/attribute-stores.html">Attribute Stores</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../introduction/coreconcepts/transport-protocols.html">Transport Protocols</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../introduction/coreconcepts/sso-standards.html">Single Sign On Standards</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../introduction/coreconcepts/security-sso-endpoints.html">Single Sign On Endpoints Provided by DDF</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../introduction/coreconcepts/authentication-standards.html">Authentication Standards</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../introduction/coreconcepts/cryptography-standards.html">Cryptography Standards</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../quickstart/quickstart-intro.html">Quick Start Tutorial</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../quickstart/quickstart-installing.html">Installing (Quick Start)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../quickstart/quickstart-certificates.html">Certificates (Quick Start)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../quickstart/quickstart-configuring.html">Configuring (Quick Start)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../quickstart/quickstart-ingesting.html">Ingesting (Quick Start)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/managing-intro.html">Managing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/securing/securing-intro.html">Security Hardening</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing/securing/auditing.html">Auditing</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/securing/hardening-intro.html">Hardening</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing/securing/hardening-checklist.html">Hardening Checklist</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/installing/installing-intro.html">Installing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/installing/install-prereqs.html">Installation Prerequisites</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/installing/hardware-reqs.html">Hardware Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/installing/java-reqs.html">Java Requirements</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/installing/install-with-zip.html">Installing with the Distributions Zip</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/installing/file-system-access.html">Configuring Operating Permissions and Allocations</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/installing/managing-certificates.html">Managing Keystores and Certificates</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/installing/managing-certificates.html">Managing Certificates</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/installing/managing-crl.html">Managing Certificate Revocation List</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/installing/managing-keystores.html">Managing Keystores</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/installing/initial-startup.html">Initial Startup</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/installing/installing-from-admin-console.html">Completing Installation from Admin Console</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/installing/ddf-setup-types.html">Setup Types</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/installing/guest-claims-attributes.html">Guest Claims Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/installing/system-configuration-settings.html">System Configuration Settings</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/installing/configure-single-sign-on.html">Configuring Single Sign On</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/installing/finish-page.html">Finish Page</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/installing/installing-from-the-command-line.html">Completing Installation from Command Console</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/installing/firewall-config.html">FireWall Port Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/installing/ie11-configuration.html">Internet Explorer 11 Enhanced Security Configuration</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/installing/high-availability-initial-setup.html">High Availability Initial Setup</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/installing/high-availability-initial-setup-exceptions.html">High Availability Setup Exceptions</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/installing/configure-single-sign-on.html">Configuring Single Sign On</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/installing/ddf-setup-types.html">Setup Types</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/installing/finish-page.html">Finish Page</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/installing/guest-claims-attributes.html">Guest Claims Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/installing/installing-from-admin-console.html">Completing Installation from Admin Console</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/installing/installing-from-the-command-line.html">Completing Installation from Command Console</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/installing/system-configuration-settings.html">System configuration Settings</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/configuring-intro.html">Configuring</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing/configuring/admin-console-tutorial.html">Admin Console Tutorial</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/console-commands-ref.html">Console Command Reference</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/feature-commands.html">Feature Commands</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/configuration-files.html">Configuration Files</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/global-settings.html">Configuring Global Settings with custom.system.properties</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/config-files.html">Configuring with .config Files</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/config-templates.html">Configuration Templates</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/configuring-user-access.html">Configuring User Access</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/configuring-guest-access.html">Configuring Guest Access</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/configuring-rest-for-users.html">Configuring REST Services for Users</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/securing-idp-sp.html">Securing IdP SP</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/configuring-oidc.html">Configuring OIDC</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/connecting-to-external-idp.html">Connecting to an Identity Provider</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/no-idp.html">Configuring Without an Identity Provider</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/configuring-multi-factor-auth.html">Configuring Multi-Factor Authentication</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/ldap-server.html">Connecting to an LDAP Server</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/updating-system-users.html">Updating System Users</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/securing-admin-console.html">Restricting Access to the Admin Console</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/remove-default-users.html">Removing Default Users</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/remove-default-users-cont.html">Removing Default Users (Continued)</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/disallowing-login-wo-certs.html">Disallowing Login Without Certificates</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/configuring-data-management.html">Configuring Data Management</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/configuring-solr.html">Configuring Solr</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/solr-synonyms.html">Configuring Solr Catalog Provider Synonyms</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/hardening-solr.html">Hardening Solr</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/solr-admin-ui.html">Accessing the Solr Admin UI</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/catalog-provider.html">Changing Catalog Providers</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/changing-hostname.html">Changing Hostname</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/errors-and-warnings.html">Configuring Errors and Warnings</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/enforcing-errors.html">Enforcing Errors and Warnings</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/hiding-errors.html">Hiding Errors or Warnings from Queries</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/hiding-errors-by-role.html">Hiding Errors and Warnings from Users Based on Role</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/product-cache.html">Product Caching</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/configuring-product-caching.html">Configuring Product Caching</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/content-directory-monitor.html">Content Directory Monitor</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/configuring-system-message.html">Configuring System Usage Message</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/configuring-data-policy-plugins.html">Configuring Data Policy Plugins</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/configuring-access-plugins.html">Configuring Data Access Plugins</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/configuring-security-policies.html">Configuring Security Policies</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/web-context-policy-manager.html">Configuring the Web Context Policy Manager</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/catalog-filtering.html">Configuring Catalog Filtering Policies</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/filter-policy-plugins.html">Filter Policy Plugins</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/catalog-authorization.html">Catalog Operation Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/setting-internal-policies.html">Setting Internal Policies</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/setting-xacml-policies.html">Setting XACML Policies</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/configuring-federation.html">Configuring Federation</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/enabling-ssl.html">Enabling SSL for Clients</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/http-port.html">Configuring HTTPS Ports</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/http-proxy.html">Configuring HTTP Proxy</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/connecting-to-sources.html">Connecting to Sources</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/sources/confluence-federated-source.html">Federated Source for Atlassian Confluence&#174;</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/sources/csw-federated-source.html">CSW Specification Profile Federated Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/sources/csw-federation-profile-source.html">CSW Federation Profile Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/sources/default-storage-provider.html">Content File System Storage Provider</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/sources/gmd-csw-source.html">GMD CSW Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/sources/opensearch-source.html">OpenSearch Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/sources/solr-catalog-provider.html">Solr Catalog Provider</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/sources/wfs-10-source.html">WFS 1.0 Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/sources/wfs-11-source.html">WFS 1.1 Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/sources/wfs-20-source.html">WFS 2.0 Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/sources/catalog-provider-intro.html">Catalog Provider Intro</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/sources/federation-strategy.html">Federation Strategy</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/configuring-endpoints.html">Configuring Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/configuring-csw-endpoint.html">Configuring CSW Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/configuring-catalog-rest-endpoint.html">Configuring Catalog REST Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/configuring-kml-endpoint.html">Configuring KML Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/configuring-opensearch-endpoint.html">Configuring OpenSearch Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/compression-services.html">Configuring Compression Services</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing/configuring/environment-hardening.html">Environment Hardening</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/special-configurations.html">Configuring for Special Deployments</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/multiple-installations.html">Multiple Installations</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/reusing-configurations.html">Reusing Configurations</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/isolating-solrcloud-zookeeper.html">Isolating SolrCloud and Zookeeper</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/configuring-fanout-proxy.html">Configuring for a Fanout Proxy</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/high-availability-config.html">Configuring for a Highly Available Cluster</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/admin-theming-configurations.html">Configuring UI Themes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/landing-page.html">Configuring Landing Page</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/logout-theming.html">Configuring Logout Page</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/platform-ui-theming.html">Platform UI Theming</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/miscellaneous-config.html">Miscellaneous Configurations</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/thread-pools.html">Configuring Thread Pools</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/jetty-threadpool-settings.html">Configuring Jetty Thread Pools</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/encryption-service.html">Encrypting Passwords</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/decanter-services.html">Decanter Services</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/running/running-intro.html">Running</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing/running/starting-intro.html">Starting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/running/os-services.html">Managed Services</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/running/ddf-service.html">Run DDF as a Managed Service</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/running/console-commands.html">Console Commands</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/running/console-commands-help.html">Console Commands Help</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/running/cql-syntax.html">CQL Syntax</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/running/available-console-commands.html">Available Console Commands</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/running/catalog-commands.html">Catalog Commands</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/running/solr-commands.html">Solr Commands</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/running/subscription-commands.html">Subscription Commands</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/running/platform-commands.html">Platform Commands</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/running/migrate-commands.html">Migrate Commands</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/running/store-commands.html">Persistence Store Commands</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/running/command-scheduler.html">Command Scheduler</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing/running/monitoring.html">Monitoring</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing/running/troubleshooting.html">Troubleshooting</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Data Management</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/datamanagement/ingesting.html">Ingesting Data</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/ingest-command.html">Ingest Command</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/directory-monitor-ingest.html">Content Directory Monitor Ingest</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/external-ingest.html">External Methods of Ingest</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/forms-commands.html">Creating And Managing System Search Forms Through Karaf</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/other-ingest.html">Other Methods of Ingest</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/datamanagement/validating-data.html">Validating Data</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/validator-plugins.html">Validator Plugins on Ingest</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/schematron-validation.html">Configuring Schematron Services</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/viewing-invalid.html">Viewing Invalid Metacards</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/editing-attributes.html">Manually Editing Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/injecting-attributes.html">Injecting Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/overriding-attributes.html">Overriding Attributes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing/datamanagement/catalog-backup.html">Backing Up the Catalog</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/datamanagement/removing-expired-records.html">Removing Expired Records from the Catalog</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/auto-removing-expired.html">Automated Removal of Expired Resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/manual-removal-expired.html">Manually Removing Expired Resources</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/datamanagement/data-migration-intro.html">Migrating Data</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/exporting-metadata.html">Exporting Metadata</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/ingesting-exported-metadata.html">Ingesting Exported Metadata</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/datamanagement/automatically-added-metacard-attributes.html">Automatically Added Metacard Attributes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/datamanagement/attributes-added-on-ingest.html">Attributes Added on Ingest</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/datamanagement/attributes-added-by-input-transformers.html">Attributes Added by Input Transformers</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/datamanagement/attributes-added-by-attribute-injection.html">Attributes Added by Attribute Injection</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/datamanagement/attributes-added-by-default-attribute-types.html">Attributes Added by Default Attribute Types</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/datamanagement/attributes-added-by-attribute-overrides-ingest.html">Attributes Added by Attribute Overrides (Ingest)</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/datamanagement/attributes-added-by-pre-authorization-plugins.html">Attributes Added by Pre-Authorization Plugins</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/datamanagement/attributes-added-by-pre-ingest-plugins.html">Attributes Added by Pre-Ingest Plugins</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/datamanagement/attributes-added-on-query.html">Attributes Added on Query</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/datamanagement/attributes-added-by-attribute-overrides-query.html">Attributes Added by Attribute Overrides (Query)</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../integrating/integrating-intro.html">Integrating Intro</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../integrating/high-availability-integrating-warning.html">High Availability Warning</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../integrating/endpoints/endpoint-intro.html">Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../integrating/endpoints/ingest-endpoints-intro.html">Ingest Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../integrating/endpoints/catalog-rest-endpoint.html">Catalog REST Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../integrating/endpoints/csw-endpoint.html">CSW Endpoint</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../integrating/endpoints/crud-endpoints-intro.html">CRUD Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../integrating/endpoints/catalog-rest-endpoint.html">Catalog REST Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../integrating/endpoints/csw-endpoint.html">CSW Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../integrating/endpoints/query-endpoints.html">Queries Endpoint</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../integrating/endpoints/query-endpoints-intro.html">Query Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../integrating/endpoints/csw-endpoint.html">CSW Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../integrating/endpoints/opensearch-endpoint.html">OpenSearch Endpoint</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../integrating/endpoints/content-endpoints-intro.html">Content Retrieval Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../integrating/endpoints/catalog-rest-endpoint.html">Catalog REST Endpoint</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../integrating/endpoints/pub-sub-endpoints-intro.html">Pub-Sub Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../integrating/endpoints/csw-endpoint.html">CSW Endpoint</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="architecture-intro.html">Architectures</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="catalog-api.html">Catalog API</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="data-intro.html">Data</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="operations-intro.html">Operations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="resources-intro.html">Resources</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="content-item.html">Content Item</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="retrieving-resources.html">Retrieving Resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="retrieving-resources-options.html">Retrieving Resource Options</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="storing-resources.html">Storing Resources</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="resource-components-intro.html">Resource Components</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="resource-readers-intro.html">Resource Readers</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="url-resource-reader.html">URL Resource Reader</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="resource-writers-intro.html">Resource Writers</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="queries-intro.html">Queries</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="filter-intro.html">Filters</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="filterbuilder-api.html">FilterBuilder API</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="metrics-intro.html">Metrics</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="metrics-collection.html">Metrics Collection Application</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="catalog-metrics.html">Catalog Metrics</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="source-metrics.html">Source Metrics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="metrics-reporting.html">Metrics Reporting Application</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="viewing-metrics-tab.html">Viewing Metrics</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="action-framework-intro.html">Action Framework</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="action-providers.html">Action Providers</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="processing-framework-intro.html">Asynchronous Processing Framework</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="eventing-intro.html">Eventing</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="migration-api.html">Migration API</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../developing/developing-intro.html">Developing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Developing Custom Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devguidelines/highly-available-link.html">Highly Available Cluster Notice</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-applications.html">Developing Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-catalog-frameworks.html">Developing Complementary Catalog Frameworks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/metacard-type.html">Developing Metacard Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/global-attribute-validators.html">Developing Global Attribute Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/attribute-type.html">Developing Attribute Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/default-attribute-values.html">Developing Default Attribute Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/attribute-injection.html">Developing Attribute Injections</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-endpoints.html">Developing Endpoints</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-transformers-input.html">Developing Input Transformers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-transformers-metacard.html">Developing Metacard Transformers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/transformers-query-response.html">Developing Query Response Transformers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-sources.html">Developing Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-plugins.html">Developing Catalog Plugins</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-token-validators.html">Developing Token Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-sts-claims-handlers.html">Developing STS Claims Handlers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-registry-clients.html">Developing Registry Clients</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-resource-readers.html">Developing Resource Readers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-resource-writers.html">Developing Resource Writers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-filters.html">Developing Filters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/filter-delegates.html">Developing Filter Delegates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-action-components.html">Developing Action Components</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-query-options.html">Developing Query Options</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/managed-service-factories.html">Configuring Managed Service Factory Bundles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-xacml-policies.html">Developing XACML Policies</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/assuring-bundles-and-apps.html">Assuring Authenticity of Bundles and Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/json-definition-files.html">JSON Definition Files</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Development Guidelines</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../developing/devguidelines/contributing-intro.html">Contributing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../developing/devguidelines/high-availability-guidance.html">High Availability Guidance</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../developing/devguidelines/editing-docs.html"> Contributing to Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../developing/devguidelines/osgi-basics.html">OSGi Basics</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Application References</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/appReferences/mg-admin.html">Admin Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/appReferences/mg-catalog.html">Catalog Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/appReferences/mg-platform.html">Platform Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/appReferences/mg-security.html">Security Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/appReferences/mg-solr.html">Solr Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/appReferences/mg-spatial.html">Spatial Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/appReferences/mg-ui.html">Intrigue Application Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../reference/whitelists/whitelist-intro.html">Application Whitelists</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/whitelists/removed-whitelist.html">Packages Removed From Whitelist</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/whitelists/catalog-whitelist.html">Catalog Whitelist</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/whitelists/platform-whitelist.html">Platform Whitelist</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/whitelists/security-whitelist.html">Security Whitelist</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/whitelists/solr-whitelist.html">Solr Whitelist</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/whitelists/spatial-whitelist.html">Spatial Whitelist</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../reference/dependencyList/dependency-list-intro.html">DDF Dependency List</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/dependencyList/ddf-dependency-list.html">Java Dependency List</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/dependencyList/js-dependency-list.html">JavaScript Dependency List</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../metadatareference/metadata-attributes-intro.html">Metadata Reference</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../metadatareference/common-metadata-attributes.html">Common Metadata Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../metadatareference/format-specific-attributes.html">File Format-specific Attributes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../metadatareference/mp4-attributes.html">Mp4 Additional Attribute</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../metadatareference/complete-list-file-types.html">All File Formats Supported</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../metadatareference/catalog-taxonomy-intro.html">Catalog Taxonomy Definitions</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../metadatareference/core-attributes-table.html">Core Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../metadatareference/associations-attributes-table.html">Associations Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../metadatareference/contact-attributes-table.html">Contact Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../metadatareference/datetime-attributes-table.html">DateTime Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../metadatareference/history-attributes-table.html">History Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../metadatareference/location-attributes-table.html">Location Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../metadatareference/media-attributes-table.html">Media Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../metadatareference/metacard-attributes-table.html">Metacard Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../metadatareference/security-attributes-table.html">Security Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../metadatareference/topic-attributes-table.html">Topic Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../metadatareference/validation-attributes-table.html">Validation Attributes</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">DDF</span>
+    <span class="version">2.25.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">DDF</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">2.25.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">DDF</a></li>
+    <li><a href="architecture-intro.html">Architectures</a></li>
+    <li><a href="migration-api.html">Migration API</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Migration API</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This code is experimental. While the interfaces and classes provided are functional and tested, they may change or be removed in a future version of the library.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>DDF currently has an experimental API for making bundles migratable. Interfaces and classes in <code>platform/migration/platform-migratable-api</code> are
+used by the system to identify bundles that provide implementations for export and import operations.</p>
+</div>
+<div class="paragraph">
+<p>The migration API provides a mechanism for bundles to handle exporting data required to clone or backup/restore a DDF system. The migration process is meant to
+be flexible, so an implementation of <code>org.codice.ddf.migration.Migratable</code> can handle exporting data for a single bundle or groups of bundles such as applications.
+For example, the <code>org.codice.ddf.platform.migratable.impl.PlatformMigratable</code> handles exporting core system files for the Platform application. Each migratable
+must provide a unique identifier via its <code>getId()</code> method used by the migration API to uniquely identify the migratable between exports and imports.<br>
+DDF defines migratables of its own to export/import all configurations stored in <code>org.osgi.service.cm.ConfigurationAdmin</code>.</p>
+</div>
+<div class="paragraph">
+<p>These do not need to be handled by implementations of <code>org.codice.ddf.migration.Migratable</code>.</p>
+</div>
+<div class="paragraph">
+<p>An export and an import operation can be performed through the Command Console.</p>
+</div>
+<div class="paragraph">
+<p>When an export operation is processed, the migration API will do a look-up for all registered OSGi services
+that are implementing <code>Migratable</code> and call their <code>doExport()</code> method. As part of the exported data, information about the migratable as required by the <code>org.codice.ddf.platform.services.common.Describable</code>
+interface will be included. In particular the version string returned will help the migration API identify the version of the exported data from the corresponding migratable and must
+be provided as a non-blank string.</p>
+</div>
+<div class="paragraph">
+<p>When an import operation is processed when the current DDF version matches the exported @DDF version, the migration API will do another look-up for all registered OSGi services that are
+implementing <code>Migratable</code> and call their <code>doImport()</code> or <code>doIncompatibleImport()</code> methods based on whether the recorded version string at export time is equal to the version string currently provided
+by the migratable or not. The <code>doMissingImport()</code> method will be called instead of one of the other two methods when the migration API detects that the corresponding migratable data is missing from the
+exported data. Any migratables that are tagged using the <code>OptionalMigratable</code> tag interface will automatically be skipped unless otherwise specified when the import phase is initiated.</p>
+</div>
+<div class="paragraph">
+<p>When an import operation is processed when the current DDF version does not the exported @DDF version, the migration API will do a look-up for all registered OSGi services that are
+implementing <code>Migratable</code> and call their <code>doVersionUpgradeImport()</code> method.</p>
+</div>
+<div class="paragraph">
+<p>The services that implement the migratable interface will be called one at a time based on their service ranking order, and do not need to be thread safe.
+A bundle or a feature can have as many services implementing the interfaces as needed.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_migration_api_interfaces_and_classes"><a class="anchor" href="#_the_migration_api_interfaces_and_classes"></a>The Migration API Interfaces and Classes</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>org.codice.ddf.migration.Migratable</code></p>
+</li>
+<li>
+<p><code>org.codice.ddf.migration.OptionalMigratable</code></p>
+</li>
+<li>
+<p><code>org.codice.ddf.migration.MigrationContext</code></p>
+</li>
+<li>
+<p><code>org.codice.ddf.migration.ExportMigrationContext</code></p>
+</li>
+<li>
+<p><code>org.codice.ddf.migration.ImportMigrationContext</code></p>
+</li>
+<li>
+<p><code>org.codice.ddf.migration.MigrationEntry</code></p>
+</li>
+<li>
+<p><code>org.codice.ddf.migration.ExportMigrationEntry</code></p>
+</li>
+<li>
+<p><code>org.codice.ddf.migration.ImportMigrationEntry</code></p>
+</li>
+<li>
+<p><code>org.codice.ddf.migration.MigrationOperation</code></p>
+</li>
+<li>
+<p><code>org.codice.ddf.migration.MigrationReport</code></p>
+</li>
+<li>
+<p><code>org.codice.ddf.migration.MigrationMessage</code></p>
+</li>
+<li>
+<p><code>org.codice.ddf.migration.MigrationException</code></p>
+</li>
+<li>
+<p><code>org.codice.ddf.migration.MigrationWarning</code></p>
+</li>
+<li>
+<p><code>org.codice.ddf.migration.MigrationInformation</code></p>
+</li>
+<li>
+<p><code>org.codice.ddf.migration.MigrationSuccessfulInformation</code></p>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="_migratable"><a class="anchor" href="#_migratable"></a><code>Migratable</code></h3>
+<div class="paragraph">
+<p>The contract for a migratable is stored here. This is the only interface that should be implemented by implementers and registered as an OSGi
+service. All other interfaces will be implemented by the migration API that provides support for migratables.</p>
+</div>
+<div class="paragraph">
+<p>The <code>org.codice.ddf.migration.Migratable</code> interface defines these methods:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>String getId()</code></p>
+</li>
+<li>
+<p><code>String getVersion()</code></p>
+</li>
+<li>
+<p><code>String getTitle()</code></p>
+</li>
+<li>
+<p><code>String getDescription()</code></p>
+</li>
+<li>
+<p><code>String getOrganization()</code></p>
+</li>
+<li>
+<p><code>void doExport(ExportMigrationContext context)</code></p>
+</li>
+<li>
+<p><code>void doImport(ImportMigrationContext context)</code></p>
+</li>
+<li>
+<p><code>void doIncompatibleImport(ImportMigrationContext context)</code></p>
+</li>
+<li>
+<p><code>void doVersionUpgradeImport(ImportMigrationContext context)</code></p>
+</li>
+<li>
+<p><code>void doMissingImport(ImportMigrationContext context)</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>getId()</code> method returns a unique identifier for this migratable that must remain constant between the export and the import operations in order for the migration API to correlate the exported data with the migratable during the import operation. It
+must be unique across all migratables.<br>
+The <code>getVersion()</code> method returns a unique version string which is meant to identify the version of the data exported or supported at import time by the migratable. It cannot be blank and its format is left to the
+migratable. The only noticeable requirement is that when the string compares equal using the <code>String.equals()</code> method, the migration API will call <code>doImport()</code> instead of <code>doIncompatibleImport()</code> to restore previously exported data for the migratable.<br>
+The <code>getTitle()</code> method returns a simple title for the migratable.<br>
+The <code>getDescription()</code> method returns a short description of the type of data exported by the migratable.<br>
+The <code>getOrganization()</code> method provides the name of the organization responsible
+for the migratable.<br>
+The <code>doExport()</code> method is called by the migration API along with a context for the current export operation to store data.<br>
+The <code>doImport()</code> method is called by the migration API along with a context for the current import operation when
+the version of exported data matches the current version reported by the migratable. This method can be used to restore previously exported data.<br>
+The <code>doIncompatibleImport()</code> method is called to restore incompatible data which might require transformation. It is provided a context for the current import operation and the previously exported version. It can then proceed with restoring incompatible data which might require transformation.<br>
+The <code>doVersionUpgradeImport()</code> method is called to restore data from a different DDF version which might require transformation. It is provided a context for the current import operation and the previously exported version.<br>
+Finally, the <code>doMissingImport()</code> method will be called along with the context for the current import operation when data had not been exported for the corresponding migratable.
+This will be the case when a migratable is later introduced in the software distribution.</p>
+</div>
+<div class="paragraph">
+<p>In order to create a <code>Migratable</code> for a module of the system, the <code>org.codice.ddf.migration.Migratable</code> interface must be implemented and the implementation must be registered under the <code>org.codice.ddf.migration.Migratable</code> interface as an OSGi service in the OSGi service registry.
+Creating an OSGi service allows for the migration API to lookup all implementations of <code>org.codice.ddf.migration.Migratable</code> and command them to export or import.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_optionalmigratable"><a class="anchor" href="#_optionalmigratable"></a><code>OptionalMigratable</code></h3>
+<div class="paragraph">
+<p>This interface is designed as a tagged interface to identify optional migratables. An optional migratable will be skipped by default during the import phase. It can still be manually marked as mandatory when initiating the import phase.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_migrationcontext"><a class="anchor" href="#_migrationcontext"></a><code>MigrationContext</code></h3>
+<div class="paragraph">
+<p>The <code>org.codice.ddf.migration.MigrationContext</code> provides contextual information about an operation in progress for a given migratable. This is a sort of sandbox that is unique to each migratable. This interface defines the following methods:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>MigrationReport getReport()</code></p>
+</li>
+<li>
+<p><code>String getId()</code></p>
+</li>
+<li>
+<p><code>Optional&lt;String&gt; getMigratableVersion()</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>getReport()</code> method returns a migration report that can be used to record messages while processing an export or an import operation.<br>
+The <code>getId()</code> method returns the identifier for the currently processing migratable.
+The <code>getMigratableVersion()</code> method returns the version for the currently processing migratable.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_exportmigrationcontext"><a class="anchor" href="#_exportmigrationcontext"></a><code>ExportMigrationContext</code></h3>
+<div class="paragraph">
+<p>The export migration context provides methods for creating new migration entries and system property referenced migration entries to track exported migration files for a given migratable
+while processing an export migration operation. It defines the following methods:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Optional&lt;ExportMigrationEntry&gt; getSystemPropertyReferencedEntry(String name)</code></p>
+</li>
+<li>
+<p><code>Optional&lt;ExportMigrationEntry&gt; getSystemPropertyReferencedEntry(String name, BiPredicate&lt;MigrationReport, String&gt; validator)</code></p>
+</li>
+<li>
+<p><code>ExportMigrationEntry getEntry(Path path)</code></p>
+</li>
+<li>
+<p><code>Stream&lt;ExportMigrationEntry&gt; entries(Path path)</code></p>
+</li>
+<li>
+<p><code>Stream&lt;ExportMigrationEntry&gt; entries(Path path, PathMatcher filter)</code></p>
+</li>
+<li>
+<p><code>Stream&lt;ExportMigrationEntry&gt; entries(Path path, boolean recurse)</code></p>
+</li>
+<li>
+<p><code>Stream&lt;ExportMigrationEntry&gt; entries(Path path, boolean recurse, PathMatcher filter)</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>getSystemPropertyReferencedEntry()</code> methods create a migration entry to track a file referenced by a given system property value.<br>
+The <code>getEntry()</code> method creates a migration entry given the path for a specific file or directory.<br>
+The <code>entries()</code> methods create multiple entries corresponding to all files recursively (or not) located underneath a given path with an optional path matcher to filter which files to create entries for.</p>
+</div>
+<div class="paragraph">
+<p>Once an entry is created, it is not stored with the exported data. It is the migratable&#8217;s responsibility to store the data using one of the entry&#8217;s provided methods.
+Entries are uniquely identified using a relative path and are specific to each migratable meaning that an entry with the same path in two migratables will not conflict with each other. Each migratable is given its own context (a.k.a. sandbox) to work with.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_importmigrationcontext"><a class="anchor" href="#_importmigrationcontext"></a><code>ImportMigrationContext</code></h3>
+<div class="paragraph">
+<p>The import migration context provides methods for retrieving migration entries and system property referenced migration entries corresponding to exported files for a given migratable
+while processing an import migration operation. It defines the following methods:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Optional&lt;ImportMigrationEntry&gt; getSystemPropertyReferencedEntry(String name)</code></p>
+</li>
+<li>
+<p><code>ImportMigrationEntry getEntry(Path path)</code></p>
+</li>
+<li>
+<p><code>Stream&lt;ImportMigrationEntry&gt; entries(Path path)</code></p>
+</li>
+<li>
+<p><code>Stream&lt;ImportMigrationEntry&gt; entries(Path path, PathMatcher filter)</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>getSystemPropertyReferencedEntry()</code> method retrieves a migration entry for a file that was referenced by a given system property value.<br>
+The <code>getEntry()</code> method retrieves a migration entry given the path for a specific file or directory.<br>
+The <code>entries()</code> methods retrieve multiple entries corresponding to all exported files recursively located underneath a given relative path with an optional path matcher to filter which files to retreive entries for.</p>
+</div>
+<div class="paragraph">
+<p>Once an entry is retrieved, its exported data is not restored. It is the migratable&#8217;s responsibility to restore the data using one of the entry&#8217;s provided methods.
+Entries are uniquely identified using a relative path and are specific to each migratable meaning that an entry with the same path in two migratables will not conflict with each other. Each migratable is given its own context (a.k.a. sandbox) to work with.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_migrationentry"><a class="anchor" href="#_migrationentry"></a><code>MigrationEntry</code></h3>
+<div class="paragraph">
+<p>This interface provides supports for exported files. It defines the following methods:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>MigrationReport getReport()</code></p>
+</li>
+<li>
+<p><code>String getId()</code></p>
+</li>
+<li>
+<p><code>String getName()</code></p>
+</li>
+<li>
+<p><code>Path getPath()</code></p>
+</li>
+<li>
+<p><code>boolean isDirectory()</code></p>
+</li>
+<li>
+<p><code>boolean isFile()</code></p>
+</li>
+<li>
+<p><code>long getLastModifiedTime()</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>getReport()</code> method provides access to the associated migration report where messages can be recorded.<br>
+The <code>getId()</code> method returns the identifier for the migratable responsible for this entry.<br>
+The <code>getName()</code> method provides the unique name for this entry in an OS-independent way.<br>
+The <code>getPath()</code> method provides the unique path to the corresponding file for this entry in an OS-specific way.<br>
+The <code>isDirectory()</code> method indicates if the entry represents a directory.
+The <code>isFile()</code> method indicates if the entry represents a file.
+The <code>getLastModifiedTime()</code> method provides the last modification time for the corresponding file or directory as available when the file or directory is exported.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_exportmigrationentry"><a class="anchor" href="#_exportmigrationentry"></a><code>ExportMigrationEntry</code></h3>
+<div class="paragraph">
+<p>The export migration entry provides additional methods available for entries created at export time. It defines the following methods:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Optional&lt;ExportMigrationEntry&gt; getPropertyReferencedEntry(String name)</code></p>
+</li>
+<li>
+<p><code>Optional&lt;ExportMigrationEntry&gt; getPropertyReferencedEntry(String name, BiPredicate&lt;MigrationReport, String&gt; validator)</code></p>
+</li>
+<li>
+<p><code>boolean store()</code></p>
+</li>
+<li>
+<p><code>boolean store(boolean required)</code></p>
+</li>
+<li>
+<p><code>boolean store(PathMatcher filter)</code></p>
+</li>
+<li>
+<p><code>boolean store(boolean required, PathMatcher filter)</code></p>
+</li>
+<li>
+<p><code>boolean store(BiThrowingConsumer&lt;MigrationReport, OutputStream, IOException&gt; consumer)</code></p>
+</li>
+<li>
+<p><code>OutputStream getOutputStream() throws IOException</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>getPropertyReferencedEntry()</code> methods create another migration entry for a file that was referenced by a given property value in the file represented by this entry.<br>
+The <code>store()</code> and <code>store(boolean required)</code> methods will automatically copy the content of the corresponding file as part of the export making sure the file exists (if required) on disk otherwise an error will be recorded. If the path represents a directory then all files recursively found under the path will be automatically exported.<br>
+The <code>store(PathMatcher filter)</code> and <code>store(boolean required, PathMatcher filter)</code> methods will automatically copy the content of the corresponding file if it matches the filter as part of the export making sure the file exists (if required) on disk otherwise an error will be recorded. If the path represents a directory then all matching files recursively found under the path will be automatically exported.<br>
+The <code>store(BiThrowingConsumer&lt;MigrationReport, OutputStream, IOException&gt; consumer)</code> method allows the migratable to control the export process by specifying a callback consumer that will be called back with an output stream where the data can be writen to instead of having a file on disk being copied by the migration API.
+The <code>OutputStream getOutputStream()</code> method provides access to the low-level output stream where the migratable can write data directly as opposed to having a file on disk copied automatically.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_importmigrationentry"><a class="anchor" href="#_importmigrationentry"></a><code>ImportMigrationEntry</code></h3>
+<div class="paragraph">
+<p>The import migration entry provides additional methods available for entries retrieved at import time. It defines the following methods:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Optional&lt;ImportMigrationEntry&gt; getPropertyReferencedEntry(String name)</code></p>
+</li>
+<li>
+<p><code>boolean restore()</code></p>
+</li>
+<li>
+<p><code>boolean restore(boolean required)</code></p>
+</li>
+<li>
+<p><code>boolean restore(PathMatcher filter)</code></p>
+</li>
+<li>
+<p><code>boolean restore(boolean required, PathMatcher filter)</code></p>
+</li>
+<li>
+<p><code>boolean restore(BiThrowingConsumer&lt;MigrationReport, Optional&lt;InputStream&gt;, IOException&gt; consumer)</code></p>
+</li>
+<li>
+<p><code>Optional&lt;InputStream getInputStream() throws IOException</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>getPropertyReferencedEntry()</code> method retrieves another migration entry for a file that was referenced by a given property value in the file represented by this entry.<br>
+The <code>restore()</code> and <code>restore(boolean required)</code> methods will automatically copy the exported content of the corresponding file back to disk if it was exported; otherwise an error will be recorded. If the path represents a directory then all file entries originally recursively exported under this entry&#8217;s path will be automatically imported. If the directory had been completely exported using one of the <code>store()</code> or <code>store(boolean required)</code> methods then in addition to restoring all entries recursively, calling this method will also remove any existing files or directories that were not on the original system.<br>
+The <code>restore(PathMatcher filter)</code> and <code>restore(boolean required, PathMatcher filter)</code> methods will automatically copy the exported content of the corresponding file if it matches the filter back to disk if it was exported; otherwise an error will be recorded. If the path represents a directory then all matching file entries originally recursively exported under this entry&#8217;s path will be automatically imported.<br>
+The <code>restore(BiThrowingConsumer&lt;MigrationReport, Optional&lt;InputStream&gt;, IOException&gt; consumer)</code> method allows the migratable to control the import process by specifying a callback consumer that will be called back with an optional input stream (empty if the data was not exported) where the data can be read from instead of having a file on disk being created or updated by the migration API.<br>
+The <code>Optional&lt;InputStream&gt; getInputStream()</code> method provides access to the optional low-level input stream (empty if the data was not exported) where the migratable can read data directly as opposed to having a file on disk created or updated automatically.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_migrationoperation"><a class="anchor" href="#_migrationoperation"></a><code>MigrationOperation</code></h3>
+<div class="paragraph">
+<p>The <code>org.codice.ddf.migration.MigrationOperation</code> provides a simple enumeration for identifying the various migration operations available.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_migrationreport"><a class="anchor" href="#_migrationreport"></a><code>MigrationReport</code></h3>
+<div class="paragraph">
+<p>The <code>org.codice.ddf.migration.MigrationReport</code> interface provides information about the execution of a migration operation. It defines the following methods:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>MigrationOperation getOperation()</code></p>
+</li>
+<li>
+<p><code>Instant getStartTime()</code></p>
+</li>
+<li>
+<p><code>Optional&lt;Instant&gt; getEndTime()</code></p>
+</li>
+<li>
+<p><code>MigrationReport record(String msg)</code></p>
+</li>
+<li>
+<p><code>MigrationReport record(String format, @Nullable Object&#8230;&#8203; args)</code></p>
+</li>
+<li>
+<p><code>MigrationReport record(MigrationMessage msg)</code></p>
+</li>
+<li>
+<p><code>MigrationReport doAfterCompletion(Consumer&lt;MigrationReport&gt; code)</code></p>
+</li>
+<li>
+<p><code>Stream&lt;MigrationMessage&gt; messages()</code></p>
+</li>
+<li>
+<p><code>default Stream&lt;MigrationException&gt; errors()</code></p>
+</li>
+<li>
+<p><code>Stream&lt;MigrationWarning&gt; warnings()</code></p>
+</li>
+<li>
+<p><code>Stream&lt;MigrationInformation&gt; infos()</code></p>
+</li>
+<li>
+<p><code>boolean wasSuccessful()</code></p>
+</li>
+<li>
+<p><code>boolean wasSuccessful(@Nullable Runnable code)</code></p>
+</li>
+<li>
+<p><code>boolean wasIOSuccessful(@Nullable ThrowingRunnable&lt;IOException&gt; code) throws IOException</code></p>
+</li>
+<li>
+<p><code>boolean hasInfos()</code></p>
+</li>
+<li>
+<p><code>boolean hasWarnings()</code></p>
+</li>
+<li>
+<p><code>boolean hasErrors()</code></p>
+</li>
+<li>
+<p><code>void verifyCompletion()</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>getOperation()</code> method provides the type of migration operation (i.e. export or import) currently in progress.<br>
+The <code>getStartTime()</code> method provides the time at which the corresponding operation started.<br>
+The <code>getEndTime()</code> method provides the optional time at which the corresponding operation ended. The time is only available if the operation has ended.<br>
+The <code>record()</code> methods enable messages to be recorded with the report. Messages are displayed on the console for the administrator.<br>
+The <code>doAfterCompletion()</code> methods enable code to be registered such that it is invoked at the end before a successful result is returned. Such code can still affect the result of the operation.<br>
+The <code>messages()</code> method provides access to all recorded messages so far.<br>
+The <code>errors()</code> method provides access to all recorded error messages so far.<br>
+The <code>warnings()</code> method provides access to all recorded warning messages so far.<br>
+The <code>infos()</code> method provides access to all recorded informational messages so far.<br>
+The <code>wasSuccessful()</code> method provides a quick check to see if the report is successful. A successful report might have warnings recorded but cannot have errors recorded.<br>
+The <code>wasSuccessful(Runnable code)</code> method allows code to be executed. It will return true if no new errors are recorded as a result of executing the provided code.<br>
+The <code>wasIOSuccessful(ThrowingRunnable&lt;IOException&gt; code)</code> method allows code to be executed which can throw I/O exceptions which are automatically recorded as errors. It will return true if no new errors are recorded as a result of executing the provided code.<br>
+The <code>hasInfos()</code> method will return true if at least one information message has been recorded so far.<br>
+The <code>hasWarnings()</code> method will return true if at least one warning message has been recorded so far.<br>
+The <code>hasErrors()</code> method will return true if at least one error message has been recorded so far.<br>
+The <code>verifyCompletion()</code> method will verify if the report is successful and if not, it will throw back the first recorded exception and attach as suppressed exceptions all other recorded exceptions.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_migrationmessage"><a class="anchor" href="#_migrationmessage"></a><code>MigrationMessage</code></h3>
+<div class="paragraph">
+<p>The <code>org.codice.ddf.migration.MigrationException</code> is defined as a base class for all recordable messages during migration operations. It defines the following methods:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>String getMessage()</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>getMessage()</code> method provides a message for the corresponding exception, warning, or info that will be displayed to the administrator on the console.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_migrationexception"><a class="anchor" href="#_migrationexception"></a><code>MigrationException</code></h3>
+<div class="paragraph">
+<p>An <code>org.codice.ddf.migration.MigrationException</code> should be thrown when an unrecoverable exception occurs that prevents the export or the import operation from continuing. It is also possible to simply record one or many exception(s) with the migration report in order to fail the export or import operation
+while not aborting it right away. This provides for the ability to record as many errors as possible and report all of them back to the administrator. All migration exception messages are displayed to the administrator.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_migrationwarning"><a class="anchor" href="#_migrationwarning"></a><code>MigrationWarning</code></h3>
+<div class="paragraph">
+<p>An <code>org.codice.ddf.migration.MigrationWarning</code> should be used when a migratable wants to warn the administrator that certain aspects of the export or the import may cause problems. For example, if an absolute path is encountered, that path may not exist on the target system and cause the installation to fail.
+All migration warning messages are displayed to the administrator.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_migrationinformation"><a class="anchor" href="#_migrationinformation"></a><code>MigrationInformation</code></h3>
+<div class="paragraph">
+<p>An <code>org.codice.ddf.migration.MigrationInformation</code> should be used when a migratable simply wants to provide useful information to the administrator. All
+migration information messages are displayed to the administrator.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_migrationsuccessfulinformation"><a class="anchor" href="#_migrationsuccessfulinformation"></a><code>MigrationSuccessfulInformation</code></h3>
+<div class="paragraph">
+<p>The <code>org.codice.ddf.migration.MigrationSuccessfulInformation</code> can be used to further qualify an information message as representing the success of an operation.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (c) Codice Foundation.</p>
+  <p>This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0">Creative Commons Attribution 4.0 International License</a>.</p>
+</footer>
+<script type="text/javascript">
+  window.antora = window.antora || {}
+  window.antora.basePath = '../../..'
+  window.antora.pagePath = '/ddf-docs-site/2.25.0/architectures/migration-api.html'
+</script>
+<script src="../../../_/js/site.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/vendor/search.js"></script>
+<script async src="../../../_/../search-index.js"></script>
+<script src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/jquery-1.11.3.min.js"></script>
+<script src="../../../_/js/script.js"></script>
+<script>hljs.initHighlighting()</script>
+  </body>
+</html>

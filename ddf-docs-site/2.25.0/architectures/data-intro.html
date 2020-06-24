@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Data :: DDF</title>
+    <link rel="canonical" href="https://ricklarsen.github.com/ddf-docs-site/2.25.0/architectures/data-intro.html">
+    <meta name="generator" content="Antora 2.3.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+<link rel="stylesheet" href="../../../_/css/search.css">
+<link rel="stylesheet" href="../../../_/css/nase.css">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://ricklarsen.github.com"><img src="../../../_/img/logo_navbar.png" alt="Logo" height="50px"> DDF</a>
+
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://ricklarsen.github.com/ddf-docs-site/2.25.0/index.html">Home</a>
+        <a class="navbar-item" href="https://ricklarsen.github.com/ddf-docs-site/2.25.0/features.html">Features</a>
+        <a class="navbar-item" href="https://ricklarsen.github.com/ddf-docs-site/2.25.0/download.html">Download</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="https://ricklarsen.github.com/ddf-docs-site/2.25.0/introduction/introduction.html">Documentation</a>
+          <div class="navbar-dropdown">
+                <a href="" class="navbar-item"></a>
+                <a href="/ddf-docs-site/2.25.0/release-notes/release-notes.html" class="navbar-item">Release Notes</a>
+                <a href="/ddf-docs-site/2.25.0/introduction/introduction.html" class="navbar-item">Introduction</a>
+                <a href="/ddf-docs-site/2.25.0/quickstart/quickstart-intro.html" class="navbar-item">Quick Start Tutorial</a>
+                <a href="/ddf-docs-site/2.25.0/managing/managing-intro.html" class="navbar-item">Managing</a>
+                <a href="/ddf-docs-site/2.25.0/integrating/integrating-intro.html" class="navbar-item">Integrating Intro</a>
+                <a href="/ddf-docs-site/2.25.0/architectures/architecture-intro.html" class="navbar-item">Architectures</a>
+                <a href="/ddf-docs-site/2.25.0/developing/developing-intro.html" class="navbar-item">Developing</a>
+                <a href="" class="navbar-item">Reference</a>
+                <a href="/ddf-docs-site/2.25.0/metadatareference/metadata-attributes-intro.html" class="navbar-item">Metadata Reference</a>
+          </div>
+        </div>
+        <a class="navbar-item" href="https://ricklarsen.github.com/ddf-docs-site/2.25.0/support.html">Support</a>
+            <div class="navbar-item">
+              <input id="search-input" type="text" placeholder="Search">
+            </div>
+        </div>
+
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="ddf-docs-site" data-version="2.25.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">DDF</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../features.html">Features</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../download.html">Download</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../faq.html">FAQ</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../support.html">Support</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><em>Documentation:</em></span>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../release-notes/release-notes.html">Release Notes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../release-notes/archive.html">Archive</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction/introduction.html">Introduction</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../introduction/applications.html">Component Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../introduction/documentation-notes.html">Documentation Guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction/coreconcepts/core-concepts-intro.html">Core Concepts</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/coreconcepts/search-intro.html">Introduction to Search</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/coreconcepts/metadata-intro.html">Introduction to Metadata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/coreconcepts/ingest-intro.html">Introduction to Ingest</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/coreconcepts/resources-intro.html">Introduction to Resources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/coreconcepts/catalog-framework-intro.html">Introduction to the Catalog Framework</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/coreconcepts/federation-intro.html">Introduction to Federation and Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/coreconcepts/events-subscriptions-intro.html">Introduction to Events and Subscriptions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../introduction/coreconcepts/endpoints-intro.html">Introduction to Endpoints</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction/coreconcepts/high-availability-intro.html">Introduction to High Availability</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../introduction/coreconcepts/high-availability-supported-capabilities.html">High Availability Supported Capabilities</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction/coreconcepts/standards-intro.html">Standards Supported by DDF</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../introduction/coreconcepts/service-standards.html">Catalog Service Standards</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../introduction/coreconcepts/data-standards.html">Data Formats</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../introduction/coreconcepts/map-standards.html">Map Formats</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../introduction/coreconcepts/security-standards.html">Security Standards</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../introduction/coreconcepts/attribute-stores.html">Attribute Stores</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../introduction/coreconcepts/transport-protocols.html">Transport Protocols</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../introduction/coreconcepts/sso-standards.html">Single Sign On Standards</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../introduction/coreconcepts/security-sso-endpoints.html">Single Sign On Endpoints Provided by DDF</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../introduction/coreconcepts/authentication-standards.html">Authentication Standards</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../introduction/coreconcepts/cryptography-standards.html">Cryptography Standards</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../quickstart/quickstart-intro.html">Quick Start Tutorial</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../quickstart/quickstart-installing.html">Installing (Quick Start)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../quickstart/quickstart-certificates.html">Certificates (Quick Start)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../quickstart/quickstart-configuring.html">Configuring (Quick Start)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../quickstart/quickstart-ingesting.html">Ingesting (Quick Start)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/managing-intro.html">Managing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/securing/securing-intro.html">Security Hardening</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing/securing/auditing.html">Auditing</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/securing/hardening-intro.html">Hardening</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing/securing/hardening-checklist.html">Hardening Checklist</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/installing/installing-intro.html">Installing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/installing/install-prereqs.html">Installation Prerequisites</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/installing/hardware-reqs.html">Hardware Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/installing/java-reqs.html">Java Requirements</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/installing/install-with-zip.html">Installing with the Distributions Zip</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/installing/file-system-access.html">Configuring Operating Permissions and Allocations</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/installing/managing-certificates.html">Managing Keystores and Certificates</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/installing/managing-certificates.html">Managing Certificates</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/installing/managing-crl.html">Managing Certificate Revocation List</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/installing/managing-keystores.html">Managing Keystores</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/installing/initial-startup.html">Initial Startup</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/installing/installing-from-admin-console.html">Completing Installation from Admin Console</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/installing/ddf-setup-types.html">Setup Types</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/installing/guest-claims-attributes.html">Guest Claims Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/installing/system-configuration-settings.html">System Configuration Settings</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/installing/configure-single-sign-on.html">Configuring Single Sign On</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/installing/finish-page.html">Finish Page</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/installing/installing-from-the-command-line.html">Completing Installation from Command Console</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/installing/firewall-config.html">FireWall Port Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/installing/ie11-configuration.html">Internet Explorer 11 Enhanced Security Configuration</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/installing/high-availability-initial-setup.html">High Availability Initial Setup</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/installing/high-availability-initial-setup-exceptions.html">High Availability Setup Exceptions</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/installing/configure-single-sign-on.html">Configuring Single Sign On</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/installing/ddf-setup-types.html">Setup Types</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/installing/finish-page.html">Finish Page</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/installing/guest-claims-attributes.html">Guest Claims Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/installing/installing-from-admin-console.html">Completing Installation from Admin Console</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/installing/installing-from-the-command-line.html">Completing Installation from Command Console</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/installing/system-configuration-settings.html">System configuration Settings</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/configuring-intro.html">Configuring</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing/configuring/admin-console-tutorial.html">Admin Console Tutorial</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/console-commands-ref.html">Console Command Reference</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/feature-commands.html">Feature Commands</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/configuration-files.html">Configuration Files</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/global-settings.html">Configuring Global Settings with custom.system.properties</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/config-files.html">Configuring with .config Files</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/config-templates.html">Configuration Templates</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/configuring-user-access.html">Configuring User Access</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/configuring-guest-access.html">Configuring Guest Access</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/configuring-rest-for-users.html">Configuring REST Services for Users</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/securing-idp-sp.html">Securing IdP SP</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/configuring-oidc.html">Configuring OIDC</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/connecting-to-external-idp.html">Connecting to an Identity Provider</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/no-idp.html">Configuring Without an Identity Provider</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/configuring-multi-factor-auth.html">Configuring Multi-Factor Authentication</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/ldap-server.html">Connecting to an LDAP Server</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/updating-system-users.html">Updating System Users</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/securing-admin-console.html">Restricting Access to the Admin Console</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/remove-default-users.html">Removing Default Users</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/remove-default-users-cont.html">Removing Default Users (Continued)</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/disallowing-login-wo-certs.html">Disallowing Login Without Certificates</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/configuring-data-management.html">Configuring Data Management</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/configuring-solr.html">Configuring Solr</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/solr-synonyms.html">Configuring Solr Catalog Provider Synonyms</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/hardening-solr.html">Hardening Solr</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/solr-admin-ui.html">Accessing the Solr Admin UI</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/catalog-provider.html">Changing Catalog Providers</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/changing-hostname.html">Changing Hostname</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/errors-and-warnings.html">Configuring Errors and Warnings</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/enforcing-errors.html">Enforcing Errors and Warnings</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/hiding-errors.html">Hiding Errors or Warnings from Queries</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/hiding-errors-by-role.html">Hiding Errors and Warnings from Users Based on Role</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/product-cache.html">Product Caching</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/configuring-product-caching.html">Configuring Product Caching</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/content-directory-monitor.html">Content Directory Monitor</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/configuring-system-message.html">Configuring System Usage Message</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/configuring-data-policy-plugins.html">Configuring Data Policy Plugins</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/configuring-access-plugins.html">Configuring Data Access Plugins</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/configuring-security-policies.html">Configuring Security Policies</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/web-context-policy-manager.html">Configuring the Web Context Policy Manager</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/catalog-filtering.html">Configuring Catalog Filtering Policies</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/filter-policy-plugins.html">Filter Policy Plugins</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/catalog-authorization.html">Catalog Operation Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/setting-internal-policies.html">Setting Internal Policies</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/setting-xacml-policies.html">Setting XACML Policies</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/configuring-federation.html">Configuring Federation</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/enabling-ssl.html">Enabling SSL for Clients</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/http-port.html">Configuring HTTPS Ports</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/http-proxy.html">Configuring HTTP Proxy</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/connecting-to-sources.html">Connecting to Sources</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/sources/confluence-federated-source.html">Federated Source for Atlassian Confluence&#174;</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/sources/csw-federated-source.html">CSW Specification Profile Federated Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/sources/csw-federation-profile-source.html">CSW Federation Profile Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/sources/default-storage-provider.html">Content File System Storage Provider</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/sources/gmd-csw-source.html">GMD CSW Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/sources/opensearch-source.html">OpenSearch Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/sources/solr-catalog-provider.html">Solr Catalog Provider</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/sources/wfs-10-source.html">WFS 1.0 Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/sources/wfs-11-source.html">WFS 1.1 Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/sources/wfs-20-source.html">WFS 2.0 Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/sources/catalog-provider-intro.html">Catalog Provider Intro</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/sources/federation-strategy.html">Federation Strategy</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/configuring-endpoints.html">Configuring Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/configuring-csw-endpoint.html">Configuring CSW Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/configuring-catalog-rest-endpoint.html">Configuring Catalog REST Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/configuring-kml-endpoint.html">Configuring KML Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/configuring-opensearch-endpoint.html">Configuring OpenSearch Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/compression-services.html">Configuring Compression Services</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing/configuring/environment-hardening.html">Environment Hardening</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/special-configurations.html">Configuring for Special Deployments</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/multiple-installations.html">Multiple Installations</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/reusing-configurations.html">Reusing Configurations</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/configuring/isolating-solrcloud-zookeeper.html">Isolating SolrCloud and Zookeeper</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/configuring-fanout-proxy.html">Configuring for a Fanout Proxy</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/high-availability-config.html">Configuring for a Highly Available Cluster</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/admin-theming-configurations.html">Configuring UI Themes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/landing-page.html">Configuring Landing Page</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/logout-theming.html">Configuring Logout Page</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/platform-ui-theming.html">Platform UI Theming</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/configuring/miscellaneous-config.html">Miscellaneous Configurations</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/thread-pools.html">Configuring Thread Pools</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/jetty-threadpool-settings.html">Configuring Jetty Thread Pools</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/encryption-service.html">Encrypting Passwords</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/configuring/decanter-services.html">Decanter Services</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/running/running-intro.html">Running</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing/running/starting-intro.html">Starting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/running/os-services.html">Managed Services</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/running/ddf-service.html">Run DDF as a Managed Service</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/running/console-commands.html">Console Commands</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/running/console-commands-help.html">Console Commands Help</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/running/cql-syntax.html">CQL Syntax</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/running/available-console-commands.html">Available Console Commands</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/running/catalog-commands.html">Catalog Commands</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/running/solr-commands.html">Solr Commands</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/running/subscription-commands.html">Subscription Commands</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/running/platform-commands.html">Platform Commands</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/running/migrate-commands.html">Migrate Commands</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/running/store-commands.html">Persistence Store Commands</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/running/command-scheduler.html">Command Scheduler</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing/running/monitoring.html">Monitoring</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing/running/troubleshooting.html">Troubleshooting</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Data Management</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/datamanagement/ingesting.html">Ingesting Data</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/ingest-command.html">Ingest Command</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/directory-monitor-ingest.html">Content Directory Monitor Ingest</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/external-ingest.html">External Methods of Ingest</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/forms-commands.html">Creating And Managing System Search Forms Through Karaf</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/other-ingest.html">Other Methods of Ingest</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/datamanagement/validating-data.html">Validating Data</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/validator-plugins.html">Validator Plugins on Ingest</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/schematron-validation.html">Configuring Schematron Services</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/viewing-invalid.html">Viewing Invalid Metacards</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/editing-attributes.html">Manually Editing Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/injecting-attributes.html">Injecting Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/overriding-attributes.html">Overriding Attributes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../managing/datamanagement/catalog-backup.html">Backing Up the Catalog</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/datamanagement/removing-expired-records.html">Removing Expired Records from the Catalog</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/auto-removing-expired.html">Automated Removal of Expired Resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/manual-removal-expired.html">Manually Removing Expired Resources</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/datamanagement/data-migration-intro.html">Migrating Data</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/exporting-metadata.html">Exporting Metadata</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../managing/datamanagement/ingesting-exported-metadata.html">Ingesting Exported Metadata</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/datamanagement/automatically-added-metacard-attributes.html">Automatically Added Metacard Attributes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/datamanagement/attributes-added-on-ingest.html">Attributes Added on Ingest</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/datamanagement/attributes-added-by-input-transformers.html">Attributes Added by Input Transformers</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/datamanagement/attributes-added-by-attribute-injection.html">Attributes Added by Attribute Injection</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/datamanagement/attributes-added-by-default-attribute-types.html">Attributes Added by Default Attribute Types</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/datamanagement/attributes-added-by-attribute-overrides-ingest.html">Attributes Added by Attribute Overrides (Ingest)</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/datamanagement/attributes-added-by-pre-authorization-plugins.html">Attributes Added by Pre-Authorization Plugins</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/datamanagement/attributes-added-by-pre-ingest-plugins.html">Attributes Added by Pre-Ingest Plugins</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../managing/datamanagement/attributes-added-on-query.html">Attributes Added on Query</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../managing/datamanagement/attributes-added-by-attribute-overrides-query.html">Attributes Added by Attribute Overrides (Query)</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../integrating/integrating-intro.html">Integrating Intro</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../integrating/high-availability-integrating-warning.html">High Availability Warning</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../integrating/endpoints/endpoint-intro.html">Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../integrating/endpoints/ingest-endpoints-intro.html">Ingest Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../integrating/endpoints/catalog-rest-endpoint.html">Catalog REST Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../integrating/endpoints/csw-endpoint.html">CSW Endpoint</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../integrating/endpoints/crud-endpoints-intro.html">CRUD Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../integrating/endpoints/catalog-rest-endpoint.html">Catalog REST Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../integrating/endpoints/csw-endpoint.html">CSW Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../integrating/endpoints/query-endpoints.html">Queries Endpoint</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../integrating/endpoints/query-endpoints-intro.html">Query Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../integrating/endpoints/csw-endpoint.html">CSW Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../integrating/endpoints/opensearch-endpoint.html">OpenSearch Endpoint</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../integrating/endpoints/content-endpoints-intro.html">Content Retrieval Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../integrating/endpoints/catalog-rest-endpoint.html">Catalog REST Endpoint</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../integrating/endpoints/pub-sub-endpoints-intro.html">Pub-Sub Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../integrating/endpoints/csw-endpoint.html">CSW Endpoint</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="architecture-intro.html">Architectures</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="catalog-api.html">Catalog API</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="data-intro.html">Data</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="operations-intro.html">Operations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="resources-intro.html">Resources</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="content-item.html">Content Item</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="retrieving-resources.html">Retrieving Resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="retrieving-resources-options.html">Retrieving Resource Options</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="storing-resources.html">Storing Resources</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="resource-components-intro.html">Resource Components</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="resource-readers-intro.html">Resource Readers</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="url-resource-reader.html">URL Resource Reader</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="resource-writers-intro.html">Resource Writers</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="queries-intro.html">Queries</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="filter-intro.html">Filters</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="filterbuilder-api.html">FilterBuilder API</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="metrics-intro.html">Metrics</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="metrics-collection.html">Metrics Collection Application</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="catalog-metrics.html">Catalog Metrics</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="source-metrics.html">Source Metrics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="metrics-reporting.html">Metrics Reporting Application</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="viewing-metrics-tab.html">Viewing Metrics</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="action-framework-intro.html">Action Framework</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="action-providers.html">Action Providers</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="processing-framework-intro.html">Asynchronous Processing Framework</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="eventing-intro.html">Eventing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="migration-api.html">Migration API</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../developing/developing-intro.html">Developing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Developing Custom Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devguidelines/highly-available-link.html">Highly Available Cluster Notice</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-applications.html">Developing Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-catalog-frameworks.html">Developing Complementary Catalog Frameworks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/metacard-type.html">Developing Metacard Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/global-attribute-validators.html">Developing Global Attribute Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/attribute-type.html">Developing Attribute Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/default-attribute-values.html">Developing Default Attribute Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/attribute-injection.html">Developing Attribute Injections</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-endpoints.html">Developing Endpoints</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-transformers-input.html">Developing Input Transformers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-transformers-metacard.html">Developing Metacard Transformers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/transformers-query-response.html">Developing Query Response Transformers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-sources.html">Developing Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-plugins.html">Developing Catalog Plugins</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-token-validators.html">Developing Token Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-sts-claims-handlers.html">Developing STS Claims Handlers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-registry-clients.html">Developing Registry Clients</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-resource-readers.html">Developing Resource Readers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-resource-writers.html">Developing Resource Writers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-filters.html">Developing Filters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/filter-delegates.html">Developing Filter Delegates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-action-components.html">Developing Action Components</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-query-options.html">Developing Query Options</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/managed-service-factories.html">Configuring Managed Service Factory Bundles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/custom-xacml-policies.html">Developing XACML Policies</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/assuring-bundles-and-apps.html">Assuring Authenticity of Bundles and Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../developing/devcomponents/json-definition-files.html">JSON Definition Files</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Development Guidelines</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../developing/devguidelines/contributing-intro.html">Contributing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../developing/devguidelines/high-availability-guidance.html">High Availability Guidance</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../developing/devguidelines/editing-docs.html"> Contributing to Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../developing/devguidelines/osgi-basics.html">OSGi Basics</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Application References</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/appReferences/mg-admin.html">Admin Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/appReferences/mg-catalog.html">Catalog Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/appReferences/mg-platform.html">Platform Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/appReferences/mg-security.html">Security Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/appReferences/mg-solr.html">Solr Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/appReferences/mg-spatial.html">Spatial Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/appReferences/mg-ui.html">Intrigue Application Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../reference/whitelists/whitelist-intro.html">Application Whitelists</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/whitelists/removed-whitelist.html">Packages Removed From Whitelist</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/whitelists/catalog-whitelist.html">Catalog Whitelist</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/whitelists/platform-whitelist.html">Platform Whitelist</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/whitelists/security-whitelist.html">Security Whitelist</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/whitelists/solr-whitelist.html">Solr Whitelist</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/whitelists/spatial-whitelist.html">Spatial Whitelist</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../reference/dependencyList/dependency-list-intro.html">DDF Dependency List</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/dependencyList/ddf-dependency-list.html">Java Dependency List</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/dependencyList/js-dependency-list.html">JavaScript Dependency List</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../metadatareference/metadata-attributes-intro.html">Metadata Reference</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../metadatareference/common-metadata-attributes.html">Common Metadata Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../metadatareference/format-specific-attributes.html">File Format-specific Attributes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../metadatareference/mp4-attributes.html">Mp4 Additional Attribute</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../metadatareference/complete-list-file-types.html">All File Formats Supported</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../metadatareference/catalog-taxonomy-intro.html">Catalog Taxonomy Definitions</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../metadatareference/core-attributes-table.html">Core Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../metadatareference/associations-attributes-table.html">Associations Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../metadatareference/contact-attributes-table.html">Contact Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../metadatareference/datetime-attributes-table.html">DateTime Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../metadatareference/history-attributes-table.html">History Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../metadatareference/location-attributes-table.html">Location Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../metadatareference/media-attributes-table.html">Media Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../metadatareference/metacard-attributes-table.html">Metacard Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../metadatareference/security-attributes-table.html">Security Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../metadatareference/topic-attributes-table.html">Topic Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../metadatareference/validation-attributes-table.html">Validation Attributes</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">DDF</span>
+    <span class="version">2.25.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">DDF</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">2.25.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">DDF</a></li>
+    <li><a href="architecture-intro.html">Architectures</a></li>
+    <li><a href="data-intro.html">Data</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Data</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Catalog stores and translates Metadata, which can be transformed into many data formats, shared, and queried.
+The primary form of this metadata is the metacard.
+A <code>Metacard</code> is a container for metadata.
+<code>CatalogProviders</code> accept <code>Metacards</code> as input for ingest, and <code>Sources</code> search for metadata and return matching <code>Results</code> that include <code>Metacards</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_metacards"><a class="anchor" href="#_metacards"></a>Metacards</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A metacard is a single instance of metadata in the Catalog (an instance of a metacard type) which
+generally contains general information about the resource, such as the title of the resource, the resource&#8217;s geo-location, the date the resource was created and/or modified, the owner or producer, and/or the security classification.</p>
+</div>
+<div class="sect2">
+<h3 id="_metacard_type"><a class="anchor" href="#_metacard_type"></a>Metacard Type</h3>
+<div class="paragraph">
+<p>A metacard type indicates the attributes available for a particular metacard.
+It is a model used to define the attributes of a metacard, much like a schema.</p>
+</div>
+<div class="paragraph">
+<p>A metacard type indicates the attributes available for a particular type of data.
+For example, an image may have different attributes than a PDF document, so each could be defined to have their own metacard type.</p>
+</div>
+<div class="sect3">
+<h4 id="_default_metacard_type_and_attributes"><a class="anchor" href="#_default_metacard_type_and_attributes"></a>Default Metacard Type and Attributes</h4>
+<div class="paragraph">
+<p>Most metacards within the system are created using the default metacard type or a metacard type based on the default type.
+The default metacard type of the system can be programmatically retrieved by calling <code>ddf.catalog.data.impl.MetacardImpl.BASIC_METACARD</code>.
+The name of the default <code>MetacardType</code> can be retrieved from <code>ddf.catalog.data.MetacardType.DEFAULT_METACARD_TYPE_NAME</code>.</p>
+</div>
+<div class="paragraph">
+<p>The default metacard type has the following required attributes.
+Though the following attributes are required on all metacard types, setting their values is optional except for ID.</p>
+</div>
+<div class="paragraph">
+<p><a href="../metadatareference/core-attributes-table.html" class="page">Core Attributes</a></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>It is highly recommended when referencing a default attribute name to use the <code>ddf.catalog.data.types.*</code> interface constants whenever possible.
+Mapping to a normalized taxonomy allows for higher quality transformations between different
+formats and for improved federation. This neutral profile facilitates improved search and discovery across disparate data types.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Every <a href="../introduction/coreconcepts/federation-intro.html" class="page">Source</a> should at the very least return an ID attribute according to Catalog API.
+Other fields may or may not be applicable, but a unique ID must be returned by a source.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_extensible_metacards"><a class="anchor" href="#_extensible_metacards"></a>Extensible Metacards</h5>
+<div class="paragraph">
+<p>Metacard extensibility is achieved by creating a new <code>MetacardType</code> that supports attributes in addition to the required attributes listed above.</p>
+</div>
+<div class="paragraph">
+<p>Required attributes must be the base of all extensible metacard types.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Not all <a href="../managing/configuring/catalog-provider.html" class="page">Catalog Providers</a> support extensible metacards.
+Nevertheless, each Catalog Provider should at least have support for the default <code>MetacardType</code>; i.e., it should be able to store and query on the attributes and attribute formats specified by the default metacard type.
+Catalog providers are neither expected nor required to store attributes that are not in a given metacard&#8217;s type.</p>
+</div>
+<div class="paragraph">
+<p>Consult the documentation of the Catalog Provider in use for more information on its support of extensible metacards.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Often, the <code>BASIC_METACARD</code> <code>MetacardType</code> does not provide all the functionality or attributes necessary for a specific task.
+For performance or convenience purposes, it may be necessary to create custom attributes even if others will not be aware of those attributes.
+One example could be if a user wanted to optimize a search for a date field that did not fit the definition of <code>CREATED</code>, <code>MODIFIED</code>, <code>EXPIRATION</code>, or <code>EFFECTIVE</code>.
+The user could create an additional <code>java.util.Date</code> attribute in order to query the attribute separately.</p>
+</div>
+<div class="paragraph">
+<p><code>Metacard</code> objects are extensible because they allow clients to store and retrieve standard and custom key/value Attributes from the <code>Metacard</code>.
+All <code>Metacards</code> must return a <code>MetacardType</code> object that includes an <code>AttributeDescriptor</code> for each <code>Attribute</code>, indicating it&#8217;s key and value type.
+<code>AttributeType</code> support is limited to those types defined by the Catalog.</p>
+</div>
+<div class="paragraph">
+<p>New <code>MetacardType</code> implementations can be made by implementing the <code>MetacardType</code> interface.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_metacard_type_registry"><a class="anchor" href="#_metacard_type_registry"></a>Metacard Type Registry</h3>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The <code>MetacardTypeRegistry</code> is experimental.
+While this component has been tested and is functional, it may change as more information is gathered about what is needed and as it is used in more scenarios.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The <code>MetacardTypeRegistry</code> allows DDF components, primarily catalog providers and sources, to make available the <code>MetacardTypes</code> that they support.
+It maintains a list of all supported <code>MetacardTypes</code> in the <code>CatalogFramework</code>, so that other components such as <a href="../integrating/endpoints/endpoint-intro.html" class="page">Endpoints</a>, <a href="plugins-intro.html" class="page">Plugins</a>, and <a href="transformers-intro.html" class="page">Transformers</a> can make use of those <code>MetacardTypes</code>.
+The <code>MetacardType</code> is essential for a component in the <code>CatalogFramework</code> to understand how it should interpret a metacard by knowing what attributes are available in that metacard.</p>
+</div>
+<div class="paragraph">
+<p>For example, an endpoint receiving incoming metadata can perform a lookup in the <code>MetacardTypeRegistry</code> to find a corresponding <code>MetacardType</code>.
+The discovered <code>MetacardType</code> will then be used to help the endpoint populate a metacard based on the specified attributes in the <code>MetacardType</code>.
+By doing this, all the incoming metadata elements can then be available for processing, cataloging, and searching by the rest of the <code>CatalogFramework</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>MetacardTypes</code> should be registered with the <code>MetacardTypeRegistry</code>.  The <code>MetacardTypeRegistry</code> makes those <code>MetacardTypes</code> available to other DDF <code>CatalogFramework</code> components.
+Other components that need to know how to interpret metadata or metacards should look up the appropriate <code>MetacardType</code> from the registry.
+By having these <code>MetacardTypes</code> available to the <code>CatalogFramework</code>, these components can be aware of the custom attributes.</p>
+</div>
+<div class="paragraph">
+<p>The <code>MetacardTypeRegistry</code> is accessible as an OSGi service.
+The following blueprint snippet shows how to inject that service into another component:</p>
+</div>
+<div class="listingblock">
+<div class="title">MetacardTypeRegistry Service Injection</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;bean id="sampleComponent" class="ddf.catalog.SampleComponent"&gt;
+    &lt;argument ref="metacardTypeRegistry" /&gt;
+&lt;/bean&gt;
+
+&lt;!-- Access MetacardTypeRegistry --&gt;
+&lt;reference id="metacardTypeRegistry" interface="ddf.catalog.data.MetacardTypeRegistry"/&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The reference to this service can then be used to register new <code>MetacardTypes</code> or to lookup existing ones.</p>
+</div>
+<div class="paragraph">
+<p>Typically, new <code>MetacardTypes</code> will be registered by <code>CatalogProviders</code> or sources indicating they know how to persist, index, and query attributes from that type.
+Typically, Endpoints or <code>InputTransformers</code> will use the lookup functionality to access a <code>MetacardType</code> based on a parameter in the incoming metadata.
+Once the appropriate <code>MetacardType</code> is discovered and obtained from the registry, the component will know how to translate incoming raw metadata into a DDF Metacard.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_attributes"><a class="anchor" href="#_attributes"></a>Attributes</h3>
+<div class="paragraph">
+<p>An attribute is a single field of a metacard, an instance of an attribute type.
+Attributes are typically indexed for searching by a source or catalog provider.</p>
+</div>
+<div class="sect3">
+<h4 id="_attribute_types"><a class="anchor" href="#_attribute_types"></a>Attribute Types</h4>
+<div class="paragraph">
+<p>An attribute type indicates the attribute format of the value stored as an attribute.
+It is a model for an attribute.</p>
+</div>
+<div class="sect4">
+<h5 id="_attribute_format"><a class="anchor" href="#_attribute_format"></a>Attribute Format</h5>
+<div class="paragraph">
+<p>An enumeration of attribute formats are available in the catalog.
+Only these attribute formats may be used.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Attribute Formats</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">AttributeFormat</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BINARY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attributes of this attribute format must have a value that is a Java <code>byte[]</code> and <code>AttributeType.getBinding()</code> should return <code>Class&lt;Array&gt;of</code> byte.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BOOLEAN</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attributes of this attribute format must have a value that is a Java boolean.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DATE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attributes of this attribute format must have a value that is a Java date.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DOUBLE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attributes of this attribute format must have a value that is a Java double.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>FLOAT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attributes of this attribute format must have a value that is a Java float.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GEOMETRY</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attributes of this attribute format must have a value that is a WKT-formatted Java string.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INTEGER</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attributes of this attribute format must have a value that is a Java integer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LONG</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attributes of this attribute format must have a value that is a Java long.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OBJECT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attributes of this attribute format must have a value that implements the serializable interface.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SHORT</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attributes of this attribute format must have a value that is a Java short.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>STRING</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attributes of this attribute format must have a value that is a Java string and treated as plain text.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>XML</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attributes of this attribute format must have a value that is a XML-formatted Java string.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_attribute_naming_conventions"><a class="anchor" href="#_attribute_naming_conventions"></a>Attribute Naming Conventions</h5>
+<div class="paragraph">
+<p>Catalog taxonomy elements follow the naming convention of <code>group-or-namespace.specific-term</code>, except for extension fields outside of the core taxonomy.
+These follow the naming convention of <code>ext.group-or-namespace.specific-term</code> and must be namespaced.
+Nesting is not permitted.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_result"><a class="anchor" href="#_result"></a>Result</h4>
+<div class="paragraph">
+<p>A single "hit" included in a query response.</p>
+</div>
+<div class="paragraph">
+<p>A result object consists of the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a metacard.</p>
+</li>
+<li>
+<p>a relevance score if included.</p>
+</li>
+<li>
+<p>distance in meters if included.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_creating_metacards"><a class="anchor" href="#_creating_metacards"></a>Creating Metacards</h3>
+<div class="paragraph">
+<p>The quickest way to create a <code>Metacard</code> is to extend or construct the <code>MetacardImpl</code> object.
+<code>MetacardImpl</code> is the most commonly used and extended <code>Metacard</code> implementation in the system because it provides a convenient way for developers to retrieve and set <code>Attributes</code> without having to create a new <code>MetacardType</code> (see below).
+<code>MetacardImpl</code> uses <code>BASIC_METACARD</code> as its <code>MetacardType</code>.</p>
+</div>
+<div class="sect3">
+<h4 id="_limitations"><a class="anchor" href="#_limitations"></a>Limitations</h4>
+<div class="paragraph">
+<p>A given developer does not have all the information necessary to programmatically interact with any arbitrary source.
+Developers hoping to query custom fields from extensible <code>Metacards</code> of other sources cannot easily accomplish that task with the current API.
+A developer cannot question a source for all its <em>queryable</em> fields.
+A developer only knows about the <code>MetacardTypes</code> which that individual developer has used or created previously.</p>
+</div>
+<div class="paragraph">
+<p>The only exception to this limitation is the <code>Metacard.ID</code> field, which is required in every <code>Metacard</code> that is stored in a source.
+A developer can always request <code>Metacards</code> from a source for which that developer has the <code>Metacard.ID</code> value.
+The developer could also perform a wildcard search on the <code>Metacard.ID</code> field if the source allows.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_processing_metacards"><a class="anchor" href="#_processing_metacards"></a>Processing Metacards</h4>
+<div class="paragraph">
+<p>As <code>Metacard</code> objects are created, updated, and read throughout the Catalog, care should be taken by all catalog components to interrogate the <code>MetacardType</code> to ensure that additional <code>Attributes</code> are processed accordingly.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_basic_types"><a class="anchor" href="#_basic_types"></a>Basic Types</h4>
+<div class="paragraph">
+<p>The Catalog includes definitions of several basic types all found in the <code>ddf.catalog.data.BasicTypes</code> class.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. Basic Types</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BASIC_METACARD</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MetacardType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Represents all required Metacard Attributes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BINARY_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AttributeType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Constant for an <code>AttributeType</code> with <code>AttributeType.AttributeFormat.BINARY</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BOOLEAN_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AttributeType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Constant for an <code>AttributeType</code> with <code>AttributeType.AttributeFormat.BOOLEAN</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DATE_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AttributeType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Constant for an <code>AttributeType</code> with <code>AttributeType.AttributeFormat.DATE</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DOUBLE_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AttributeType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Constant for an <code>AttributeType</code> with <code>AttributeType.AttributeFormat.DOUBLE</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>FLOAT_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AttributeType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Constant for an <code>AttributeType</code> with <code>AttributeType.AttributeFormat.FLOAT</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GEO_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AttributeType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Constant for an <code>AttributeType</code> with <code>AttributeType.AttributeFormat.GEOMETRY</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INTEGER_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AttributeType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Constant for an <code>AttributeType</code> with <code>AttributeType.AttributeFormat.INTEGER</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>LONG_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AttributeType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Constant for an <code>AttributeType</code> with <code>AttributeType.AttributeFormat.LONG</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>OBJECT_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AttributeType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Constant for an <code>AttributeType</code> with <code>AttributeType.AttributeFormat.OBJECT</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SHORT_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AttributeType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Constant for an <code>AttributeType</code> with <code>AttributeType.AttributeFormat.SHORT</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>STRING_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AttributeType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Constant for an <code>AttributeType</code> with <code>AttributeType.AttributeFormat.STRING</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>XML_TYPE</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AttributeType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A Constant for an <code>AttributeType</code> with <code>AttributeType.AttributeFormat.XML</code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (c) Codice Foundation.</p>
+  <p>This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0">Creative Commons Attribution 4.0 International License</a>.</p>
+</footer>
+<script type="text/javascript">
+  window.antora = window.antora || {}
+  window.antora.basePath = '../../..'
+  window.antora.pagePath = '/ddf-docs-site/2.25.0/architectures/data-intro.html'
+</script>
+<script src="../../../_/js/site.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/vendor/search.js"></script>
+<script async src="../../../_/../search-index.js"></script>
+<script src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/jquery-1.11.3.min.js"></script>
+<script src="../../../_/js/script.js"></script>
+<script>hljs.initHighlighting()</script>
+  </body>
+</html>

@@ -1,0 +1,2307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Developing Filters :: DDF</title>
+    <link rel="canonical" href="https://ricklarsen.github.com/ddf-docs-site/2.25.0/developing/devcomponents/custom-filters.html">
+    <meta name="generator" content="Antora 2.3.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+<link rel="stylesheet" href="../../../../_/css/search.css">
+<link rel="stylesheet" href="../../../../_/css/nase.css">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://ricklarsen.github.com"><img src="../../../../_/img/logo_navbar.png" alt="Logo" height="50px"> DDF</a>
+
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://ricklarsen.github.com/ddf-docs-site/2.25.0/index.html">Home</a>
+        <a class="navbar-item" href="https://ricklarsen.github.com/ddf-docs-site/2.25.0/features.html">Features</a>
+        <a class="navbar-item" href="https://ricklarsen.github.com/ddf-docs-site/2.25.0/download.html">Download</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="https://ricklarsen.github.com/ddf-docs-site/2.25.0/introduction/introduction.html">Documentation</a>
+          <div class="navbar-dropdown">
+                <a href="" class="navbar-item"></a>
+                <a href="/ddf-docs-site/2.25.0/release-notes/release-notes.html" class="navbar-item">Release Notes</a>
+                <a href="/ddf-docs-site/2.25.0/introduction/introduction.html" class="navbar-item">Introduction</a>
+                <a href="/ddf-docs-site/2.25.0/quickstart/quickstart-intro.html" class="navbar-item">Quick Start Tutorial</a>
+                <a href="/ddf-docs-site/2.25.0/managing/managing-intro.html" class="navbar-item">Managing</a>
+                <a href="/ddf-docs-site/2.25.0/integrating/integrating-intro.html" class="navbar-item">Integrating Intro</a>
+                <a href="/ddf-docs-site/2.25.0/architectures/architecture-intro.html" class="navbar-item">Architectures</a>
+                <a href="/ddf-docs-site/2.25.0/developing/developing-intro.html" class="navbar-item">Developing</a>
+                <a href="" class="navbar-item">Reference</a>
+                <a href="/ddf-docs-site/2.25.0/metadatareference/metadata-attributes-intro.html" class="navbar-item">Metadata Reference</a>
+          </div>
+        </div>
+        <a class="navbar-item" href="https://ricklarsen.github.com/ddf-docs-site/2.25.0/support.html">Support</a>
+            <div class="navbar-item">
+              <input id="search-input" type="text" placeholder="Search">
+            </div>
+        </div>
+
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="ddf-docs-site" data-version="2.25.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">DDF</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../features.html">Features</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../download.html">Download</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../faq.html">FAQ</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../support.html">Support</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><em>Documentation:</em></span>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../release-notes/release-notes.html">Release Notes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../release-notes/archive.html">Archive</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../introduction/introduction.html">Introduction</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../introduction/applications.html">Component Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../introduction/documentation-notes.html">Documentation Guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../introduction/coreconcepts/core-concepts-intro.html">Core Concepts</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../introduction/coreconcepts/search-intro.html">Introduction to Search</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../introduction/coreconcepts/metadata-intro.html">Introduction to Metadata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../introduction/coreconcepts/ingest-intro.html">Introduction to Ingest</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../introduction/coreconcepts/resources-intro.html">Introduction to Resources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../introduction/coreconcepts/catalog-framework-intro.html">Introduction to the Catalog Framework</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../introduction/coreconcepts/federation-intro.html">Introduction to Federation and Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../introduction/coreconcepts/events-subscriptions-intro.html">Introduction to Events and Subscriptions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../introduction/coreconcepts/endpoints-intro.html">Introduction to Endpoints</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../introduction/coreconcepts/high-availability-intro.html">Introduction to High Availability</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../introduction/coreconcepts/high-availability-supported-capabilities.html">High Availability Supported Capabilities</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../introduction/coreconcepts/standards-intro.html">Standards Supported by DDF</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../introduction/coreconcepts/service-standards.html">Catalog Service Standards</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../introduction/coreconcepts/data-standards.html">Data Formats</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../introduction/coreconcepts/map-standards.html">Map Formats</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../introduction/coreconcepts/security-standards.html">Security Standards</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../introduction/coreconcepts/attribute-stores.html">Attribute Stores</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../introduction/coreconcepts/transport-protocols.html">Transport Protocols</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../introduction/coreconcepts/sso-standards.html">Single Sign On Standards</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../introduction/coreconcepts/security-sso-endpoints.html">Single Sign On Endpoints Provided by DDF</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../introduction/coreconcepts/authentication-standards.html">Authentication Standards</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../introduction/coreconcepts/cryptography-standards.html">Cryptography Standards</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../quickstart/quickstart-intro.html">Quick Start Tutorial</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../quickstart/quickstart-installing.html">Installing (Quick Start)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../quickstart/quickstart-certificates.html">Certificates (Quick Start)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../quickstart/quickstart-configuring.html">Configuring (Quick Start)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../quickstart/quickstart-ingesting.html">Ingesting (Quick Start)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/managing-intro.html">Managing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/securing/securing-intro.html">Security Hardening</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../managing/securing/auditing.html">Auditing</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/securing/hardening-intro.html">Hardening</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../managing/securing/hardening-checklist.html">Hardening Checklist</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/installing/installing-intro.html">Installing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/installing/install-prereqs.html">Installation Prerequisites</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/hardware-reqs.html">Hardware Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/java-reqs.html">Java Requirements</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/installing/install-with-zip.html">Installing with the Distributions Zip</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/file-system-access.html">Configuring Operating Permissions and Allocations</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/installing/managing-certificates.html">Managing Keystores and Certificates</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/installing/managing-certificates.html">Managing Certificates</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/installing/managing-crl.html">Managing Certificate Revocation List</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/installing/managing-keystores.html">Managing Keystores</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/installing/initial-startup.html">Initial Startup</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/installing/installing-from-admin-console.html">Completing Installation from Admin Console</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/installing/ddf-setup-types.html">Setup Types</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/installing/guest-claims-attributes.html">Guest Claims Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/installing/system-configuration-settings.html">System Configuration Settings</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/installing/configure-single-sign-on.html">Configuring Single Sign On</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/installing/finish-page.html">Finish Page</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/installing-from-the-command-line.html">Completing Installation from Command Console</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/firewall-config.html">FireWall Port Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/ie11-configuration.html">Internet Explorer 11 Enhanced Security Configuration</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/installing/high-availability-initial-setup.html">High Availability Initial Setup</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/high-availability-initial-setup-exceptions.html">High Availability Setup Exceptions</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/configure-single-sign-on.html">Configuring Single Sign On</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/ddf-setup-types.html">Setup Types</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/finish-page.html">Finish Page</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/guest-claims-attributes.html">Guest Claims Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/installing-from-admin-console.html">Completing Installation from Admin Console</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/installing-from-the-command-line.html">Completing Installation from Command Console</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/system-configuration-settings.html">System configuration Settings</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/configuring-intro.html">Configuring</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../managing/configuring/admin-console-tutorial.html">Admin Console Tutorial</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/console-commands-ref.html">Console Command Reference</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/feature-commands.html">Feature Commands</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/configuration-files.html">Configuration Files</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/global-settings.html">Configuring Global Settings with custom.system.properties</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/config-files.html">Configuring with .config Files</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/config-templates.html">Configuration Templates</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/configuring-user-access.html">Configuring User Access</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/configuring-guest-access.html">Configuring Guest Access</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/configuring-rest-for-users.html">Configuring REST Services for Users</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/securing-idp-sp.html">Securing IdP SP</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/configuring-oidc.html">Configuring OIDC</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/connecting-to-external-idp.html">Connecting to an Identity Provider</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/no-idp.html">Configuring Without an Identity Provider</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/configuring-multi-factor-auth.html">Configuring Multi-Factor Authentication</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/ldap-server.html">Connecting to an LDAP Server</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/updating-system-users.html">Updating System Users</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/securing-admin-console.html">Restricting Access to the Admin Console</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/remove-default-users.html">Removing Default Users</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/remove-default-users-cont.html">Removing Default Users (Continued)</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/disallowing-login-wo-certs.html">Disallowing Login Without Certificates</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/configuring-data-management.html">Configuring Data Management</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/configuring-solr.html">Configuring Solr</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/solr-synonyms.html">Configuring Solr Catalog Provider Synonyms</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/hardening-solr.html">Hardening Solr</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/solr-admin-ui.html">Accessing the Solr Admin UI</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/catalog-provider.html">Changing Catalog Providers</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/changing-hostname.html">Changing Hostname</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/errors-and-warnings.html">Configuring Errors and Warnings</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/enforcing-errors.html">Enforcing Errors and Warnings</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/hiding-errors.html">Hiding Errors or Warnings from Queries</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/hiding-errors-by-role.html">Hiding Errors and Warnings from Users Based on Role</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/product-cache.html">Product Caching</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/configuring-product-caching.html">Configuring Product Caching</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/content-directory-monitor.html">Content Directory Monitor</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/configuring-system-message.html">Configuring System Usage Message</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/configuring-data-policy-plugins.html">Configuring Data Policy Plugins</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/configuring-access-plugins.html">Configuring Data Access Plugins</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/configuring-security-policies.html">Configuring Security Policies</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/web-context-policy-manager.html">Configuring the Web Context Policy Manager</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/catalog-filtering.html">Configuring Catalog Filtering Policies</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/filter-policy-plugins.html">Filter Policy Plugins</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/catalog-authorization.html">Catalog Operation Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/setting-internal-policies.html">Setting Internal Policies</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/setting-xacml-policies.html">Setting XACML Policies</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/configuring-federation.html">Configuring Federation</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/enabling-ssl.html">Enabling SSL for Clients</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/http-port.html">Configuring HTTPS Ports</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/http-proxy.html">Configuring HTTP Proxy</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/connecting-to-sources.html">Connecting to Sources</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/confluence-federated-source.html">Federated Source for Atlassian Confluence&#174;</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/csw-federated-source.html">CSW Specification Profile Federated Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/csw-federation-profile-source.html">CSW Federation Profile Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/default-storage-provider.html">Content File System Storage Provider</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/gmd-csw-source.html">GMD CSW Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/opensearch-source.html">OpenSearch Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/solr-catalog-provider.html">Solr Catalog Provider</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/wfs-10-source.html">WFS 1.0 Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/wfs-11-source.html">WFS 1.1 Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/wfs-20-source.html">WFS 2.0 Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/catalog-provider-intro.html">Catalog Provider Intro</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/federation-strategy.html">Federation Strategy</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/configuring-endpoints.html">Configuring Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/configuring-csw-endpoint.html">Configuring CSW Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/configuring-catalog-rest-endpoint.html">Configuring Catalog REST Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/configuring-kml-endpoint.html">Configuring KML Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/configuring-opensearch-endpoint.html">Configuring OpenSearch Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/compression-services.html">Configuring Compression Services</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../managing/configuring/environment-hardening.html">Environment Hardening</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/special-configurations.html">Configuring for Special Deployments</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/multiple-installations.html">Multiple Installations</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/reusing-configurations.html">Reusing Configurations</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/isolating-solrcloud-zookeeper.html">Isolating SolrCloud and Zookeeper</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/configuring-fanout-proxy.html">Configuring for a Fanout Proxy</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/high-availability-config.html">Configuring for a Highly Available Cluster</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/admin-theming-configurations.html">Configuring UI Themes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/landing-page.html">Configuring Landing Page</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/logout-theming.html">Configuring Logout Page</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/platform-ui-theming.html">Platform UI Theming</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/miscellaneous-config.html">Miscellaneous Configurations</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/thread-pools.html">Configuring Thread Pools</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/jetty-threadpool-settings.html">Configuring Jetty Thread Pools</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/encryption-service.html">Encrypting Passwords</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/decanter-services.html">Decanter Services</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/running/running-intro.html">Running</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../managing/running/starting-intro.html">Starting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/running/os-services.html">Managed Services</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/running/ddf-service.html">Run DDF as a Managed Service</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/running/console-commands.html">Console Commands</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/running/console-commands-help.html">Console Commands Help</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/running/cql-syntax.html">CQL Syntax</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/running/available-console-commands.html">Available Console Commands</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/running/catalog-commands.html">Catalog Commands</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/running/solr-commands.html">Solr Commands</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/running/subscription-commands.html">Subscription Commands</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/running/platform-commands.html">Platform Commands</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/running/migrate-commands.html">Migrate Commands</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/running/store-commands.html">Persistence Store Commands</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/running/command-scheduler.html">Command Scheduler</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../managing/running/monitoring.html">Monitoring</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../managing/running/troubleshooting.html">Troubleshooting</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Data Management</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/datamanagement/ingesting.html">Ingesting Data</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/ingest-command.html">Ingest Command</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/directory-monitor-ingest.html">Content Directory Monitor Ingest</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/external-ingest.html">External Methods of Ingest</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/forms-commands.html">Creating And Managing System Search Forms Through Karaf</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/other-ingest.html">Other Methods of Ingest</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/datamanagement/validating-data.html">Validating Data</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/validator-plugins.html">Validator Plugins on Ingest</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/schematron-validation.html">Configuring Schematron Services</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/viewing-invalid.html">Viewing Invalid Metacards</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/editing-attributes.html">Manually Editing Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/injecting-attributes.html">Injecting Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/overriding-attributes.html">Overriding Attributes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../managing/datamanagement/catalog-backup.html">Backing Up the Catalog</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/datamanagement/removing-expired-records.html">Removing Expired Records from the Catalog</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/auto-removing-expired.html">Automated Removal of Expired Resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/manual-removal-expired.html">Manually Removing Expired Resources</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/datamanagement/data-migration-intro.html">Migrating Data</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/exporting-metadata.html">Exporting Metadata</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/ingesting-exported-metadata.html">Ingesting Exported Metadata</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/datamanagement/automatically-added-metacard-attributes.html">Automatically Added Metacard Attributes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/datamanagement/attributes-added-on-ingest.html">Attributes Added on Ingest</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/datamanagement/attributes-added-by-input-transformers.html">Attributes Added by Input Transformers</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/datamanagement/attributes-added-by-attribute-injection.html">Attributes Added by Attribute Injection</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/datamanagement/attributes-added-by-default-attribute-types.html">Attributes Added by Default Attribute Types</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/datamanagement/attributes-added-by-attribute-overrides-ingest.html">Attributes Added by Attribute Overrides (Ingest)</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/datamanagement/attributes-added-by-pre-authorization-plugins.html">Attributes Added by Pre-Authorization Plugins</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/datamanagement/attributes-added-by-pre-ingest-plugins.html">Attributes Added by Pre-Ingest Plugins</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/datamanagement/attributes-added-on-query.html">Attributes Added on Query</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/datamanagement/attributes-added-by-attribute-overrides-query.html">Attributes Added by Attribute Overrides (Query)</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integrating/integrating-intro.html">Integrating Intro</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../integrating/high-availability-integrating-warning.html">High Availability Warning</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integrating/endpoints/endpoint-intro.html">Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integrating/endpoints/ingest-endpoints-intro.html">Ingest Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../integrating/endpoints/catalog-rest-endpoint.html">Catalog REST Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../integrating/endpoints/csw-endpoint.html">CSW Endpoint</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integrating/endpoints/crud-endpoints-intro.html">CRUD Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../integrating/endpoints/catalog-rest-endpoint.html">Catalog REST Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../integrating/endpoints/csw-endpoint.html">CSW Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../integrating/endpoints/query-endpoints.html">Queries Endpoint</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integrating/endpoints/query-endpoints-intro.html">Query Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../integrating/endpoints/csw-endpoint.html">CSW Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../integrating/endpoints/opensearch-endpoint.html">OpenSearch Endpoint</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integrating/endpoints/content-endpoints-intro.html">Content Retrieval Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../integrating/endpoints/catalog-rest-endpoint.html">Catalog REST Endpoint</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integrating/endpoints/pub-sub-endpoints-intro.html">Pub-Sub Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../integrating/endpoints/csw-endpoint.html">CSW Endpoint</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/architecture-intro.html">Architectures</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../architectures/catalog-api.html">Catalog API</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../architectures/data-intro.html">Data</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../architectures/operations-intro.html">Operations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/resources-intro.html">Resources</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/content-item.html">Content Item</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../architectures/retrieving-resources.html">Retrieving Resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../architectures/retrieving-resources-options.html">Retrieving Resource Options</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../architectures/storing-resources.html">Storing Resources</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../architectures/resource-components-intro.html">Resource Components</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/resource-readers-intro.html">Resource Readers</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../architectures/url-resource-reader.html">URL Resource Reader</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../architectures/resource-writers-intro.html">Resource Writers</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/queries-intro.html">Queries</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/filter-intro.html">Filters</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../architectures/filterbuilder-api.html">FilterBuilder API</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/metrics-intro.html">Metrics</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/metrics-collection.html">Metrics Collection Application</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../architectures/catalog-metrics.html">Catalog Metrics</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../architectures/source-metrics.html">Source Metrics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/metrics-reporting.html">Metrics Reporting Application</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../architectures/viewing-metrics-tab.html">Viewing Metrics</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/action-framework-intro.html">Action Framework</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../architectures/action-providers.html">Action Providers</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../architectures/processing-framework-intro.html">Asynchronous Processing Framework</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../architectures/eventing-intro.html">Eventing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../architectures/migration-api.html">Migration API</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../developing-intro.html">Developing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Developing Custom Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../devguidelines/highly-available-link.html">Highly Available Cluster Notice</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-applications.html">Developing Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-catalog-frameworks.html">Developing Complementary Catalog Frameworks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="metacard-type.html">Developing Metacard Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="global-attribute-validators.html">Developing Global Attribute Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="attribute-type.html">Developing Attribute Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="default-attribute-values.html">Developing Default Attribute Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="attribute-injection.html">Developing Attribute Injections</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-endpoints.html">Developing Endpoints</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-transformers-input.html">Developing Input Transformers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-transformers-metacard.html">Developing Metacard Transformers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="transformers-query-response.html">Developing Query Response Transformers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-sources.html">Developing Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-plugins.html">Developing Catalog Plugins</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-token-validators.html">Developing Token Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-sts-claims-handlers.html">Developing STS Claims Handlers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-registry-clients.html">Developing Registry Clients</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-resource-readers.html">Developing Resource Readers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-resource-writers.html">Developing Resource Writers</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="custom-filters.html">Developing Filters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="filter-delegates.html">Developing Filter Delegates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-action-components.html">Developing Action Components</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-query-options.html">Developing Query Options</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="managed-service-factories.html">Configuring Managed Service Factory Bundles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-xacml-policies.html">Developing XACML Policies</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="assuring-bundles-and-apps.html">Assuring Authenticity of Bundles and Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="json-definition-files.html">JSON Definition Files</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Development Guidelines</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../devguidelines/contributing-intro.html">Contributing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../devguidelines/high-availability-guidance.html">High Availability Guidance</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../devguidelines/editing-docs.html"> Contributing to Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../devguidelines/osgi-basics.html">OSGi Basics</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Application References</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/appReferences/mg-admin.html">Admin Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/appReferences/mg-catalog.html">Catalog Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/appReferences/mg-platform.html">Platform Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/appReferences/mg-security.html">Security Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/appReferences/mg-solr.html">Solr Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/appReferences/mg-spatial.html">Spatial Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/appReferences/mg-ui.html">Intrigue Application Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../reference/whitelists/whitelist-intro.html">Application Whitelists</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/whitelists/removed-whitelist.html">Packages Removed From Whitelist</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/whitelists/catalog-whitelist.html">Catalog Whitelist</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/whitelists/platform-whitelist.html">Platform Whitelist</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/whitelists/security-whitelist.html">Security Whitelist</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/whitelists/solr-whitelist.html">Solr Whitelist</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/whitelists/spatial-whitelist.html">Spatial Whitelist</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../reference/dependencyList/dependency-list-intro.html">DDF Dependency List</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/dependencyList/ddf-dependency-list.html">Java Dependency List</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/dependencyList/js-dependency-list.html">JavaScript Dependency List</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../metadatareference/metadata-attributes-intro.html">Metadata Reference</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../metadatareference/common-metadata-attributes.html">Common Metadata Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../metadatareference/format-specific-attributes.html">File Format-specific Attributes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/mp4-attributes.html">Mp4 Additional Attribute</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/complete-list-file-types.html">All File Formats Supported</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../metadatareference/catalog-taxonomy-intro.html">Catalog Taxonomy Definitions</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/core-attributes-table.html">Core Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/associations-attributes-table.html">Associations Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/contact-attributes-table.html">Contact Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/datetime-attributes-table.html">DateTime Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/history-attributes-table.html">History Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/location-attributes-table.html">Location Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/media-attributes-table.html">Media Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/metacard-attributes-table.html">Metacard Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/security-attributes-table.html">Security Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/topic-attributes-table.html">Topic Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/validation-attributes-table.html">Validation Attributes</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">DDF</span>
+    <span class="version">2.25.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">DDF</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">2.25.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">DDF</a></li>
+    <li><a href="../developing-intro.html">Developing</a></li>
+    <li>Developing Custom Components</li>
+    <li><a href="custom-filters.html">Developing Filters</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Developing Filters</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The common way to create a <code>Filter</code> is to use the GeoTools <code>FilterFactoryImpl</code> object, which provides Java implementations for the various types of filters in the Filter Specification.
+Examples are the easiest way to understand how to properly create a <code>Filter</code> and a <code>Query</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Refer to the <a href="http://docs.geotools.org/latest/javadocs/">GeoTools javadoc</a> for more information on <code>FilterFactoryImpl</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Implementing the Filter interface directly is only for extremely advanced use cases and is highly discouraged.
+Instead, use of the DDF-specific <code>FilterBuilder</code> API is recommended.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Developers create a <code>Filter</code> object in order to filter or constrain the amount of records returned from a <code>Source</code>.
+The OGC Filter Specification has several types of filters that can be combined in a tree-like structure to describe the set of metacards that should be returned.</p>
+</div>
+<div class="ulist">
+<div class="title">Categories of Filters</div>
+<ul>
+<li>
+<p>Comparison Operators</p>
+</li>
+<li>
+<p>Logical Operators</p>
+</li>
+<li>
+<p>Expressions</p>
+</li>
+<li>
+<p>Literals</p>
+</li>
+<li>
+<p>Functions</p>
+</li>
+<li>
+<p>Spatial Operators</p>
+</li>
+<li>
+<p>Temporal Operators</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_units_of_measure"><a class="anchor" href="#_units_of_measure"></a>Units of Measure</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>According to the <a href="http://www.opengeospatial.org/standards/filter">OGC Filter Specifications: 09-026r1</a> &raquo; and <a href="http://www.opengeospatial.org/standards/filter">OGC Filter Specifications: 04-095</a> &raquo;, units of measure can be expressed as a URI.
+To fulfill that requirement, DDF utilizes the GeoTools class <code>org.geotools.styling.UomOgcMapping</code> for spatial filters requiring a standard for units of measure for scalar distances.
+Essentially, the <code>UomOgcMapping</code> maps the <a href="http://www.opengeospatial.org/standards/symbol">OGC Symbology Encoding</a> &raquo; standard URIs to Java Units.
+This class provides three options for units of measure:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>FOOT</p>
+</li>
+<li>
+<p>METRE</p>
+</li>
+<li>
+<p>PIXEL</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>DDF only supports FOOT and METRE since they are the most applicable to scalar distances.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_filter_examples"><a class="anchor" href="#_filter_examples"></a>Filter Examples</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The example below illustrates creating a query, and thus an OGC Filter, that does a case-insensitive search for the phrase "mission" in the entire metacard&#8217;s text.
+Note that the OGC <code>PropertyIsLike</code> Filter is used for this simple contextual query.</p>
+</div>
+<div class="listingblock">
+<div class="title">Simple Contextual Search</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">org.opengis.filter.FilterFactory filterFactory = new FilterFactoryImpl() ;
+boolean isCaseSensitive = false ;
+
+String wildcardChar = "*" ; // used to match zero or more characters
+String singleChar = "?" ; // used to match exactly one character
+String escapeChar = "\\" ; // used to escape the meaning of the wildCard, singleChar,
+and the escapeChar itself
+
+String searchPhrase = "mission" ;
+org.opengis.filter.Filter propertyIsLikeFilter =
+    filterFactory.like(filterFactory.property(Metacard.ANY_TEXT), searchPhrase, wildcardChar, singleChar, escapeChar, isCaseSensitive);
+{ddf-branding}.catalog.operation.QueryImpl query = new QueryImpl( propertyIsLikeFilter );</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The example below illustrates creating an absolute temporal query, meaning the query is searching for Metacards whose modified timestamp occurred during a specific time range.
+Note that this query uses the <code>During</code> OGC Filter for an absolute temporal query.</p>
+</div>
+<div class="listingblock">
+<div class="title">Absolute Temporal Search</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">org.opengis.filter.FilterFactory filterFactory = new FilterFactoryImpl() ;
+org.opengis.temporal.Instant startInstant = new org.geotools.temporal.object.DefaultInstant(new DefaultPosition(start));
+
+org.opengis.temporal.Instant endInstant = new org.geotools.temporal.object.DefaultInstant(new DefaultPosition(end));
+
+org.opengis.temporal.Period period =  new org.geotools.temporal.object.DefaultPeriod(startInstant, endInstant);
+
+String property = Metacard.MODIFIED ; // modified date of a metacard
+
+org.opengis.filter.Filter filter = filterFactory.during( filterFactory.property(property), filterFactory.literal(period)  );
+
+{ddf-branding}.catalog.operation.QueryImpl query = new QueryImpl(filter) ;</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_contextual_searches"><a class="anchor" href="#_contextual_searches"></a>Contextual Searches</h3>
+<div class="paragraph">
+<p>Most contextual searches can be expressed using the <code>PropertyIsLike</code> filter. The special characters that have meaning in a <code>PropertyIsLike</code> filter are the wildcard, single wildcard, and escape characters (see Example Creating-Filters-1).</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. <code>PropertyIsLike</code> Special Characters</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Character</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Wildcard</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Matches zero or more characters.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single Wildcard</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Matches exactly one character.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Escape</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Escapes the meaning of the Wildcard, Single Wildcard, and the Escape character itself</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Characters and words, such as <code>AND</code>, <code>&amp;</code>, <code>and</code>, <code>OR</code>, <code>|</code>, <code>or</code>, <code>NOT</code>, <code>~</code>, <code>not</code>, <code>{</code>, and <code>}</code>, are treated as literals in a <code>PropertyIsLike</code> filter. In order to create equivalent logical queries, a developer must instead use the Logical Operator filters {<code>AND</code>, <code>OR</code>, <code>NOT</code>}. The Logical Operator filters can be combined together with <code>PropertyIsLike</code> filters to create a tree that represents the search phrase expression.</p>
+</div>
+<div class="listingblock">
+<div class="title">Creating the search phrase "mission and planning"</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">org.opengis.filter.FilterFactory filterFactory = new FilterFactoryImpl() ;
+
+boolean isCaseSensitive = false ;
+
+String wildcardChar = "*" ; // used to match zero or more characters
+String singleChar = "?" ; // used to match exactly one character
+String escapeChar = "\\" ; // used to escape the meaning of the wildCard, singleChar, and the escapeChar itself
+
+Filter filter =
+    filterFactory.and(
+       filterFactory.like(filterFactory.property(Metacard.METADATA), "mission" ,
+wildcardChar, singleChar, escapeChar, isCaseSensitive),
+       filterFactory.like(filterFactory.property(Metacard.METADATA), "planning" ,
+wildcardChar, singleChar, escapeChar, isCaseSensitive)
+    );
+
+{ddf-branding}.catalog.operation.QueryImpl query = new QueryImpl( filter );</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_tree_view_of_creating_filters"><a class="anchor" href="#_tree_view_of_creating_filters"></a>Tree View of Creating Filters</h4>
+<div class="paragraph">
+<p>Filters used in DDF can always be represented in a tree diagram.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/filter-example-tree.png" alt="Filter Example Tree">
+</div>
+<div class="title">Figure 1. Filter Example Tree Diagram</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_xml_view_of_creating_filters"><a class="anchor" href="#_xml_view_of_creating_filters"></a>XML View of Creating Filters</h4>
+<div class="paragraph">
+<p>Another way to view this type of Filter is through an XML model, which is shown below.</p>
+</div>
+<div class="listingblock">
+<div class="title">Pseudo XML of Example Creating-Filters-3</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;Filter&gt;
+   &lt;And&gt;
+      &lt;PropertyIsLike wildCard="*" singleChar="?" escapeChar="\"&gt;
+           &lt;PropertyName&gt;metadata&lt;/PropertyName&gt;
+           &lt;Literal&gt;mission&lt;/Literal&gt;
+      &lt;/PropertyIsLike&gt;
+      &lt;PropertyIsLike wildCard="*" singleChar="?" escapeChar="\"&gt;
+           &lt;PropertyName&gt;metadata&lt;/PropertyName&gt;
+           &lt;Literal&gt;planning&lt;/Literal&gt;
+      &lt;/PropertyIsLike&gt;
+   &lt;And&gt;
+&lt;/Filter&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Using the Logical Operators and <code>PropertyIsLike</code> filters, a developer can create a whole language of search phrase expressions.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_fuzzy_operations"><a class="anchor" href="#_fuzzy_operations"></a>Fuzzy Operations</h3>
+<div class="paragraph">
+<p>DDF only supports one custom function.
+The Filter specification does not include a fuzzy operator, so a Filter function was created to represent a fuzzy operation.
+The function and class is called <code>FuzzyFunction</code>, which is used by clients to notify the Sources to perform a fuzzy search.
+The syntax expected by providers is similar to the Fuzzy Function.
+Refer to the example below.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">String wildcardChar = "*" ; // used to match zero or more characters
+String singleChar = "?" ; // used to match exactly one character
+String escapeChar = "\\" ; // used to escape the meaning of the wildCard, singleChar
+
+boolean isCaseSensitive = false ;
+
+Filter fuzzyFilter = filterFactory.like(
+     new {ddf-branding}.catalog.impl.filter.FuzzyFunction(
+          Arrays.asList((Expression) (filterFactory.property(Metacard.ANY_TEXT))),
+          filterFactory.literal("")),
+     searchPhrase,
+     wildcardChar,
+     singleChar,
+     escapeChar,
+     isCaseSensitive);
+
+QueryImpl query = new QueryImpl(fuzzyFilter);</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_parsing_filters"><a class="anchor" href="#_parsing_filters"></a>Parsing Filters</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>According to the <a href="http://www.opengeospatial.org/standards/filter">OGC Filter Specification 04-095</a> &raquo;: a "(filter expression) representation can be &#8230;&#8203; parsed and then transformed into whatever target language is required to retrieve or modify object instances stored in some persistent object store."
+Filters can be thought of as the <code>WHERE</code> clause for a SQL SELECT statement to "fetch data stored in a SQL-based relational database."</p>
+</div>
+<div class="paragraph">
+<p>Sources can parse OGC Filters using the <code>FilterAdapter</code> and <code>FilterDelegate</code>.
+See Developing a Filter Delegate for more details on implementing a new <code>FilterDelegate</code>.
+This is the preferred way to handle OGC Filters in a consistent manner.</p>
+</div>
+<div class="paragraph">
+<p>Alternately, <code>org.opengis.filter.Filter</code> implementations can be parsed using implementations of the interface <code>org.opengis.filter.FilterVisitor</code>.
+The <code>FilterVisitor</code> uses the http://www.oodesign.com/visitor-pattern.html[Visitor pattern] &raquo;. Essentially, <code>FilterVisitor</code> instances "visit" each part of the <code>Filter</code> tree allowing developers to implement logic to handle the filter&#8217;s operations.
+GeoTools 8 includes implementations of the <code>FilterVisitor</code> interface.
+The <code>DefaultFilterVisitor</code>, as an example, provides only business logic to visit every node in the <code>Filter</code> tree.
+The <code>DefaultFilterVisitor</code> methods are meant to be overwritten with the correct business logic.
+The simplest approach when using <code>FilterVisitor</code> instances is to build the appropriate query syntax for a target language as each part of the <code>Filter</code> is visited.
+For instance, when given an incoming <code>Filter</code> object to be evaluated against a RDBMS, a <code>CatalogProvider</code> instance could use a <code>FilterVisitor</code> to interpret each filter operation on the <code>Filter</code> object and translate those operations into SQL.
+The <code>FilterVisitor</code> may be needed to support <code>Filter</code> functionality not currently handled by the <code>FilterAdapter</code> and <code>FilterDelegate</code> reference implementation.</p>
+</div>
+<div class="sect2">
+<h3 id="_interpreting_a_filter_to_create_sql"><a class="anchor" href="#_interpreting_a_filter_to_create_sql"></a>Interpreting a Filter to Create SQL</h3>
+<div class="paragraph">
+<p>If the <code>FilterAdapter</code> encountered or "visited" a <code>PropertyIsLike</code> filter with its property assigned as <code>title</code> and its literal expression assigned as <code>mission</code>, the <code>FilterDelegate</code> could create the proper SQL syntax similar to title <code>LIKE</code> mission.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/parsing-filters.png" alt="Parsing Filters">
+</div>
+<div class="title">Figure 2. Parsing Filters Tree Diagram</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_interpreting_a_filter_to_create_xquery"><a class="anchor" href="#_interpreting_a_filter_to_create_xquery"></a>Interpreting a Filter to Create XQuery</h3>
+<div class="paragraph">
+<p>If the <code>FilterAdapter</code> encountered an <code>OR</code> filter, such as in Figure Parsing-Filters2 and the target language was XQuery, the <code>FilterDelegate</code> could yield an expression such as</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code>ft:query(//inventory:book/@subject,'math') union
+ft:query(//inventory:book/@subject,'science').</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/parsing-filters-xquery.png" alt="Parsing Filters XQuery">
+</div>
+<div class="title">Figure 3. Parsing Filters XQuery</div>
+</div>
+<div class="sect3">
+<h4 id="_filteradapterdelegate_process_for_figure_parsing"><a class="anchor" href="#_filteradapterdelegate_process_for_figure_parsing"></a>FilterAdapter/Delegate Process for Figure Parsing</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>FilterAdapter</code> visits the <code>OR</code> filter first.</p>
+</li>
+<li>
+<p><code>OR</code> filter visits its children in a loop.</p>
+</li>
+<li>
+<p>The first child in the loop that is encountered is the LHS <code>PropertyIsLike</code>.</p>
+</li>
+<li>
+<p>The <code>FilterAdapter</code> will call the <code>FilterDelegate</code> <code>PropertyIsLike</code> method with the LHS property and literal.</p>
+</li>
+<li>
+<p>The LHS <code>PropertyIsLike</code> delegate method builds the XQuery syntax that makes sense for this particular underlying object store. In this case, the <em>subject</em> property is specific to this XML database, and the business logic maps the <em>subject</em> property to its index at <code>//inventory:book/@subject</code> Note that <code>ft:query</code> in this instance is a custom XQuery module for this specific XML database that does full text searches.</p>
+</li>
+<li>
+<p>The <code>FilterAdapter</code> then moves back to the <code>OR</code> filter, which visits its second child.</p>
+</li>
+<li>
+<p>The <code>FilterAdapter</code> will call the <code>FilterDelegate</code> <code>PropertyIsLike</code> method with the RHS property and literal.</p>
+</li>
+<li>
+<p>The RHS <code>PropertyIsLike</code> delegate method builds the XQuery syntax that makes sense for this particular underlying object store. In this case, the <em>subject</em> property is specific to this XML database, and the business logic maps the <em>subject</em> property to its index at <code>//inventory:book/@subject</code> Note that <code>ft:query</code> in this instance is a custom XQuery module for this specific XML database that does full text searches.
+. The <code>FilterAdapter</code> then moves back to its <code>OR</code> Filter which is now done with its children.</p>
+</li>
+<li>
+<p>It then collects the output of each child and sends the list of results to the <code>FilterDelegate OR</code> method.</p>
+</li>
+<li>
+<p>The final result object will be returned from the <code>FilterAdapter</code> adapt method.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_filtervisitor_process_for_figure_parsing"><a class="anchor" href="#_filtervisitor_process_for_figure_parsing"></a>FilterVisitor Process for Figure Parsing</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>FilterVisitor visits the <code>OR</code> filter first.</p>
+</li>
+<li>
+<p><code>OR</code> filter visits its children in a loop.</p>
+</li>
+<li>
+<p>The first child in the loop that is encountered is the LHS <code>PropertyIsLike</code>.</p>
+</li>
+<li>
+<p>The LHS <code>PropertyIsLike</code> builds the XQuery syntax that makes sense for this particular underlying object store. In this case, the <em>subject</em> property is specific to this XML database, and the business logic maps the <em>subject</em> property to its index at <code>//inventory:book/@subject</code>. Note that <code>ft:query</code> in this instance is a custom XQuery module for this specific XML database that does full text searches.</p>
+</li>
+<li>
+<p>The FilterVisitor then moves back to the <code>OR</code> filter, which visits its second child.</p>
+</li>
+<li>
+<p>The RHS <code>PropertyIsLike</code> builds the XQuery syntax that makes sense for this particular underlying object store. In this case, the <em>subject</em> property is specific to this XML database, and the business logic maps the <em>subject</em> property to its index at <code>//inventory:book/@subject</code>. Note that <code>ft:query</code> in this instance is a custom XQuery module for this specific XML database that does full text searches.</p>
+</li>
+<li>
+<p>The FilterVisitor then moves back to its <code>OR</code> filter, which is now done with its children. It then collects the output of each child and could potentially execute the following code to produce the above expression.</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public visit( Or filter, Object data) {
+...
+   /* the equivalent statement for the OR filter in this domain (XQuery) */
+   xQuery = childFilter1Output + " union " + childFilter2Output;
+...
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_filter_profile"><a class="anchor" href="#_filter_profile"></a>Filter Profile</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The filter profile maps filters to metacard types.</p>
+</div>
+<div class="sect2">
+<h3 id="_role_of_the_ogc_filter"><a class="anchor" href="#_role_of_the_ogc_filter"></a>Role of the OGC Filter</h3>
+<div class="paragraph">
+<p>Both Queries and Subscriptions extend the OGC GeoAPI Filter interface.</p>
+</div>
+<div class="paragraph">
+<p>The Filter Builder and Adapter do not fully implement the OGC Filter Specification.
+The filter support profile contains suggested filter to metacard type mappings.
+For example, even though a Source could support a <code>PropertyIsGreaterThan</code> filter on <code>XML_TYPE</code>, it would not likely be useful.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_catalog_filter_profile"><a class="anchor" href="#_catalog_filter_profile"></a>Catalog Filter Profile</h3>
+<div class="paragraph">
+<p>The following table displays the common metacard attributes with their respective types for reference.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. Metacard Attribute To Type Mapping</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Metacard Attribute</th>
+<th class="tableblock halign-left valign-top">Metacard Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ANY_DATE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DATE_TYPE</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ANY_GEO</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GEO_TYPE</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ANY_TEXT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING_TYPE</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CONTENT_TYPE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING_TYPE</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CONTENT_TYPE_VERSION</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING_TYPE</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CREATED</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DATE_TYPE</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EFFECTIVE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DATE_TYPE</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GEOGRAPHY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GEO_TYPE</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING_TYPE</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">METADATA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">XML_TYPE</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MODIFIED</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DATE_TYPE</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RESOURCE_SIZE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING_TYPE</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RESOURCE_URI</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING_TYPE</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SOURCE_ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING_TYPE</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TARGET_NAMESPACE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING_TYPE</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">THUMBNAIL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BINARY_TYPE</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TITLE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING_TYPE</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="_comparison_operators"><a class="anchor" href="#_comparison_operators"></a>Comparison Operators</h4>
+<div class="paragraph">
+<p>Comparison operators compare the value associated with a property name with a given Literal value.
+Endpoints and sources should try to use metacard types other than the object type.
+The object type only supports backwards compatibility with <code>java.net.URI</code>.
+Endpoints that send other objects will not be supported by standard sources.
+The following table maps the metacard types to supported comparison operators.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 3. Metacard Types to Comparison Operators</caption>
+<colgroup>
+<col style="width: 8.3333%;">
+<col style="width: 8.3333%;">
+<col style="width: 8.3333%;">
+<col style="width: 8.3333%;">
+<col style="width: 8.3333%;">
+<col style="width: 8.3333%;">
+<col style="width: 8.3333%;">
+<col style="width: 8.3333%;">
+<col style="width: 8.3333%;">
+<col style="width: 8.3333%;">
+<col style="width: 8.3333%;">
+<col style="width: 8.3337%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">PropertyIs</th>
+<th class="tableblock halign-left valign-top">Between</th>
+<th class="tableblock halign-left valign-top">EqualTo</th>
+<th class="tableblock halign-left valign-top">GreaterThan</th>
+<th class="tableblock halign-left valign-top">GreaterThan</th>
+<th class="tableblock halign-left valign-top">OrEqualTo</th>
+<th class="tableblock halign-left valign-top">LessThan</th>
+<th class="tableblock halign-left valign-top">LessThan</th>
+<th class="tableblock halign-left valign-top">OrEqualTo</th>
+<th class="tableblock halign-left valign-top">Like</th>
+<th class="tableblock halign-left valign-top">NotEqualTo</th>
+<th class="tableblock halign-left valign-top">Null</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BINARY_TYPE</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BOOLEAN_TYPE</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DATE_TYPE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DOUBLE_TYPE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FLOAT_TYPE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GEO_TYPE</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INTEGER_TYPE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LONG_TYPE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OBJECT_TYPE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SHORT_TYPE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">STRING_TYPE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">XML_TYPE</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 4. Comparison Operators</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Operator</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PropertyIsBetween</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lower &#8656; Property &#8656; Upper</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PropertyIsEqualTo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Property == Literal</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PropertyIsGreaterThan</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Property &gt; Literal</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PropertyIsGreaterThanOrEqualTo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Property &gt;= Literal</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PropertyIsLessThan</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Property &lt; Literal</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PropertyIsLessThanOrEqualTo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Property &#8656; Literal</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PropertyIsLike</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Property LIKE Literal</p>
+<p class="tableblock">Equivalent to SQL "like"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PropertyIsNotEqualTo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Property != Literal</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PropertyIsNull</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Property == null</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_logical_operators"><a class="anchor" href="#_logical_operators"></a>Logical Operators</h4>
+<div class="paragraph">
+<p>Logical operators apply Boolean logic to one or more child filters.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 5. Supported Logical Operators</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">And</th>
+<th class="tableblock halign-left valign-top">Not</th>
+<th class="tableblock halign-left valign-top">Or</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Supported Filters</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_temporal_operators"><a class="anchor" href="#_temporal_operators"></a>Temporal Operators</h4>
+<div class="paragraph">
+<p>Temporal operators compare a date associated with a property name to a given Literal date or date range.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 6. Supported Temporal Operators</caption>
+<colgroup>
+<col style="width: 8.3333%;">
+<col style="width: 8.3333%;">
+<col style="width: 8.3333%;">
+<col style="width: 8.3333%;">
+<col style="width: 8.3333%;">
+<col style="width: 8.3333%;">
+<col style="width: 8.3333%;">
+<col style="width: 8.3333%;">
+<col style="width: 8.3333%;">
+<col style="width: 8.3333%;">
+<col style="width: 8.3333%;">
+<col style="width: 8.3337%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">After</th>
+<th class="tableblock halign-left valign-top">AnyInteracts</th>
+<th class="tableblock halign-left valign-top">Before</th>
+<th class="tableblock halign-left valign-top">Begins</th>
+<th class="tableblock halign-left valign-top">BegunBy</th>
+<th class="tableblock halign-left valign-top">During</th>
+<th class="tableblock halign-left valign-top">EndedBy</th>
+<th class="tableblock halign-left valign-top">Meets</th>
+<th class="tableblock halign-left valign-top">MetBy</th>
+<th class="tableblock halign-left valign-top">OverlappedBy</th>
+<th class="tableblock halign-left valign-top">TContains</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DATE_TYPE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Literal values can be either date instants or date periods.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 7. Temporal Operator Descriptions</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Operator</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">After</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Property &gt; (Literal || Literal.end)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Before</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Property &lt; (Literal || Literal.start)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">During</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Literal.start &lt; Property &lt; Literal.end</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_spatial_operators"><a class="anchor" href="#_spatial_operators"></a>Spatial Operators</h4>
+<div class="paragraph">
+<p>Spatial operators compare a geometry associated with a property name to a given Literal geometry.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 8. Supported Spatial Operators.</caption>
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.0909%;">
+<col style="width: 9.091%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BBox</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Beyond</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Contains</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Crosses</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disjoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Equals</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DWithin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Intersects</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Overlaps</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Touches</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Within</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GEO_TYPE</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>X</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Geometries are usually represented as Well-Known Text (<em>WKT</em>).</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 9. Spatial Operator Descriptions</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Operator</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Beyond</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Property geometries beyond given distance of Literal geometry</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Contains</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Property geometry contains Literal geometry</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Crosses</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Property geometry crosses Literal geometry</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Disjoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Property geometry direct positions are not interior to Literal geometry</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DWithin</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Property geometry lies within distance to Literal geometry</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Intersects</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Property geometry intersects Literal geometry; opposite to the Disjoint operator</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Overlaps</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Property geometry interior overlaps Literal geometry interior somewhere</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Touches</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Property geometry touches but does not overlap Literal geometry</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Within</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Property geometry completely contains Literal geometry</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (c) Codice Foundation.</p>
+  <p>This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0">Creative Commons Attribution 4.0 International License</a>.</p>
+</footer>
+<script type="text/javascript">
+  window.antora = window.antora || {}
+  window.antora.basePath = '../../../..'
+  window.antora.pagePath = '/ddf-docs-site/2.25.0/developing/devcomponents/custom-filters.html'
+</script>
+<script src="../../../../_/js/site.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/vendor/search.js"></script>
+<script async src="../../../../_/../search-index.js"></script>
+<script src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/jquery-1.11.3.min.js"></script>
+<script src="../../../../_/js/script.js"></script>
+<script>hljs.initHighlighting()</script>
+  </body>
+</html>

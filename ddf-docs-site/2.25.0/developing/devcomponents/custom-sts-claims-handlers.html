@@ -1,0 +1,2394 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Developing STS Claims Handlers :: DDF</title>
+    <link rel="canonical" href="https://ricklarsen.github.com/ddf-docs-site/2.25.0/developing/devcomponents/custom-sts-claims-handlers.html">
+    <meta name="generator" content="Antora 2.3.3">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+<link rel="stylesheet" href="../../../../_/css/search.css">
+<link rel="stylesheet" href="../../../../_/css/nase.css">
+  </head>
+  <body class="article">
+<header class="header" role="banner">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://ricklarsen.github.com"><img src="../../../../_/img/logo_navbar.png" alt="Logo" height="50px"> DDF</a>
+
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://ricklarsen.github.com/ddf-docs-site/2.25.0/index.html">Home</a>
+        <a class="navbar-item" href="https://ricklarsen.github.com/ddf-docs-site/2.25.0/features.html">Features</a>
+        <a class="navbar-item" href="https://ricklarsen.github.com/ddf-docs-site/2.25.0/download.html">Download</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="https://ricklarsen.github.com/ddf-docs-site/2.25.0/introduction/introduction.html">Documentation</a>
+          <div class="navbar-dropdown">
+                <a href="" class="navbar-item"></a>
+                <a href="/ddf-docs-site/2.25.0/release-notes/release-notes.html" class="navbar-item">Release Notes</a>
+                <a href="/ddf-docs-site/2.25.0/introduction/introduction.html" class="navbar-item">Introduction</a>
+                <a href="/ddf-docs-site/2.25.0/quickstart/quickstart-intro.html" class="navbar-item">Quick Start Tutorial</a>
+                <a href="/ddf-docs-site/2.25.0/managing/managing-intro.html" class="navbar-item">Managing</a>
+                <a href="/ddf-docs-site/2.25.0/integrating/integrating-intro.html" class="navbar-item">Integrating Intro</a>
+                <a href="/ddf-docs-site/2.25.0/architectures/architecture-intro.html" class="navbar-item">Architectures</a>
+                <a href="/ddf-docs-site/2.25.0/developing/developing-intro.html" class="navbar-item">Developing</a>
+                <a href="" class="navbar-item">Reference</a>
+                <a href="/ddf-docs-site/2.25.0/metadatareference/metadata-attributes-intro.html" class="navbar-item">Metadata Reference</a>
+          </div>
+        </div>
+        <a class="navbar-item" href="https://ricklarsen.github.com/ddf-docs-site/2.25.0/support.html">Support</a>
+            <div class="navbar-item">
+              <input id="search-input" type="text" placeholder="Search">
+            </div>
+        </div>
+
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="ddf-docs-site" data-version="2.25.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">DDF</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../features.html">Features</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../download.html">Download</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../faq.html">FAQ</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../support.html">Support</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><em>Documentation:</em></span>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../release-notes/release-notes.html">Release Notes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../release-notes/archive.html">Archive</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../introduction/introduction.html">Introduction</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../introduction/applications.html">Component Applications</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../introduction/documentation-notes.html">Documentation Guide</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../introduction/coreconcepts/core-concepts-intro.html">Core Concepts</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../introduction/coreconcepts/search-intro.html">Introduction to Search</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../introduction/coreconcepts/metadata-intro.html">Introduction to Metadata</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../introduction/coreconcepts/ingest-intro.html">Introduction to Ingest</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../introduction/coreconcepts/resources-intro.html">Introduction to Resources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../introduction/coreconcepts/catalog-framework-intro.html">Introduction to the Catalog Framework</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../introduction/coreconcepts/federation-intro.html">Introduction to Federation and Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../introduction/coreconcepts/events-subscriptions-intro.html">Introduction to Events and Subscriptions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../introduction/coreconcepts/endpoints-intro.html">Introduction to Endpoints</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../introduction/coreconcepts/high-availability-intro.html">Introduction to High Availability</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../introduction/coreconcepts/high-availability-supported-capabilities.html">High Availability Supported Capabilities</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../introduction/coreconcepts/standards-intro.html">Standards Supported by DDF</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../introduction/coreconcepts/service-standards.html">Catalog Service Standards</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../introduction/coreconcepts/data-standards.html">Data Formats</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../introduction/coreconcepts/map-standards.html">Map Formats</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../introduction/coreconcepts/security-standards.html">Security Standards</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../introduction/coreconcepts/attribute-stores.html">Attribute Stores</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../introduction/coreconcepts/transport-protocols.html">Transport Protocols</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../introduction/coreconcepts/sso-standards.html">Single Sign On Standards</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../introduction/coreconcepts/security-sso-endpoints.html">Single Sign On Endpoints Provided by DDF</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../introduction/coreconcepts/authentication-standards.html">Authentication Standards</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../introduction/coreconcepts/cryptography-standards.html">Cryptography Standards</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../quickstart/quickstart-intro.html">Quick Start Tutorial</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../quickstart/quickstart-installing.html">Installing (Quick Start)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../quickstart/quickstart-certificates.html">Certificates (Quick Start)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../quickstart/quickstart-configuring.html">Configuring (Quick Start)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../quickstart/quickstart-ingesting.html">Ingesting (Quick Start)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/managing-intro.html">Managing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/securing/securing-intro.html">Security Hardening</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../managing/securing/auditing.html">Auditing</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/securing/hardening-intro.html">Hardening</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../managing/securing/hardening-checklist.html">Hardening Checklist</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/installing/installing-intro.html">Installing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/installing/install-prereqs.html">Installation Prerequisites</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/hardware-reqs.html">Hardware Requirements</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/java-reqs.html">Java Requirements</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/installing/install-with-zip.html">Installing with the Distributions Zip</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/file-system-access.html">Configuring Operating Permissions and Allocations</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/installing/managing-certificates.html">Managing Keystores and Certificates</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/installing/managing-certificates.html">Managing Certificates</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/installing/managing-crl.html">Managing Certificate Revocation List</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/installing/managing-keystores.html">Managing Keystores</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/installing/initial-startup.html">Initial Startup</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/installing/installing-from-admin-console.html">Completing Installation from Admin Console</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/installing/ddf-setup-types.html">Setup Types</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/installing/guest-claims-attributes.html">Guest Claims Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/installing/system-configuration-settings.html">System Configuration Settings</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/installing/configure-single-sign-on.html">Configuring Single Sign On</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/installing/finish-page.html">Finish Page</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/installing-from-the-command-line.html">Completing Installation from Command Console</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/firewall-config.html">FireWall Port Configuration</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/ie11-configuration.html">Internet Explorer 11 Enhanced Security Configuration</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/installing/high-availability-initial-setup.html">High Availability Initial Setup</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/high-availability-initial-setup-exceptions.html">High Availability Setup Exceptions</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/configure-single-sign-on.html">Configuring Single Sign On</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/ddf-setup-types.html">Setup Types</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/finish-page.html">Finish Page</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/guest-claims-attributes.html">Guest Claims Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/installing-from-admin-console.html">Completing Installation from Admin Console</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/installing-from-the-command-line.html">Completing Installation from Command Console</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/installing/system-configuration-settings.html">System configuration Settings</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/configuring-intro.html">Configuring</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../managing/configuring/admin-console-tutorial.html">Admin Console Tutorial</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/console-commands-ref.html">Console Command Reference</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/feature-commands.html">Feature Commands</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/configuration-files.html">Configuration Files</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/global-settings.html">Configuring Global Settings with custom.system.properties</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/config-files.html">Configuring with .config Files</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/config-templates.html">Configuration Templates</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/configuring-user-access.html">Configuring User Access</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/configuring-guest-access.html">Configuring Guest Access</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/configuring-rest-for-users.html">Configuring REST Services for Users</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/securing-idp-sp.html">Securing IdP SP</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/configuring-oidc.html">Configuring OIDC</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/connecting-to-external-idp.html">Connecting to an Identity Provider</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/no-idp.html">Configuring Without an Identity Provider</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/configuring-multi-factor-auth.html">Configuring Multi-Factor Authentication</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/ldap-server.html">Connecting to an LDAP Server</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/updating-system-users.html">Updating System Users</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/securing-admin-console.html">Restricting Access to the Admin Console</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/remove-default-users.html">Removing Default Users</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/remove-default-users-cont.html">Removing Default Users (Continued)</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/disallowing-login-wo-certs.html">Disallowing Login Without Certificates</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/configuring-data-management.html">Configuring Data Management</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/configuring-solr.html">Configuring Solr</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/solr-synonyms.html">Configuring Solr Catalog Provider Synonyms</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/hardening-solr.html">Hardening Solr</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/solr-admin-ui.html">Accessing the Solr Admin UI</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/catalog-provider.html">Changing Catalog Providers</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/changing-hostname.html">Changing Hostname</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/errors-and-warnings.html">Configuring Errors and Warnings</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/enforcing-errors.html">Enforcing Errors and Warnings</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/hiding-errors.html">Hiding Errors or Warnings from Queries</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/hiding-errors-by-role.html">Hiding Errors and Warnings from Users Based on Role</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/product-cache.html">Product Caching</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/configuring-product-caching.html">Configuring Product Caching</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/content-directory-monitor.html">Content Directory Monitor</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/configuring-system-message.html">Configuring System Usage Message</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/configuring-data-policy-plugins.html">Configuring Data Policy Plugins</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/configuring-access-plugins.html">Configuring Data Access Plugins</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/configuring-security-policies.html">Configuring Security Policies</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/web-context-policy-manager.html">Configuring the Web Context Policy Manager</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/catalog-filtering.html">Configuring Catalog Filtering Policies</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/filter-policy-plugins.html">Filter Policy Plugins</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/catalog-authorization.html">Catalog Operation Authorization</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/setting-internal-policies.html">Setting Internal Policies</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/setting-xacml-policies.html">Setting XACML Policies</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/configuring-federation.html">Configuring Federation</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/enabling-ssl.html">Enabling SSL for Clients</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/http-port.html">Configuring HTTPS Ports</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/http-proxy.html">Configuring HTTP Proxy</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/connecting-to-sources.html">Connecting to Sources</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/confluence-federated-source.html">Federated Source for Atlassian Confluence&#174;</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/csw-federated-source.html">CSW Specification Profile Federated Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/csw-federation-profile-source.html">CSW Federation Profile Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/default-storage-provider.html">Content File System Storage Provider</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/gmd-csw-source.html">GMD CSW Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/opensearch-source.html">OpenSearch Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/solr-catalog-provider.html">Solr Catalog Provider</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/wfs-10-source.html">WFS 1.0 Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/wfs-11-source.html">WFS 1.1 Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/wfs-20-source.html">WFS 2.0 Source</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/catalog-provider-intro.html">Catalog Provider Intro</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/sources/federation-strategy.html">Federation Strategy</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/configuring-endpoints.html">Configuring Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/configuring-csw-endpoint.html">Configuring CSW Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/configuring-catalog-rest-endpoint.html">Configuring Catalog REST Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/configuring-kml-endpoint.html">Configuring KML Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/configuring-opensearch-endpoint.html">Configuring OpenSearch Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/compression-services.html">Configuring Compression Services</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../managing/configuring/environment-hardening.html">Environment Hardening</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/special-configurations.html">Configuring for Special Deployments</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/multiple-installations.html">Multiple Installations</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/reusing-configurations.html">Reusing Configurations</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/configuring/isolating-solrcloud-zookeeper.html">Isolating SolrCloud and Zookeeper</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/configuring-fanout-proxy.html">Configuring for a Fanout Proxy</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/high-availability-config.html">Configuring for a Highly Available Cluster</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/admin-theming-configurations.html">Configuring UI Themes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/landing-page.html">Configuring Landing Page</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/logout-theming.html">Configuring Logout Page</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/platform-ui-theming.html">Platform UI Theming</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/configuring/miscellaneous-config.html">Miscellaneous Configurations</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/thread-pools.html">Configuring Thread Pools</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/jetty-threadpool-settings.html">Configuring Jetty Thread Pools</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/encryption-service.html">Encrypting Passwords</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/configuring/decanter-services.html">Decanter Services</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/running/running-intro.html">Running</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../managing/running/starting-intro.html">Starting</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/running/os-services.html">Managed Services</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/running/ddf-service.html">Run DDF as a Managed Service</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/running/console-commands.html">Console Commands</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/running/console-commands-help.html">Console Commands Help</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/running/cql-syntax.html">CQL Syntax</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/running/available-console-commands.html">Available Console Commands</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/running/catalog-commands.html">Catalog Commands</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/running/solr-commands.html">Solr Commands</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/running/subscription-commands.html">Subscription Commands</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/running/platform-commands.html">Platform Commands</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/running/migrate-commands.html">Migrate Commands</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/running/store-commands.html">Persistence Store Commands</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/running/command-scheduler.html">Command Scheduler</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../managing/running/monitoring.html">Monitoring</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../managing/running/troubleshooting.html">Troubleshooting</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Data Management</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/datamanagement/ingesting.html">Ingesting Data</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/ingest-command.html">Ingest Command</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/directory-monitor-ingest.html">Content Directory Monitor Ingest</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/external-ingest.html">External Methods of Ingest</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/forms-commands.html">Creating And Managing System Search Forms Through Karaf</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/other-ingest.html">Other Methods of Ingest</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/datamanagement/validating-data.html">Validating Data</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/validator-plugins.html">Validator Plugins on Ingest</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/schematron-validation.html">Configuring Schematron Services</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/viewing-invalid.html">Viewing Invalid Metacards</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/editing-attributes.html">Manually Editing Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/injecting-attributes.html">Injecting Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/overriding-attributes.html">Overriding Attributes</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../managing/datamanagement/catalog-backup.html">Backing Up the Catalog</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/datamanagement/removing-expired-records.html">Removing Expired Records from the Catalog</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/auto-removing-expired.html">Automated Removal of Expired Resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/manual-removal-expired.html">Manually Removing Expired Resources</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/datamanagement/data-migration-intro.html">Migrating Data</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/exporting-metadata.html">Exporting Metadata</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../managing/datamanagement/ingesting-exported-metadata.html">Ingesting Exported Metadata</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/datamanagement/automatically-added-metacard-attributes.html">Automatically Added Metacard Attributes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/datamanagement/attributes-added-on-ingest.html">Attributes Added on Ingest</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/datamanagement/attributes-added-by-input-transformers.html">Attributes Added by Input Transformers</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/datamanagement/attributes-added-by-attribute-injection.html">Attributes Added by Attribute Injection</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/datamanagement/attributes-added-by-default-attribute-types.html">Attributes Added by Default Attribute Types</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/datamanagement/attributes-added-by-attribute-overrides-ingest.html">Attributes Added by Attribute Overrides (Ingest)</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/datamanagement/attributes-added-by-pre-authorization-plugins.html">Attributes Added by Pre-Authorization Plugins</a>
+  </li>
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/datamanagement/attributes-added-by-pre-ingest-plugins.html">Attributes Added by Pre-Ingest Plugins</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../managing/datamanagement/attributes-added-on-query.html">Attributes Added on Query</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="4">
+    <a class="nav-link" href="../../managing/datamanagement/attributes-added-by-attribute-overrides-query.html">Attributes Added by Attribute Overrides (Query)</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integrating/integrating-intro.html">Integrating Intro</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../integrating/high-availability-integrating-warning.html">High Availability Warning</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integrating/endpoints/endpoint-intro.html">Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integrating/endpoints/ingest-endpoints-intro.html">Ingest Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../integrating/endpoints/catalog-rest-endpoint.html">Catalog REST Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../integrating/endpoints/csw-endpoint.html">CSW Endpoint</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integrating/endpoints/crud-endpoints-intro.html">CRUD Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../integrating/endpoints/catalog-rest-endpoint.html">Catalog REST Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../integrating/endpoints/csw-endpoint.html">CSW Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../integrating/endpoints/query-endpoints.html">Queries Endpoint</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integrating/endpoints/query-endpoints-intro.html">Query Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../integrating/endpoints/csw-endpoint.html">CSW Endpoint</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../integrating/endpoints/opensearch-endpoint.html">OpenSearch Endpoint</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integrating/endpoints/content-endpoints-intro.html">Content Retrieval Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../integrating/endpoints/catalog-rest-endpoint.html">Catalog REST Endpoint</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../integrating/endpoints/pub-sub-endpoints-intro.html">Pub-Sub Endpoints</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../integrating/endpoints/csw-endpoint.html">CSW Endpoint</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/architecture-intro.html">Architectures</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../architectures/catalog-api.html">Catalog API</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../architectures/data-intro.html">Data</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../architectures/operations-intro.html">Operations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/resources-intro.html">Resources</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/content-item.html">Content Item</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../architectures/retrieving-resources.html">Retrieving Resources</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../architectures/retrieving-resources-options.html">Retrieving Resource Options</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../architectures/storing-resources.html">Storing Resources</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../architectures/resource-components-intro.html">Resource Components</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/resource-readers-intro.html">Resource Readers</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../architectures/url-resource-reader.html">URL Resource Reader</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../architectures/resource-writers-intro.html">Resource Writers</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/queries-intro.html">Queries</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/filter-intro.html">Filters</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../architectures/filterbuilder-api.html">FilterBuilder API</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/metrics-intro.html">Metrics</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/metrics-collection.html">Metrics Collection Application</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../architectures/catalog-metrics.html">Catalog Metrics</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../architectures/source-metrics.html">Source Metrics</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/metrics-reporting.html">Metrics Reporting Application</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../architectures/viewing-metrics-tab.html">Viewing Metrics</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../architectures/action-framework-intro.html">Action Framework</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../architectures/action-providers.html">Action Providers</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../architectures/processing-framework-intro.html">Asynchronous Processing Framework</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../architectures/eventing-intro.html">Eventing</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../architectures/migration-api.html">Migration API</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../developing-intro.html">Developing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Developing Custom Components</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../devguidelines/highly-available-link.html">Highly Available Cluster Notice</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-applications.html">Developing Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-catalog-frameworks.html">Developing Complementary Catalog Frameworks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="metacard-type.html">Developing Metacard Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="global-attribute-validators.html">Developing Global Attribute Validators</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="attribute-type.html">Developing Attribute Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="default-attribute-values.html">Developing Default Attribute Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="attribute-injection.html">Developing Attribute Injections</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-endpoints.html">Developing Endpoints</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-transformers-input.html">Developing Input Transformers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-transformers-metacard.html">Developing Metacard Transformers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="transformers-query-response.html">Developing Query Response Transformers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-sources.html">Developing Sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-plugins.html">Developing Catalog Plugins</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-token-validators.html">Developing Token Validators</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="custom-sts-claims-handlers.html">Developing STS Claims Handlers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-registry-clients.html">Developing Registry Clients</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-resource-readers.html">Developing Resource Readers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-resource-writers.html">Developing Resource Writers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-filters.html">Developing Filters</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="filter-delegates.html">Developing Filter Delegates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-action-components.html">Developing Action Components</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-query-options.html">Developing Query Options</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="managed-service-factories.html">Configuring Managed Service Factory Bundles</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-xacml-policies.html">Developing XACML Policies</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="assuring-bundles-and-apps.html">Assuring Authenticity of Bundles and Applications</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="json-definition-files.html">JSON Definition Files</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Development Guidelines</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../devguidelines/contributing-intro.html">Contributing</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../devguidelines/high-availability-guidance.html">High Availability Guidance</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../devguidelines/editing-docs.html"> Contributing to Documentation</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../devguidelines/osgi-basics.html">OSGi Basics</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Reference</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Application References</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/appReferences/mg-admin.html">Admin Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/appReferences/mg-catalog.html">Catalog Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/appReferences/mg-platform.html">Platform Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/appReferences/mg-security.html">Security Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/appReferences/mg-solr.html">Solr Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/appReferences/mg-spatial.html">Spatial Application Reference</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/appReferences/mg-ui.html">Intrigue Application Reference</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../reference/whitelists/whitelist-intro.html">Application Whitelists</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/whitelists/removed-whitelist.html">Packages Removed From Whitelist</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/whitelists/catalog-whitelist.html">Catalog Whitelist</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/whitelists/platform-whitelist.html">Platform Whitelist</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/whitelists/security-whitelist.html">Security Whitelist</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/whitelists/solr-whitelist.html">Solr Whitelist</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/whitelists/spatial-whitelist.html">Spatial Whitelist</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../reference/dependencyList/dependency-list-intro.html">DDF Dependency List</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/dependencyList/ddf-dependency-list.html">Java Dependency List</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../reference/dependencyList/js-dependency-list.html">JavaScript Dependency List</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../metadatareference/metadata-attributes-intro.html">Metadata Reference</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../metadatareference/common-metadata-attributes.html">Common Metadata Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../metadatareference/format-specific-attributes.html">File Format-specific Attributes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/mp4-attributes.html">Mp4 Additional Attribute</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/complete-list-file-types.html">All File Formats Supported</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../metadatareference/catalog-taxonomy-intro.html">Catalog Taxonomy Definitions</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/core-attributes-table.html">Core Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/associations-attributes-table.html">Associations Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/contact-attributes-table.html">Contact Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/datetime-attributes-table.html">DateTime Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/history-attributes-table.html">History Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/location-attributes-table.html">Location Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/media-attributes-table.html">Media Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/metacard-attributes-table.html">Metacard Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/security-attributes-table.html">Security Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/topic-attributes-table.html">Topic Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../metadatareference/validation-attributes-table.html">Validation Attributes</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">DDF</span>
+    <span class="version">2.25.0</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <span class="title">DDF</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../../index.html">2.25.0</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">DDF</a></li>
+    <li><a href="../developing-intro.html">Developing</a></li>
+    <li>Developing Custom Components</li>
+    <li><a href="custom-sts-claims-handlers.html">Developing STS Claims Handlers</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Developing STS Claims Handlers</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Develop a custom claims handler to retrieve attributes from an external attribute store.</p>
+</div>
+<div class="paragraph">
+<p>A claim is an additional piece of data about a subject that can be included in a token along with basic token data.
+A claims manager provides hooks for a developer to plug in claims handlers to ensure that the STS includes the specified claims in the issued token.</p>
+</div>
+<div class="paragraph">
+<p>The following steps define the procedure for adding a custom claims handler to the STS.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The new claims handler must implement the <code>org.apache.cxf.sts.claims.ClaimsHander</code> interface.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">/**
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements. See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership. The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+package org.apache.cxf.sts.claims;
+
+import java.net.URI;
+import java.util.List;
+
+/**
+ * This interface provides a pluggable way to handle Claims.
+ */
+public interface ClaimsHandler {
+
+    List&lt;URI&gt; getSupportedClaimTypes();
+
+    ClaimCollection retrieveClaimValues(RequestClaimCollection claims, ClaimsParameters parameters);
+
+}</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Expose the new claims handler as an OSGi service under the <code>org.apache.cxf.sts.claims.ClaimsHandler</code> interface.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"&gt;
+
+    &lt;bean id="CustomClaimsHandler" class="security.sts.claimsHandler.CustomClaimsHandler" /&gt;
+
+    &lt;service ref="customClaimsHandler" interface="org.apache.cxf.sts.claims.ClaimsHandler"/&gt;
+
+&lt;/blueprint&gt;</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Deploy the bundle.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>If the new claims handler is hitting an external service that is secured with SSL/TLS, a developer may need to add the root CA of the external site to the DDF trustStore and add a valid certificate into the DDF keyStore. For more information on certificates, refer to <a href="../../managing/installing/managing-certificates.html" class="page">Configuring a Java Keystore for Secure Communications</a>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This XML file is found inside of the STS bundle and is named <code>ws-trust-1.4-service.wsdl</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">STS WS-Trust WSDL Document</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;wsdl:definitions xmlns:tns="http://docs.oasis-open.org/ws-sx/ws-trust/200512/" xmlns:wstrust="http://docs.oasis-open.org/ws-sx/ws-trust/200512/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsap10="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wst="http://docs.oasis-open.org/ws-sx/ws-trust/200512" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" targetNamespace="http://docs.oasis-open.org/ws-sx/ws-trust/200512/"&gt;
+    &lt;wsdl:types&gt;
+        &lt;xs:schema elementFormDefault="qualified" targetNamespace="http://docs.oasis-open.org/ws-sx/ws-trust/200512"&gt;
+            &lt;xs:element name="RequestSecurityToken" type="wst:AbstractRequestSecurityTokenType"/&gt;
+            &lt;xs:element name="RequestSecurityTokenResponse" type="wst:AbstractRequestSecurityTokenType"/&gt;
+            &lt;xs:complexType name="AbstractRequestSecurityTokenType"&gt;
+                &lt;xs:sequence&gt;
+                    &lt;xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/&gt;
+                &lt;/xs:sequence&gt;
+                &lt;xs:attribute name="Context" type="xs:anyURI" use="optional"/&gt;
+                &lt;xs:anyAttribute namespace="##other" processContents="lax"/&gt;
+            &lt;/xs:complexType&gt;
+            &lt;xs:element name="RequestSecurityTokenCollection" type="wst:RequestSecurityTokenCollectionType"/&gt;
+            &lt;xs:complexType name="RequestSecurityTokenCollectionType"&gt;
+                &lt;xs:sequence&gt;
+                    &lt;xs:element name="RequestSecurityToken" type="wst:AbstractRequestSecurityTokenType" minOccurs="2" maxOccurs="unbounded"/&gt;
+                &lt;/xs:sequence&gt;
+            &lt;/xs:complexType&gt;
+            &lt;xs:element name="RequestSecurityTokenResponseCollection" type="wst:RequestSecurityTokenResponseCollectionType"/&gt;
+            &lt;xs:complexType name="RequestSecurityTokenResponseCollectionType"&gt;
+                &lt;xs:sequence&gt;
+                    &lt;xs:element ref="wst:RequestSecurityTokenResponse" minOccurs="1" maxOccurs="unbounded"/&gt;
+                &lt;/xs:sequence&gt;
+                &lt;xs:anyAttribute namespace="##other" processContents="lax"/&gt;
+            &lt;/xs:complexType&gt;
+        &lt;/xs:schema&gt;
+    &lt;/wsdl:types&gt;
+    &lt;!-- WS-Trust defines the following GEDs --&gt;
+    &lt;wsdl:message name="RequestSecurityTokenMsg"&gt;
+        &lt;wsdl:part name="request" element="wst:RequestSecurityToken"/&gt;
+    &lt;/wsdl:message&gt;
+    &lt;wsdl:message name="RequestSecurityTokenResponseMsg"&gt;
+        &lt;wsdl:part name="response" element="wst:RequestSecurityTokenResponse"/&gt;
+    &lt;/wsdl:message&gt;
+    &lt;wsdl:message name="RequestSecurityTokenCollectionMsg"&gt;
+        &lt;wsdl:part name="requestCollection" element="wst:RequestSecurityTokenCollection"/&gt;
+    &lt;/wsdl:message&gt;
+    &lt;wsdl:message name="RequestSecurityTokenResponseCollectionMsg"&gt;
+        &lt;wsdl:part name="responseCollection" element="wst:RequestSecurityTokenResponseCollection"/&gt;
+    &lt;/wsdl:message&gt;
+    &lt;!-- This portType an example of a Requestor (or other) endpoint that
+         Accepts SOAP-based challenges from a Security Token Service --&gt;
+    &lt;wsdl:portType name="WSSecurityRequestor"&gt;
+        &lt;wsdl:operation name="Challenge"&gt;
+            &lt;wsdl:input message="tns:RequestSecurityTokenResponseMsg"/&gt;
+            &lt;wsdl:output message="tns:RequestSecurityTokenResponseMsg"/&gt;
+        &lt;/wsdl:operation&gt;
+    &lt;/wsdl:portType&gt;
+    &lt;!-- This portType is an example of an STS supporting full protocol --&gt;
+    &lt;wsdl:portType name="STS"&gt;
+        &lt;wsdl:operation name="Cancel"&gt;
+            &lt;wsdl:input wsam:Action="http://docs.oasis-open.org/ws-sx/ws-trust/200512/RST/Cancel" message="tns:RequestSecurityTokenMsg"/&gt;
+            &lt;wsdl:output wsam:Action="http://docs.oasis-open.org/ws-sx/ws-trust/200512/RSTR/CancelFinal" message="tns:RequestSecurityTokenResponseMsg"/&gt;
+        &lt;/wsdl:operation&gt;
+        &lt;wsdl:operation name="Issue"&gt;
+            &lt;wsdl:input wsam:Action="http://docs.oasis-open.org/ws-sx/ws-trust/200512/RST/Issue" message="tns:RequestSecurityTokenMsg"/&gt;
+            &lt;wsdl:output wsam:Action="http://docs.oasis-open.org/ws-sx/ws-trust/200512/RSTRC/IssueFinal" message="tns:RequestSecurityTokenResponseCollectionMsg"/&gt;
+        &lt;/wsdl:operation&gt;
+        &lt;wsdl:operation name="Renew"&gt;
+            &lt;wsdl:input wsam:Action="http://docs.oasis-open.org/ws-sx/ws-trust/200512/RST/Renew" message="tns:RequestSecurityTokenMsg"/&gt;
+            &lt;wsdl:output wsam:Action="http://docs.oasis-open.org/ws-sx/ws-trust/200512/RSTR/RenewFinal" message="tns:RequestSecurityTokenResponseMsg"/&gt;
+        &lt;/wsdl:operation&gt;
+        &lt;wsdl:operation name="Validate"&gt;
+            &lt;wsdl:input wsam:Action="http://docs.oasis-open.org/ws-sx/ws-trust/200512/RST/Validate" message="tns:RequestSecurityTokenMsg"/&gt;
+            &lt;wsdl:output wsam:Action="http://docs.oasis-open.org/ws-sx/ws-trust/200512/RSTR/ValidateFinal" message="tns:RequestSecurityTokenResponseMsg"/&gt;
+        &lt;/wsdl:operation&gt;
+        &lt;wsdl:operation name="KeyExchangeToken"&gt;
+            &lt;wsdl:input wsam:Action="http://docs.oasis-open.org/ws-sx/ws-trust/200512/RST/KET" message="tns:RequestSecurityTokenMsg"/&gt;
+            &lt;wsdl:output wsam:Action="http://docs.oasis-open.org/ws-sx/ws-trust/200512/RSTR/KETFinal" message="tns:RequestSecurityTokenResponseMsg"/&gt;
+        &lt;/wsdl:operation&gt;
+        &lt;wsdl:operation name="RequestCollection"&gt;
+            &lt;wsdl:input message="tns:RequestSecurityTokenCollectionMsg"/&gt;
+            &lt;wsdl:output message="tns:RequestSecurityTokenResponseCollectionMsg"/&gt;
+        &lt;/wsdl:operation&gt;
+    &lt;/wsdl:portType&gt;
+    &lt;!-- This portType is an example of an endpoint that accepts
+         Unsolicited RequestSecurityTokenResponse messages --&gt;
+    &lt;wsdl:portType name="SecurityTokenResponseService"&gt;
+        &lt;wsdl:operation name="RequestSecurityTokenResponse"&gt;
+            &lt;wsdl:input message="tns:RequestSecurityTokenResponseMsg"/&gt;
+        &lt;/wsdl:operation&gt;
+    &lt;/wsdl:portType&gt;
+    &lt;wsdl:binding name="STS_Binding" type="wstrust:STS"&gt;
+        &lt;wsp:PolicyReference URI="#STS_policy"/&gt;
+        &lt;soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/&gt;
+        &lt;wsdl:operation name="Issue"&gt;
+            &lt;soap:operation soapAction="http://docs.oasis-open.org/ws-sx/ws-trust/200512/RST/Issue"/&gt;
+            &lt;wsdl:input&gt;
+                &lt;soap:body use="literal"/&gt;
+            &lt;/wsdl:input&gt;
+            &lt;wsdl:output&gt;
+                &lt;soap:body use="literal"/&gt;
+            &lt;/wsdl:output&gt;
+        &lt;/wsdl:operation&gt;
+        &lt;wsdl:operation name="Validate"&gt;
+            &lt;soap:operation soapAction="http://docs.oasis-open.org/ws-sx/ws-trust/200512/RST/Validate"/&gt;
+            &lt;wsdl:input&gt;
+                &lt;soap:body use="literal"/&gt;
+            &lt;/wsdl:input&gt;
+            &lt;wsdl:output&gt;
+                &lt;soap:body use="literal"/&gt;
+            &lt;/wsdl:output&gt;
+        &lt;/wsdl:operation&gt;
+        &lt;wsdl:operation name="Cancel"&gt;
+            &lt;soap:operation soapAction="http://docs.oasis-open.org/ws-sx/ws-trust/200512/RST/Cancel"/&gt;
+            &lt;wsdl:input&gt;
+                &lt;soap:body use="literal"/&gt;
+            &lt;/wsdl:input&gt;
+            &lt;wsdl:output&gt;
+                &lt;soap:body use="literal"/&gt;
+            &lt;/wsdl:output&gt;
+        &lt;/wsdl:operation&gt;
+        &lt;wsdl:operation name="Renew"&gt;
+            &lt;soap:operation soapAction="http://docs.oasis-open.org/ws-sx/ws-trust/200512/RST/Renew"/&gt;
+            &lt;wsdl:input&gt;
+                &lt;soap:body use="literal"/&gt;
+            &lt;/wsdl:input&gt;
+            &lt;wsdl:output&gt;
+                &lt;soap:body use="literal"/&gt;
+            &lt;/wsdl:output&gt;
+        &lt;/wsdl:operation&gt;
+        &lt;wsdl:operation name="KeyExchangeToken"&gt;
+            &lt;soap:operation soapAction="http://docs.oasis-open.org/ws-sx/ws-trust/200512/RST/KeyExchangeToken"/&gt;
+            &lt;wsdl:input&gt;
+                &lt;soap:body use="literal"/&gt;
+            &lt;/wsdl:input&gt;
+            &lt;wsdl:output&gt;
+                &lt;soap:body use="literal"/&gt;
+            &lt;/wsdl:output&gt;
+        &lt;/wsdl:operation&gt;
+        &lt;wsdl:operation name="RequestCollection"&gt;
+            &lt;soap:operation soapAction="http://docs.oasis-open.org/ws-sx/ws-trust/200512/RST/RequestCollection"/&gt;
+            &lt;wsdl:input&gt;
+                &lt;soap:body use="literal"/&gt;
+            &lt;/wsdl:input&gt;
+            &lt;wsdl:output&gt;
+                &lt;soap:body use="literal"/&gt;
+            &lt;/wsdl:output&gt;
+        &lt;/wsdl:operation&gt;
+    &lt;/wsdl:binding&gt;
+    &lt;wsp:Policy wsu:Id="STS_policy"&gt;
+        &lt;wsp:ExactlyOne&gt;
+            &lt;wsp:All&gt;
+                &lt;wsap10:UsingAddressing/&gt;
+                &lt;wsp:ExactlyOne&gt;
+                    &lt;sp:TransportBinding xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"&gt;
+                        &lt;wsp:Policy&gt;
+                            &lt;sp:TransportToken&gt;
+                                &lt;wsp:Policy&gt;
+                                    &lt;sp:HttpsToken&gt;
+                                        &lt;wsp:Policy/&gt;
+                                    &lt;/sp:HttpsToken&gt;
+                                &lt;/wsp:Policy&gt;
+                            &lt;/sp:TransportToken&gt;
+                            &lt;sp:AlgorithmSuite&gt;
+                                &lt;wsp:Policy&gt;
+                                    &lt;sp:Basic128/&gt;
+                                &lt;/wsp:Policy&gt;
+                            &lt;/sp:AlgorithmSuite&gt;
+                            &lt;sp:Layout&gt;
+                                &lt;wsp:Policy&gt;
+                                    &lt;sp:Lax/&gt;
+                                &lt;/wsp:Policy&gt;
+                            &lt;/sp:Layout&gt;
+                            &lt;sp:IncludeTimestamp/&gt;
+                        &lt;/wsp:Policy&gt;
+                    &lt;/sp:TransportBinding&gt;
+                &lt;/wsp:ExactlyOne&gt;
+                &lt;sp:Wss11 xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"&gt;
+                    &lt;wsp:Policy&gt;
+                        &lt;sp:MustSupportRefKeyIdentifier/&gt;
+                        &lt;sp:MustSupportRefIssuerSerial/&gt;
+                        &lt;sp:MustSupportRefThumbprint/&gt;
+                        &lt;sp:MustSupportRefEncryptedKey/&gt;
+                    &lt;/wsp:Policy&gt;
+                &lt;/sp:Wss11&gt;
+                &lt;sp:Trust13 xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"&gt;
+                    &lt;wsp:Policy&gt;
+                        &lt;sp:MustSupportIssuedTokens/&gt;
+                        &lt;sp:RequireClientEntropy/&gt;
+                        &lt;sp:RequireServerEntropy/&gt;
+                    &lt;/wsp:Policy&gt;
+                &lt;/sp:Trust13&gt;
+            &lt;/wsp:All&gt;
+        &lt;/wsp:ExactlyOne&gt;
+    &lt;/wsp:Policy&gt;
+    &lt;wsp:Policy wsu:Id="Input_policy"&gt;
+        &lt;wsp:ExactlyOne&gt;
+            &lt;wsp:All&gt;
+                &lt;sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"&gt;
+                    &lt;sp:Body/&gt;
+                    &lt;sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/&gt;
+                    &lt;sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/&gt;
+                    &lt;sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/&gt;
+                    &lt;sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/&gt;
+                    &lt;sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/&gt;
+                    &lt;sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/&gt;
+                    &lt;sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/&gt;
+                &lt;/sp:SignedParts&gt;
+                &lt;sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"&gt;
+                    &lt;sp:Body/&gt;
+                &lt;/sp:EncryptedParts&gt;
+            &lt;/wsp:All&gt;
+        &lt;/wsp:ExactlyOne&gt;
+    &lt;/wsp:Policy&gt;
+    &lt;wsp:Policy wsu:Id="Output_policy"&gt;
+        &lt;wsp:ExactlyOne&gt;
+            &lt;wsp:All&gt;
+                &lt;sp:SignedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"&gt;
+                    &lt;sp:Body/&gt;
+                    &lt;sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing"/&gt;
+                    &lt;sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing"/&gt;
+                    &lt;sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing"/&gt;
+                    &lt;sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing"/&gt;
+                    &lt;sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing"/&gt;
+                    &lt;sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing"/&gt;
+                    &lt;sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing"/&gt;
+                &lt;/sp:SignedParts&gt;
+                &lt;sp:EncryptedParts xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702"&gt;
+                    &lt;sp:Body/&gt;
+                &lt;/sp:EncryptedParts&gt;
+            &lt;/wsp:All&gt;
+        &lt;/wsp:ExactlyOne&gt;
+    &lt;/wsp:Policy&gt;
+    &lt;wsdl:service name="SecurityTokenService"&gt;
+        &lt;wsdl:port name="STS_Port" binding="tns:STS_Binding"&gt;
+            &lt;soap:address location="{public_url}/services/SecurityTokenService"/&gt;
+        &lt;/wsdl:port&gt;
+    &lt;/wsdl:service&gt;
+&lt;/wsdl:definitions&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_example_requests_and_responses_for_saml_assertions"><a class="anchor" href="#_example_requests_and_responses_for_saml_assertions"></a>Example Requests and Responses for SAML Assertions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A client performs a RequestSecurityToken operation against the STS to receive a SAML assertion.
+The DDF STS offers several different ways to request a SAML assertion.
+For help in understanding the various request and response formats, samples have been provided.
+The samples are divided out into different request token types.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_binarysecuritytoken_cas_saml_security_token_samples"><a class="anchor" href="#_binarysecuritytoken_cas_saml_security_token_samples"></a>BinarySecurityToken (CAS) SAML Security Token Samples</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Most endpoints in DDF require the X.509 PublicKey SAML assertion.</p>
+</div>
+<div class="listingblock">
+<div class="title">BinarySecurityToken (CAS) SAML Security Token Sample Request</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+    &lt;soap:Header&gt;
+        &lt;Action xmlns="http://www.w3.org/2005/08/addressing"&gt;http://docs.oasis-open.org/ws-sx/ws-trust/200512/RST/Issue&lt;/Action&gt;
+        &lt;MessageID xmlns="http://www.w3.org/2005/08/addressing"&gt;urn:uuid:60652909-faca-4e4a-a4a7-8a5ce243a7cb&lt;/MessageID&gt;
+        &lt;To xmlns="http://www.w3.org/2005/08/addressing"&gt;https://server:8993/services/SecurityTokenService&lt;/To&gt;
+        &lt;ReplyTo xmlns="http://www.w3.org/2005/08/addressing"&gt;
+            &lt;Address&gt;http://www.w3.org/2005/08/addressing/anonymous&lt;/Address&gt;
+        &lt;/ReplyTo&gt;
+        &lt;wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" soap:mustUnderstand="1"&gt;
+            &lt;wsu:Timestamp wsu:Id="TS-1"&gt;
+                &lt;wsu:Created&gt;2013-04-29T18:35:10.688Z&lt;/wsu:Created&gt;
+                &lt;wsu:Expires&gt;2013-04-29T18:40:10.688Z&lt;/wsu:Expires&gt;
+            &lt;/wsu:Timestamp&gt;
+        &lt;/wsse:Security&gt;
+    &lt;/soap:Header&gt;
+    &lt;soap:Body&gt;
+        &lt;wst:RequestSecurityToken xmlns:wst="http://docs.oasis-open.org/ws-sx/ws-trust/200512"&gt;
+            &lt;wst:RequestType&gt;http://docs.oasis-open.org/ws-sx/ws-trust/200512/Issue&lt;/wst:RequestType&gt;
+            &lt;wsp:AppliesTo xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"&gt;
+                &lt;wsa:EndpointReference xmlns:wsa="http://www.w3.org/2005/08/addressing"&gt;
+                    &lt;wsa:Address&gt;https://server:8993/services/SecurityTokenService&lt;/wsa:Address&gt;
+                &lt;/wsa:EndpointReference&gt;
+            &lt;/wsp:AppliesTo&gt;
+            &lt;wst:Claims xmlns:ic="http://schemas.xmlsoap.org/ws/2005/05/identity" xmlns:wst="http://docs.oasis-open.org/ws-sx/ws-trust/200512" Dialect="http://schemas.xmlsoap.org/ws/2005/05/identity"&gt;
+                &lt;ic:ClaimType xmlns:ic="http://schemas.xmlsoap.org/ws/2005/05/identity" Optional="true" Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"/&gt;
+                &lt;ic:ClaimType xmlns:ic="http://schemas.xmlsoap.org/ws/2005/05/identity" Optional="true" Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"/&gt;
+                &lt;ic:ClaimType xmlns:ic="http://schemas.xmlsoap.org/ws/2005/05/identity" Optional="true" Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"/&gt;
+                &lt;ic:ClaimType xmlns:ic="http://schemas.xmlsoap.org/ws/2005/05/identity" Optional="true" Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"/&gt;
+                &lt;ic:ClaimType xmlns:ic="http://schemas.xmlsoap.org/ws/2005/05/identity" Optional="true" Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role"/&gt;
+            &lt;/wst:Claims&gt;
+            &lt;wst:OnBehalfOf&gt;
+                &lt;BinarySecurityToken ValueType="#CAS" EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary" ns1:Id="CAS" xmlns="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:ns1="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"&gt;U1QtMTQtYUtmcDYxcFRtS0FxZG1pVDMzOWMtY2FzfGh0dHBzOi8vdG9rZW5pc3N1ZXI6ODk5My9zZXJ2aWNlcy9TZWN1cml0eVRva2VuU2VydmljZQ==&lt;/BinarySecurityToken&gt;
+            &lt;/wst:OnBehalfOf&gt;
+            &lt;wst:TokenType&gt;http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0&lt;/wst:TokenType&gt;
+            &lt;wst:KeyType&gt;http://docs.oasis-open.org/ws-sx/ws-trust/200512/PublicKey&lt;/wst:KeyType&gt;
+            &lt;wst:UseKey&gt;
+                &lt;ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#"&gt;
+                    &lt;ds:X509Data&gt;
+                        &lt;ds:X509Certificate&gt;
+MIIC5DCCAk2gAwIBAgIJAKj7ROPHjo1yMA0GCSqGSIb3DQEBCwUAMIGKMQswCQYDVQQGEwJVUzEQ
+MA4GA1UECAwHQXJpem9uYTERMA8GA1UEBwwIR29vZHllYXIxGDAWBgNVBAoMD0xvY2toZWVkIE1h
+cnRpbjENMAsGA1UECwwESTRDRTEPMA0GA1UEAwwGY2xpZW50MRwwGgYJKoZIhvcNAQkBFg1pNGNl
+QGxtY28uY29tMB4XDTEyMDYyMDE5NDMwOVoXDTIyMDYxODE5NDMwOVowgYoxCzAJBgNVBAYTAlVT
+MRAwDgYDVQQIDAdBcml6b25hMREwDwYDVQQHDAhHb29keWVhcjEYMBYGA1UECgwPTG9ja2hlZWQg
+TWFydGluMQ0wCwYDVQQLDARJNENFMQ8wDQYDVQQDDAZjbGllbnQxHDAaBgkqhkiG9w0BCQEWDWk0
+Y2VAbG1jby5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAIpHxCBLYE7xfDLcITS9SsPG
+4Q04Z6S32/+TriGsRgpGTj/7GuMG7oJ98m6Ws5cTYl7nyunyHTkZuP7rBzy4esDIHheyx18EgdSJ
+vvACgGVCnEmHndkf9bWUlAOfNaxW+vZwljUkRUVdkhPbPdPwOcMdKg/SsLSNjZfsQIjoWd4rAgMB
+AAGjUDBOMB0GA1UdDgQWBBQx11VLtYXLvFGpFdHnhlNW9+lxBDAfBgNVHSMEGDAWgBQx11VLtYXL
+vFGpFdHnhlNW9+lxBDAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBCwUAA4GBAHYs2OI0K6yVXzyS
+sKcv2fmfw6XCICGTnyA7BOdAjYoqq6wD+33dHJUCFDqye7AWdcivuc7RWJt9jnlfJZKIm2BHcDTR
+Hhk6CvjJ14Gf40WQdeMHoX8U8b0diq7Iy5Ravx+zRg7SdiyJUqFYjRh/O5tywXRT1+freI3bwAN0
+L6tQ
+&lt;/ds:X509Certificate&gt;
+                    &lt;/ds:X509Data&gt;
+                &lt;/ds:KeyInfo&gt;
+            &lt;/wst:UseKey&gt;
+            &lt;wst:Renewing/&gt;
+        &lt;/wst:RequestSecurityToken&gt;
+    &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">BinarySecurityToken (CAS) SAML Security Token Sample Response</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+    &lt;soap:Header&gt;
+        &lt;Action xmlns="http://www.w3.org/2005/08/addressing"&gt;http://docs.oasis-open.org/ws-sx/ws-trust/200512/RSTRC/IssueFinal&lt;/Action&gt;
+        &lt;MessageID xmlns="http://www.w3.org/2005/08/addressing"&gt;urn:uuid:7a6fde04-9013-41ef-b08b-0689ffa9c93e&lt;/MessageID&gt;
+        &lt;To xmlns="http://www.w3.org/2005/08/addressing"&gt;http://www.w3.org/2005/08/addressing/anonymous&lt;/To&gt;
+        &lt;RelatesTo xmlns="http://www.w3.org/2005/08/addressing"&gt;urn:uuid:60652909-faca-4e4a-a4a7-8a5ce243a7cb&lt;/RelatesTo&gt;
+        &lt;wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" soap:mustUnderstand="1"&gt;
+            &lt;wsu:Timestamp wsu:Id="TS-2"&gt;
+                &lt;wsu:Created&gt;2013-04-29T18:35:11.459Z&lt;/wsu:Created&gt;
+                &lt;wsu:Expires&gt;2013-04-29T18:40:11.459Z&lt;/wsu:Expires&gt;
+            &lt;/wsu:Timestamp&gt;
+        &lt;/wsse:Security&gt;
+    &lt;/soap:Header&gt;
+    &lt;soap:Body&gt;
+        &lt;RequestSecurityTokenResponseCollection xmlns="http://docs.oasis-open.org/ws-sx/ws-trust/200512" xmlns:ns2="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:ns3="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:ns4="http://www.w3.org/2005/08/addressing" xmlns:ns5="http://docs.oasis-open.org/ws-sx/ws-trust/200802"&gt;
+            &lt;RequestSecurityTokenResponse&gt;
+                &lt;TokenType&gt;http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0&lt;/TokenType&gt;
+                &lt;RequestedSecurityToken&gt;
+                    &lt;saml2:Assertion xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="_BDC44EB8593F47D1B213672605113671" IssueInstant="2013-04-29T18:35:11.370Z" Version="2.0" xsi:type="saml2:AssertionType"&gt;
+                        &lt;saml2:Issuer&gt;tokenissuer&lt;/saml2:Issuer&gt;
+                        &lt;ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#"&gt;
+                            &lt;ds:SignedInfo&gt;
+                                &lt;ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/&gt;
+                                &lt;ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/&gt;
+                                &lt;ds:Reference URI="#_BDC44EB8593F47D1B213672605113671"&gt;
+                                    &lt;ds:Transforms&gt;
+                                        &lt;ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/&gt;
+                                        &lt;ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"&gt;
+                                            &lt;ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="xs"/&gt;
+                                        &lt;/ds:Transform&gt;
+                                    &lt;/ds:Transforms&gt;
+                                    &lt;ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/&gt;
+                                    &lt;ds:DigestValue&gt;6wnWbft6Pz5XOF5Q9AG59gcGwLY=&lt;/ds:DigestValue&gt;
+                                &lt;/ds:Reference&gt;
+                            &lt;/ds:SignedInfo&gt;
+                            &lt;ds:SignatureValue&gt;h+NvkgXGdQtca3/eKebhAKgG38tHp3i2n5uLLy8xXXIg02qyKgEP0FCowp2LiYlsQU9YjKfSwCUbH3WR6jhbAv9zj29CE+ePfEny7MeXvgNl3wId+vcHqti/DGGhhgtO2Mbx/tyX1BhHQUwKRlcHajxHeecwmvV7D85NMdV48tI=&lt;/ds:SignatureValue&gt;
+                            &lt;ds:KeyInfo&gt;
+                                &lt;ds:X509Data&gt;
+                                    &lt;ds:X509Certificate&gt;MIIDmjCCAwOgAwIBAgIBBDANBgkqhkiG9w0BAQQFADB1MQswCQYDVQQGEwJVUzEQMA4GA1UECBMH
+QXJpem9uYTERMA8GA1UEBxMIR29vZHllYXIxEDAOBgNVBAoTB0V4YW1wbGUxEDAOBgNVBAoTB0V4
+YW1wbGUxEDAOBgNVBAsTB0V4YW1wbGUxCzAJBgNVBAMTAkNBMB4XDTEzMDQwOTE4MzcxMVoXDTIz
+MDQwNzE4MzcxMVowgaYxCzAJBgNVBAYTAlVTMRAwDgYDVQQIEwdBcml6b25hMREwDwYDVQQHEwhH
+b29keWVhcjEQMA4GA1UEChMHRXhhbXBsZTEQMA4GA1UEChMHRXhhbXBsZTEQMA4GA1UECxMHRXhh
+bXBsZTEUMBIGA1UEAxMLdG9rZW5pc3N1ZXIxJjAkBgkqhkiG9w0BCQEWF3Rva2VuaXNzdWVyQGV4
+YW1wbGUuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDDfktpA8Lrp9rTfRibKdgtxtN9
+uB44diiIqq3JOzDGfDhGLu6mjpuHO1hrKItv42hBOhhmH7lS9ipiaQCIpVfgIG63MB7fa5dBrfGF
+G69vFrU1Lfi7IvsVVsNrtAEQljOMmw9sxS3SUsRQX+bD8jq7Uj1hpoF7DdqpV8Kb0COOGwIDAQAB
+o4IBBjCCAQIwCQYDVR0TBAIwADAsBglghkgBhvhCAQ0EHxYdT3BlblNTTCBHZW5lcmF0ZWQgQ2Vy
+dGlmaWNhdGUwHQYDVR0OBBYEFD1mHviop2Tc4HaNu8yPXR6GqWP1MIGnBgNVHSMEgZ8wgZyAFBcn
+en6/j05DzaVwORwrteKc7TZOoXmkdzB1MQswCQYDVQQGEwJVUzEQMA4GA1UECBMHQXJpem9uYTER
+MA8GA1UEBxMIR29vZHllYXIxEDAOBgNVBAoTB0V4YW1wbGUxEDAOBgNVBAoTB0V4YW1wbGUxEDAO
+BgNVBAsTB0V4YW1wbGUxCzAJBgNVBAMTAkNBggkAwXk7OcwO7gwwDQYJKoZIhvcNAQEEBQADgYEA
+PiTX5kYXwdhmijutSkrObKpRbQkvkkzcyZlO6VrAxRQ+eFeN6NyuyhgYy5K6l/sIWdaGou5iJOQx
+2pQYWx1v8Klyl0W22IfEAXYv/epiO89hpdACryuDJpioXI/X8TAwvRwLKL21Dk3k2b+eyCgA0O++
+HM0dPfiQLQ99ElWkv/0=&lt;/ds:X509Certificate&gt;
+                                &lt;/ds:X509Data&gt;
+                            &lt;/ds:KeyInfo&gt;
+                        &lt;/ds:Signature&gt;
+                        &lt;saml2:Subject&gt;
+                            &lt;saml2:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified" NameQualifier="http://cxf.apache.org/sts"&gt;srogers&lt;/saml2:NameID&gt;
+                            &lt;saml2:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:holder-of-key"&gt;
+                                &lt;saml2:SubjectConfirmationData xsi:type="saml2:KeyInfoConfirmationDataType"&gt;
+                                    &lt;ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#"&gt;
+                                        &lt;ds:X509Data&gt;
+                                            &lt;ds:X509Certificate&gt;MIIC5DCCAk2gAwIBAgIJAKj7ROPHjo1yMA0GCSqGSIb3DQEBCwUAMIGKMQswCQYDVQQGEwJVUzEQ
+MA4GA1UECAwHQXJpem9uYTERMA8GA1UEBwwIR29vZHllYXIxGDAWBgNVBAoMD0xvY2toZWVkIE1h
+cnRpbjENMAsGA1UECwwESTRDRTEPMA0GA1UEAwwGY2xpZW50MRwwGgYJKoZIhvcNAQkBFg1pNGNl
+QGxtY28uY29tMB4XDTEyMDYyMDE5NDMwOVoXDTIyMDYxODE5NDMwOVowgYoxCzAJBgNVBAYTAlVT
+MRAwDgYDVQQIDAdBcml6b25hMREwDwYDVQQHDAhHb29keWVhcjEYMBYGA1UECgwPTG9ja2hlZWQg
+TWFydGluMQ0wCwYDVQQLDARJNENFMQ8wDQYDVQQDDAZjbGllbnQxHDAaBgkqhkiG9w0BCQEWDWk0
+Y2VAbG1jby5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAIpHxCBLYE7xfDLcITS9SsPG
+4Q04Z6S32/+TriGsRgpGTj/7GuMG7oJ98m6Ws5cTYl7nyunyHTkZuP7rBzy4esDIHheyx18EgdSJ
+vvACgGVCnEmHndkf9bWUlAOfNaxW+vZwljUkRUVdkhPbPdPwOcMdKg/SsLSNjZfsQIjoWd4rAgMB
+AAGjUDBOMB0GA1UdDgQWBBQx11VLtYXLvFGpFdHnhlNW9+lxBDAfBgNVHSMEGDAWgBQx11VLtYXL
+vFGpFdHnhlNW9+lxBDAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBCwUAA4GBAHYs2OI0K6yVXzyS
+sKcv2fmfw6XCICGTnyA7BOdAjYoqq6wD+33dHJUCFDqye7AWdcivuc7RWJt9jnlfJZKIm2BHcDTR
+Hhk6CvjJ14Gf40WQdeMHoX8U8b0diq7Iy5Ravx+zRg7SdiyJUqFYjRh/O5tywXRT1+freI3bwAN0
+L6tQ&lt;/ds:X509Certificate&gt;
+                                        &lt;/ds:X509Data&gt;
+                                    &lt;/ds:KeyInfo&gt;
+                                &lt;/saml2:SubjectConfirmationData&gt;
+                            &lt;/saml2:SubjectConfirmation&gt;
+                        &lt;/saml2:Subject&gt;
+                        &lt;saml2:Conditions NotBefore="2013-04-29T18:35:11.407Z" NotOnOrAfter="2013-04-29T19:05:11.407Z"&gt;
+                            &lt;saml2:AudienceRestriction&gt;
+                                &lt;saml2:Audience&gt;https://server:8993/services/SecurityTokenService&lt;/saml2:Audience&gt;
+                            &lt;/saml2:AudienceRestriction&gt;
+                        &lt;/saml2:Conditions&gt;
+                        &lt;saml2:AuthnStatement AuthnInstant="2013-04-29T18:35:11.392Z"&gt;
+                            &lt;saml2:AuthnContext&gt;
+                                &lt;saml2:AuthnContextClassRef&gt;urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified&lt;/saml2:AuthnContextClassRef&gt;
+                            &lt;/saml2:AuthnContext&gt;
+                        &lt;/saml2:AuthnStatement&gt;
+                        &lt;saml2:AttributeStatement&gt;
+                            &lt;saml2:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"&gt;
+                                &lt;saml2:AttributeValue xsi:type="xs:string"&gt;srogers&lt;/saml2:AttributeValue&gt;
+                            &lt;/saml2:Attribute&gt;
+                            &lt;saml2:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"&gt;
+                                &lt;saml2:AttributeValue xsi:type="xs:string"&gt;srogers@example.com&lt;/saml2:AttributeValue&gt;
+                            &lt;/saml2:Attribute&gt;
+                            &lt;saml2:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"&gt;
+                                &lt;saml2:AttributeValue xsi:type="xs:string"&gt;srogers&lt;/saml2:AttributeValue&gt;
+                            &lt;/saml2:Attribute&gt;
+                            &lt;saml2:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"&gt;
+                                &lt;saml2:AttributeValue xsi:type="xs:string"&gt;Steve Rogers&lt;/saml2:AttributeValue&gt;
+                            &lt;/saml2:Attribute&gt;
+                            &lt;saml2:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"&gt;
+                                &lt;saml2:AttributeValue xsi:type="xs:string"&gt;avengers&lt;/saml2:AttributeValue&gt;
+                            &lt;/saml2:Attribute&gt;
+                            &lt;saml2:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"&gt;
+                                &lt;saml2:AttributeValue xsi:type="xs:string"&gt;admin&lt;/saml2:AttributeValue&gt;
+                            &lt;/saml2:Attribute&gt;
+                        &lt;/saml2:AttributeStatement&gt;
+                    &lt;/saml2:Assertion&gt;
+                &lt;/RequestedSecurityToken&gt;
+                &lt;RequestedAttachedReference&gt;
+                    &lt;ns3:SecurityTokenReference xmlns:wsse11="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd" wsse11:TokenType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0"&gt;
+                        &lt;ns3:KeyIdentifier ValueType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLID"&gt;_BDC44EB8593F47D1B213672605113671&lt;/ns3:KeyIdentifier&gt;
+                    &lt;/ns3:SecurityTokenReference&gt;
+                &lt;/RequestedAttachedReference&gt;
+                &lt;RequestedUnattachedReference&gt;
+                    &lt;ns3:SecurityTokenReference xmlns:wsse11="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd" wsse11:TokenType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0"&gt;
+                        &lt;ns3:KeyIdentifier ValueType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLID"&gt;_BDC44EB8593F47D1B213672605113671&lt;/ns3:KeyIdentifier&gt;
+                    &lt;/ns3:SecurityTokenReference&gt;
+                &lt;/RequestedUnattachedReference&gt;
+                &lt;wsp:AppliesTo xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wst="http://docs.oasis-open.org/ws-sx/ws-trust/200512"&gt;
+                    &lt;wsa:EndpointReference xmlns:wsa="http://www.w3.org/2005/08/addressing"&gt;
+                        &lt;wsa:Address&gt;https://server:8993/services/SecurityTokenService&lt;/wsa:Address&gt;
+                    &lt;/wsa:EndpointReference&gt;
+                &lt;/wsp:AppliesTo&gt;
+                &lt;Lifetime&gt;
+                    &lt;ns2:Created&gt;2013-04-29T18:35:11.444Z&lt;/ns2:Created&gt;
+                    &lt;ns2:Expires&gt;2013-04-29T19:05:11.444Z&lt;/ns2:Expires&gt;
+                &lt;/Lifetime&gt;
+            &lt;/RequestSecurityTokenResponse&gt;
+        &lt;/RequestSecurityTokenResponseCollection&gt;
+    &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To obtain a SAML assertion to use in secure communication to DDF, a RequestSecurityToken (RST) request has to be made to the STS.</p>
+</div>
+<div class="paragraph">
+<p>A Bearer SAML assertion is automatically trusted by the endpoint.
+The client doesn&#8217;t have to prove it can own that SAML assertion.
+It is the simplest way to request a SAML assertion, but many endpoints won&#8217;t accept a KeyType of Bearer.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_usernametoken_bearer_saml_security_token_sample"><a class="anchor" href="#_usernametoken_bearer_saml_security_token_sample"></a>UsernameToken Bearer SAML Security Token Sample</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>WS-Addressing header with Action, To, and Message ID</p>
+</li>
+<li>
+<p>Valid, non-expired timestamp</p>
+</li>
+<li>
+<p>Username Token containing a username and password that the STS will authenticate</p>
+</li>
+<li>
+<p>Issued over HTTPS</p>
+</li>
+<li>
+<p>KeyType of <a href="http://docs.oasis-open.org/ws-sx/ws-trust/200512/Bearer" class="bare">http://docs.oasis-open.org/ws-sx/ws-trust/200512/Bearer</a></p>
+</li>
+<li>
+<p>Claims (optional): Some endpoints may require that the SAML assertion include attributes of the user, such as an authenticated user&#8217;s role, name identifier, email address, etc. If the SAML assertion needs those attributes, the <code>RequestSecurityToken</code> must specify which ones to include.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">UsernameToken Bearer SAML Security Token Sample Request</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+    &lt;soap:Header xmlns:wsa="http://www.w3.org/2005/08/addressing"&gt;
+        &lt;wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" soap:mustUnderstand="1"&gt;
+            &lt;wsu:Timestamp wsu:Id="TS-1"&gt;
+                &lt;wsu:Created&gt;2013-04-29T17:47:37.817Z&lt;/wsu:Created&gt;
+                &lt;wsu:Expires&gt;2013-04-29T17:57:37.817Z&lt;/wsu:Expires&gt;
+            &lt;/wsu:Timestamp&gt;
+            &lt;wsse:UsernameToken wsu:Id="UsernameToken-1"&gt;
+                &lt;wsse:Username&gt;srogers&lt;/wsse:Username&gt;
+                &lt;wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText"&gt;password1&lt;/wsse:Password&gt;
+            &lt;/wsse:UsernameToken&gt;
+        &lt;/wsse:Security&gt;
+        &lt;wsa:Action&gt;http://docs.oasis-open.org/ws-sx/ws-trust/200512/RST/Issue&lt;/wsa:Action&gt;
+        &lt;wsa:MessageID&gt;uuid:a1bba87b-0f00-46cc-975f-001391658cbe&lt;/wsa:MessageID&gt;
+        &lt;wsa:To&gt;https://server:8993/services/SecurityTokenService&lt;/wsa:To&gt;
+    &lt;/soap:Header&gt;
+    &lt;soap:Body&gt;
+        &lt;wst:RequestSecurityToken xmlns:wst="http://docs.oasis-open.org/ws-sx/ws-trust/200512"&gt;
+            &lt;wst:SecondaryParameters&gt;
+                &lt;t:TokenType xmlns:t="http://docs.oasis-open.org/ws-sx/ws-trust/200512"&gt;http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0&lt;/t:TokenType&gt;
+                &lt;t:KeyType xmlns:t="http://docs.oasis-open.org/ws-sx/ws-trust/200512"&gt;http://docs.oasis-open.org/ws-sx/ws-trust/200512/Bearer&lt;/t:KeyType&gt;
+                &lt;t:Claims xmlns:ic="http://schemas.xmlsoap.org/ws/2005/05/identity" xmlns:t="http://docs.oasis-open.org/ws-sx/ws-trust/200512" Dialect="http://schemas.xmlsoap.org/ws/2005/05/identity"&gt;
+                    &lt;!--Add any additional claims you want to grab for the service--&gt;
+                    &lt;ic:ClaimType Optional="true" Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/uid"/&gt;
+                    &lt;ic:ClaimType Optional="true" Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role"/&gt;
+                    &lt;ic:ClaimType Optional="true" Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"/&gt;
+                    &lt;ic:ClaimType Optional="true" Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"/&gt;
+                    &lt;ic:ClaimType Optional="true" Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"/&gt;
+                    &lt;ic:ClaimType Optional="true" Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"/&gt;
+                &lt;/t:Claims&gt;
+            &lt;/wst:SecondaryParameters&gt;
+            &lt;wst:RequestType&gt;http://docs.oasis-open.org/ws-sx/ws-trust/200512/Issue&lt;/wst:RequestType&gt;
+            &lt;wsp:AppliesTo xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"&gt;
+                &lt;wsa:EndpointReference xmlns:wsa="http://www.w3.org/2005/08/addressing"&gt;
+                    &lt;wsa:Address&gt;https://server:8993/services/QueryService&lt;/wsa:Address&gt;
+                &lt;/wsa:EndpointReference&gt;
+            &lt;/wsp:AppliesTo&gt;
+            &lt;wst:Renewing/&gt;
+        &lt;/wst:RequestSecurityToken&gt;
+    &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is the response from the STS containing the SAML assertion to be used in subsequent requests to QCRUD endpoints:</p>
+</div>
+<div class="paragraph">
+<p>The <code>saml2:Assertion</code> block contains the entire SAML assertion.</p>
+</div>
+<div class="paragraph">
+<p>The <code>Signature</code> block contains a signature from the STS&#8217;s private key.
+The endpoint receiving the SAML assertion will verify that it trusts the signer and ensure that the message wasn&#8217;t tampered with.</p>
+</div>
+<div class="paragraph">
+<p>The <code>AttributeStatement</code> block contains all the Claims requested.</p>
+</div>
+<div class="paragraph">
+<p>The <code>Lifetime</code> block indicates the valid time interval in which the SAML assertion can be used.</p>
+</div>
+<div class="listingblock">
+<div class="title">UsernameToken Bearer SAML Security Token Sample Response</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+    &lt;soap:Header&gt;
+        &lt;Action xmlns="http://www.w3.org/2005/08/addressing"&gt;http://docs.oasis-open.org/ws-sx/ws-trust/200512/RSTRC/IssueFinal&lt;/Action&gt;
+        &lt;MessageID xmlns="http://www.w3.org/2005/08/addressing"&gt;urn:uuid:eee4c6ef-ac10-4cbc-a53c-13d960e3b6e8&lt;/MessageID&gt;
+        &lt;To xmlns="http://www.w3.org/2005/08/addressing"&gt;http://www.w3.org/2005/08/addressing/anonymous&lt;/To&gt;
+        &lt;RelatesTo xmlns="http://www.w3.org/2005/08/addressing"&gt;uuid:a1bba87b-0f00-46cc-975f-001391658cbe&lt;/RelatesTo&gt;
+        &lt;wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" soap:mustUnderstand="1"&gt;
+            &lt;wsu:Timestamp wsu:Id="TS-2"&gt;
+                &lt;wsu:Created&gt;2013-04-29T17:49:12.624Z&lt;/wsu:Created&gt;
+                &lt;wsu:Expires&gt;2013-04-29T17:54:12.624Z&lt;/wsu:Expires&gt;
+            &lt;/wsu:Timestamp&gt;
+        &lt;/wsse:Security&gt;
+    &lt;/soap:Header&gt;
+    &lt;soap:Body&gt;
+        &lt;RequestSecurityTokenResponseCollection xmlns="http://docs.oasis-open.org/ws-sx/ws-trust/200512" xmlns:ns2="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:ns3="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:ns4="http://www.w3.org/2005/08/addressing" xmlns:ns5="http://docs.oasis-open.org/ws-sx/ws-trust/200802"&gt;
+            &lt;RequestSecurityTokenResponse&gt;
+                &lt;TokenType&gt;http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0&lt;/TokenType&gt;
+                &lt;RequestedSecurityToken&gt;
+                    &lt;saml2:Assertion xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="_7437C1A55F19AFF22113672577526132" IssueInstant="2013-04-29T17:49:12.613Z" Version="2.0" xsi:type="saml2:AssertionType"&gt;
+                        &lt;saml2:Issuer&gt;tokenissuer&lt;/saml2:Issuer&gt;
+                        &lt;ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#"&gt;
+                            &lt;ds:SignedInfo&gt;
+                                &lt;ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/&gt;
+                                &lt;ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/&gt;
+                                &lt;ds:Reference URI="#_7437C1A55F19AFF22113672577526132"&gt;
+                                    &lt;ds:Transforms&gt;
+                                        &lt;ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/&gt;
+                                        &lt;ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"&gt;
+                                            &lt;ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="xs"/&gt;
+                                        &lt;/ds:Transform&gt;
+                                    &lt;/ds:Transforms&gt;
+                                    &lt;ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/&gt;
+                                    &lt;ds:DigestValue&gt;ReOqEbGZlyplW5kqiynXOjPnVEA=&lt;/ds:DigestValue&gt;
+                                &lt;/ds:Reference&gt;
+                            &lt;/ds:SignedInfo&gt;
+                            &lt;ds:SignatureValue&gt;X5Kzd54PrKIlGVV2XxzCmWFRzHRoybF7hU6zxbEhSLMR0AWS9R7Me3epq91XqeOwvIDDbwmE/oJNC7vI0fIw/rqXkx4aZsY5a5nbAs7f+aXF9TGdk82x2eNhNGYpViq0YZJfsJ5WSyMtG8w5nRekmDMy9oTLsHG+Y/OhJDEwq58=&lt;/ds:SignatureValue&gt;
+                            &lt;ds:KeyInfo&gt;
+                                &lt;ds:X509Data&gt;
+                                    &lt;ds:X509Certificate&gt;MIIDmjCCAwOgAwIBAgIBBDANBgkqhkiG9w0BAQQFADB1MQswCQYDVQQGEwJVUzEQMA4GA1UECBMH
+QXJpem9uYTERMA8GA1UEBxMIR29vZHllYXIxEDAOBgNVBAoTB0V4YW1wbGUxEDAOBgNVBAoTB0V4
+YW1wbGUxEDAOBgNVBAsTB0V4YW1wbGUxCzAJBgNVBAMTAkNBMB4XDTEzMDQwOTE4MzcxMVoXDTIz
+MDQwNzE4MzcxMVowgaYxCzAJBgNVBAYTAlVTMRAwDgYDVQQIEwdBcml6b25hMREwDwYDVQQHEwhH
+b29keWVhcjEQMA4GA1UEChMHRXhhbXBsZTEQMA4GA1UEChMHRXhhbXBsZTEQMA4GA1UECxMHRXhh
+bXBsZTEUMBIGA1UEAxMLdG9rZW5pc3N1ZXIxJjAkBgkqhkiG9w0BCQEWF3Rva2VuaXNzdWVyQGV4
+YW1wbGUuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDDfktpA8Lrp9rTfRibKdgtxtN9
+uB44diiIqq3JOzDGfDhGLu6mjpuHO1hrKItv42hBOhhmH7lS9ipiaQCIpVfgIG63MB7fa5dBrfGF
+G69vFrU1Lfi7IvsVVsNrtAEQljOMmw9sxS3SUsRQX+bD8jq7Uj1hpoF7DdqpV8Kb0COOGwIDAQAB
+o4IBBjCCAQIwCQYDVR0TBAIwADAsBglghkgBhvhCAQ0EHxYdT3BlblNTTCBHZW5lcmF0ZWQgQ2Vy
+dGlmaWNhdGUwHQYDVR0OBBYEFD1mHviop2Tc4HaNu8yPXR6GqWP1MIGnBgNVHSMEgZ8wgZyAFBcn
+en6/j05DzaVwORwrteKc7TZOoXmkdzB1MQswCQYDVQQGEwJVUzEQMA4GA1UECBMHQXJpem9uYTER
+MA8GA1UEBxMIR29vZHllYXIxEDAOBgNVBAoTB0V4YW1wbGUxEDAOBgNVBAoTB0V4YW1wbGUxEDAO
+BgNVBAsTB0V4YW1wbGUxCzAJBgNVBAMTAkNBggkAwXk7OcwO7gwwDQYJKoZIhvcNAQEEBQADgYEA
+PiTX5kYXwdhmijutSkrObKpRbQkvkkzcyZlO6VrAxRQ+eFeN6NyuyhgYy5K6l/sIWdaGou5iJOQx
+2pQYWx1v8Klyl0W22IfEAXYv/epiO89hpdACryuDJpioXI/X8TAwvRwLKL21Dk3k2b+eyCgA0O++
+HM0dPfiQLQ99ElWkv/0=&lt;/ds:X509Certificate&gt;
+                                &lt;/ds:X509Data&gt;
+                            &lt;/ds:KeyInfo&gt;
+                        &lt;/ds:Signature&gt;
+                        &lt;saml2:Subject&gt;
+                            &lt;saml2:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified" NameQualifier="http://cxf.apache.org/sts"&gt;srogers&lt;/saml2:NameID&gt;
+                            &lt;saml2:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer"/&gt;
+                        &lt;/saml2:Subject&gt;
+                        &lt;saml2:Conditions NotBefore="2013-04-29T17:49:12.614Z" NotOnOrAfter="2013-04-29T18:19:12.614Z"&gt;
+                            &lt;saml2:AudienceRestriction&gt;
+                                &lt;saml2:Audience&gt;https://server:8993/services/QueryService&lt;/saml2:Audience&gt;
+                            &lt;/saml2:AudienceRestriction&gt;
+                        &lt;/saml2:Conditions&gt;
+                        &lt;saml2:AuthnStatement AuthnInstant="2013-04-29T17:49:12.613Z"&gt;
+                            &lt;saml2:AuthnContext&gt;
+                                &lt;saml2:AuthnContextClassRef&gt;urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified&lt;/saml2:AuthnContextClassRef&gt;
+                            &lt;/saml2:AuthnContext&gt;
+                        &lt;/saml2:AuthnStatement&gt;
+                        &lt;saml2:AttributeStatement&gt;
+                            &lt;saml2:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"&gt;
+                                &lt;saml2:AttributeValue xsi:type="xs:string"&gt;srogers&lt;/saml2:AttributeValue&gt;
+                            &lt;/saml2:Attribute&gt;
+                            &lt;saml2:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"&gt;
+                                &lt;saml2:AttributeValue xsi:type="xs:string"&gt;srogers@example.com&lt;/saml2:AttributeValue&gt;
+                            &lt;/saml2:Attribute&gt;
+                            &lt;saml2:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"&gt;
+                                &lt;saml2:AttributeValue xsi:type="xs:string"&gt;srogers&lt;/saml2:AttributeValue&gt;
+                            &lt;/saml2:Attribute&gt;
+                            &lt;saml2:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"&gt;
+                                &lt;saml2:AttributeValue xsi:type="xs:string"&gt;Steve Rogers&lt;/saml2:AttributeValue&gt;
+                            &lt;/saml2:Attribute&gt;
+                            &lt;saml2:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"&gt;
+                                &lt;saml2:AttributeValue xsi:type="xs:string"&gt;avengers&lt;/saml2:AttributeValue&gt;
+                            &lt;/saml2:Attribute&gt;
+                            &lt;saml2:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"&gt;
+                                &lt;saml2:AttributeValue xsi:type="xs:string"&gt;admin&lt;/saml2:AttributeValue&gt;
+                            &lt;/saml2:Attribute&gt;
+                        &lt;/saml2:AttributeStatement&gt;
+                    &lt;/saml2:Assertion&gt;
+                &lt;/RequestedSecurityToken&gt;
+                &lt;RequestedAttachedReference&gt;
+                    &lt;ns3:SecurityTokenReference xmlns:wsse11="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd" wsse11:TokenType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0"&gt;
+                        &lt;ns3:KeyIdentifier ValueType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLID"&gt;_7437C1A55F19AFF22113672577526132&lt;/ns3:KeyIdentifier&gt;
+                    &lt;/ns3:SecurityTokenReference&gt;
+                &lt;/RequestedAttachedReference&gt;
+                &lt;RequestedUnattachedReference&gt;
+                    &lt;ns3:SecurityTokenReference xmlns:wsse11="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd" wsse11:TokenType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0"&gt;
+                        &lt;ns3:KeyIdentifier ValueType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLID"&gt;_7437C1A55F19AFF22113672577526132&lt;/ns3:KeyIdentifier&gt;
+                    &lt;/ns3:SecurityTokenReference&gt;
+                &lt;/RequestedUnattachedReference&gt;
+                &lt;wsp:AppliesTo xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wst="http://docs.oasis-open.org/ws-sx/ws-trust/200512"&gt;
+                    &lt;wsa:EndpointReference xmlns:wsa="http://www.w3.org/2005/08/addressing"&gt;
+                        &lt;wsa:Address&gt;https://server:8993/services/QueryService&lt;/wsa:Address&gt;
+                    &lt;/wsa:EndpointReference&gt;
+                &lt;/wsp:AppliesTo&gt;
+                &lt;Lifetime&gt;
+                    &lt;ns2:Created&gt;2013-04-29T17:49:12.620Z&lt;/ns2:Created&gt;
+                    &lt;ns2:Expires&gt;2013-04-29T18:19:12.620Z&lt;/ns2:Expires&gt;
+                &lt;/Lifetime&gt;
+            &lt;/RequestSecurityTokenResponse&gt;
+        &lt;/RequestSecurityTokenResponseCollection&gt;
+    &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In order to obtain a SAML assertion to use in secure communication to DDF, a <code>RequestSecurityToken</code> (RST) request has to be made to the STS.</p>
+</div>
+<div class="paragraph">
+<p>An endpoint&#8217;s policy will specify the type of security token needed.
+Most of the endpoints that have been used with DDF require a SAML v2.0 assertion with a required KeyType of <a href="http://docs.oasis-open.org/ws-sx/ws-trust/200512/PublicKey" class="bare">http://docs.oasis-open.org/ws-sx/ws-trust/200512/PublicKey</a>.
+This means that the SAML assertion provided by the client to a DDF endpoint must contain a SubjectConfirmation block with a type of "holder-of-key" containing the client&#8217;s public key.
+This is used to prove that the client can possess the SAML assertion returned by the STS.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_x_509_publickey_saml_security_token_sample"><a class="anchor" href="#_x_509_publickey_saml_security_token_sample"></a>X.509 PublicKey SAML Security Token Sample</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<div class="title">X.509 PublicKey SAML Security Token Request</div>
+<p>The STS that comes with DDF requires the following to be in the RequestSecurityToken request in order to issue a valid SAML assertion.
+See the request block below for an example of how these components should be populated.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>WS-Addressing header containing Action, To, and MessageID blocks</p>
+</li>
+<li>
+<p>Valid, non-expired timestamp</p>
+</li>
+<li>
+<p>Issued over HTTPS</p>
+</li>
+<li>
+<p>TokenType of <a href="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0" class="bare">http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0</a></p>
+</li>
+<li>
+<p>KeyType of <a href="http://docs.oasis-open.org/ws-sx/ws-trust/200512/PublicKey" class="bare">http://docs.oasis-open.org/ws-sx/ws-trust/200512/PublicKey</a></p>
+</li>
+<li>
+<p>X509 Certificate as the Proof of Possession or POP.  This needs to be the certificate of the client that will be both requesting the SAML assertion and using the SAML assertion to issue a query</p>
+</li>
+<li>
+<p>Claims (optional): Some endpoints may require that the SAML assertion include attributes of the user, such as an authenticated user&#8217;s role, name identifier, email address, etc.  If the SAML assertion needs those attributes, the RequestSecurityToken must specify which ones to include.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>UsernameToken: If Claims are required, the RequestSecurityToken security header must contain a UsernameToken element with a username and password.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">X.509 PublicKey SAML Security Token Sample Request</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;soapenv:Envelope xmlns:ns="http://docs.oasis-open.org/ws-sx/ws-trust/200512" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+   &lt;soapenv:Header xmlns:wsa="http://www.w3.org/2005/08/addressing"&gt;
+      &lt;wsa:Action&gt;http://docs.oasis-open.org/ws-sx/ws-trust/200512/RST/Issue&lt;/wsa:Action&gt;
+      &lt;wsa:MessageID&gt;uuid:527243af-94bd-4b5c-a1d8-024fd7e694c5&lt;/wsa:MessageID&gt;
+      &lt;wsa:To&gt;https://server:8993/services/SecurityTokenService&lt;/wsa:To&gt;
+      &lt;wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"&gt;
+         &lt;wsu:Timestamp wsu:Id="TS-17"&gt;
+            &lt;wsu:Created&gt;2014-02-19T17:30:40.771Z&lt;/wsu:Created&gt;
+            &lt;wsu:Expires&gt;2014-02-19T19:10:40.771Z&lt;/wsu:Expires&gt;
+         &lt;/wsu:Timestamp&gt;
+
+         &lt;!-- OPTIONAL: Only required if the endpoint that the SAML assertion will be sent to requires claims. --&gt;
+         &lt;wsse:UsernameToken wsu:Id="UsernameToken-16"&gt;
+            &lt;wsse:Username&gt;pparker&lt;/wsse:Username&gt;
+            &lt;wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText"&gt;password1&lt;/wsse:Password&gt;
+            &lt;wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary"&gt;LCTD+5Y7hlWIP6SpsEg9XA==&lt;/wsse:Nonce&gt;
+            &lt;wsu:Created&gt;2014-02-19T17:30:37.355Z&lt;/wsu:Created&gt;
+         &lt;/wsse:UsernameToken&gt;
+      &lt;/wsse:Security&gt;
+   &lt;/soapenv:Header&gt;
+   &lt;soapenv:Body&gt;
+      &lt;wst:RequestSecurityToken xmlns:wst="http://docs.oasis-open.org/ws-sx/ws-trust/200512"&gt;
+         &lt;wst:TokenType&gt;http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0&lt;/wst:TokenType&gt;
+         &lt;wst:KeyType&gt;http://docs.oasis-open.org/ws-sx/ws-trust/200512/PublicKey&lt;/wst:KeyType&gt;
+
+         &lt;!-- OPTIONAL: Only required if the endpoint that the SAML assertion will be sent to requires claims. --&gt;
+         &lt;wst:Claims Dialect="http://schemas.xmlsoap.org/ws/2005/05/identity" xmlns:ic="http://schemas.xmlsoap.org/ws/2005/05/identity"&gt;
+            &lt;ic:ClaimType Optional="true" Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role"/&gt;
+            &lt;ic:ClaimType Optional="true" Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"/&gt;
+            &lt;ic:ClaimType Optional="true" Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"/&gt;
+            &lt;ic:ClaimType Optional="true" Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname"/&gt;
+            &lt;ic:ClaimType Optional="true" Uri="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname"/&gt;
+         &lt;/wst:Claims&gt;
+         &lt;wst:RequestType&gt;http://docs.oasis-open.org/ws-sx/ws-trust/200512/Issue&lt;/wst:RequestType&gt;
+            &lt;wsp:AppliesTo xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"&gt;
+            &lt;wsa:EndpointReference xmlns:wsa="http://www.w3.org/2005/08/addressing"&gt;
+            &lt;wsa:Address&gt;https://server:8993/services/QueryService&lt;/wsa:Address&gt;
+            &lt;/wsa:EndpointReference&gt;
+         &lt;/wsp:AppliesTo&gt;
+         &lt;wst:UseKey&gt;
+            &lt;ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#"&gt;
+               &lt;ds:X509Data&gt;
+                  &lt;ds:X509Certificate&gt;MIIFGDCCBACgAwIBAgICJe0wDQYJKoZIhvcNAQEFBQAwXDELMAkGA1UEBhMCVVMxGDAWBgNVBAoT
+D1UuUy4gR292ZXJubWVudDEMMAoGA1UECxMDRG9EMQwwCgYDVQQLEwNQS0kxFzAVBgNVBAMTDkRP
+RCBKSVRDIENBLTI3MB4XDTEzMDUwNzAwMjU0OVoXDTE2MDUwNzAwMjU0OVowaTELMAkGA1UEBhMC
+VVMxGDAWBgNVBAoTD1UuUy4gR292ZXJubWVudDEMMAoGA1UECxMDRG9EMQwwCgYDVQQLEwNQS0kx
+EzARBgNVBAsTCkNPTlRSQUNUT1IxDzANBgNVBAMTBmNsaWVudDCCASIwDQYJKoZIhvcNAQEBBQAD
+ggEPADCCAQoCggEBAOq6L1/jjZ5cyhjhHEbOHr5WQpboKACYbrsn8lg85LGNoAfcwImr9KBmOxGb
+ZCxHYIhkW7pJ+kppyH8DbbbDMviIvvdkvrAIU0l8OBRn2wReCBGQ01Imdc3+WzFF2svW75d6wii2ZVd
+eMvUO15p/pAD/sdIfXmAfyu8+tqtiO8KVZGkTnlg3AMzfeSrkci5UHMVWj0qUSuzLk9SAg/9STgb
+Kf2xBpHUYecWFSB+dTpdZN2pC85tj9xIoWGh5dFWG1fPcYRgzGPxsybiGOylbJ7rHDJuL7IIIyx5
+EnkCuxmQwoQ6XQAhiWRGyPlY08w1LZixI2v+Cv/ZjUfIHv49I9P4Mt8CAwEAAaOCAdUwggHRMB8G
+A1UdIwQYMBaAFCMUNCBNXy43NZLBBlnDjDplNZJoMB0GA1UdDgQWBBRPGiX6zZzKTqQSx/tjg6hx
+9opDoTAOBgNVHQ8BAf8EBAMCBaAwgdoGA1UdHwSB0jCBzzA2oDSgMoYwaHR0cDovL2NybC5nZHMu
+bml0LmRpc2EubWlsL2NybC9ET0RKSVRDQ0FfMjcuY3JsMIGUoIGRoIGOhoGLbGRhcDovL2NybC5n
+ZHMubml0LmRpc2EubWlsL2NuJTNkRE9EJTIwSklUQyUyMENBLTI3JTJjb3UlM2RQS0klMmNvdSUz
+ZERvRCUyY28lM2RVLlMuJTIwR292ZXJubWVudCUyY2MlM2RVUz9jZXJ0aWZpY2F0ZXJldm9jYXRp
+b25saXN0O2JpbmFyeTAjBgNVHSAEHDAaMAsGCWCGSAFlAgELBTALBglghkgBZQIBCxIwfQYIKwYB
+BQUHAQEEcTBvMD0GCCsGAQUFBzAChjFodHRwOi8vY3JsLmdkcy5uaXQuZGlzYS5taWwvc2lnbi9E
+T0RKSVRDQ0FfMjcuY2VyMC4GCCsGAQUFBzABhiJodHRwOi8vb2NzcC5uc24wLnJjdnMubml0LmRp
+c2EubWlsMA0GCSqGSIb3DQEBBQUAA4IBAQCGUJPGh4iGCbr2xCMqCq04SFQ+iaLmTIFAxZPFvup1
+4E9Ir6CSDalpF9eBx9fS+Z2xuesKyM/g3YqWU1LtfWGRRIxzEujaC4YpwHuffkx9QqkwSkXXIsim
+EhmzSgzxnT4Q9X8WwalqVYOfNZ6sSLZ8qPPFrLHkkw/zIFRzo62wXLu0tfcpOr+iaJBhyDRinIHr
+hwtE3xo6qQRRWlO3/clC4RnTev1crFVJQVBF3yfpRu8udJ2SOGdqU0vjUSu1h7aMkYJMHIu08Whj
+8KASjJBFeHPirMV1oddJ5ydZCQ+Jmnpbwq+XsCxg1LjC4dmbjKVr9s4QK+/JLNjxD8IkJiZE&lt;/ds:X509Certificate&gt;
+               &lt;/ds:X509Data&gt;
+            &lt;/ds:KeyInfo&gt;
+         &lt;/wst:UseKey&gt;
+      &lt;/wst:RequestSecurityToken&gt;
+   &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">X.509 PublicKey SAML Security Token Response</div>
+<p>This is the response from the STS containing the SAML assertion to be used in subsequent requests to QCRUD endpoints.</p>
+</div>
+<div class="paragraph">
+<p>The <code>saml2:Assertion</code> block contains the entire SAML assertion.</p>
+</div>
+<div class="paragraph">
+<p>The <code>Signature</code> block contains a signature from the STS&#8217;s private key.
+The endpoint receiving the SAML assertion will verify that it trusts the signer and ensure that the message wasn&#8217;t tampered with.</p>
+</div>
+<div class="paragraph">
+<p>The <code>SubjectConfirmation</code> block contains the client&#8217;s public key, so the server can verify that the client has permission to hold this SAML assertion.
+The <code>AttributeStatement</code> block contains all of the claims requested.</p>
+</div>
+<div class="listingblock">
+<div class="title">X.509 PublicKey SAML Security Token Sample Response</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+   &lt;soap:Header&gt;
+      &lt;Action xmlns="http://www.w3.org/2005/08/addressing"&gt;http://docs.oasis-open.org/ws-sx/ws-trust/200512/RSTRC/IssueFinal&lt;/Action&gt;
+      &lt;MessageID xmlns="http://www.w3.org/2005/08/addressing"&gt;urn:uuid:b46c35ad-3120-4233-ae07-b9e10c7911f3&lt;/MessageID&gt;
+      &lt;To xmlns="http://www.w3.org/2005/08/addressing"&gt;http://www.w3.org/2005/08/addressing/anonymous&lt;/To&gt;
+      &lt;RelatesTo xmlns="http://www.w3.org/2005/08/addressing"&gt;uuid:527243af-94bd-4b5c-a1d8-024fd7e694c5&lt;/RelatesTo&gt;
+      &lt;wsse:Security soap:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"&gt;
+         &lt;wsu:Timestamp wsu:Id="TS-90DBA0754E55B4FE7013928310431357"&gt;
+            &lt;wsu:Created&gt;2014-02-19T17:30:43.135Z&lt;/wsu:Created&gt;
+            &lt;wsu:Expires&gt;2014-02-19T17:35:43.135Z&lt;/wsu:Expires&gt;
+         &lt;/wsu:Timestamp&gt;
+      &lt;/wsse:Security&gt;
+   &lt;/soap:Header&gt;
+   &lt;soap:Body&gt;
+      &lt;ns2:RequestSecurityTokenResponseCollection xmlns="http://docs.oasis-open.org/ws-sx/ws-trust/200802" xmlns:ns2="http://docs.oasis-open.org/ws-sx/ws-trust/200512" xmlns:ns3="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:ns4="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:ns5="http://www.w3.org/2005/08/addressing"&gt;
+         &lt;ns2:RequestSecurityTokenResponse&gt;
+            &lt;ns2:TokenType&gt;http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0&lt;/ns2:TokenType&gt;
+            &lt;ns2:RequestedSecurityToken&gt;
+               &lt;saml2:Assertion ID="_90DBA0754E55B4FE7013928310431176" IssueInstant="2014-02-19T17:30:43.117Z" Version="2.0" xsi:type="saml2:AssertionType" xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+                  &lt;saml2:Issuer&gt;tokenissuer&lt;/saml2:Issuer&gt;
+                  &lt;ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#"&gt;
+                     &lt;ds:SignedInfo&gt;
+                        &lt;ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/&gt;
+                        &lt;ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/&gt;
+                        &lt;ds:Reference URI="#_90DBA0754E55B4FE7013928310431176"&gt;
+                           &lt;ds:Transforms&gt;
+                              &lt;ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/&gt;
+                              &lt;ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"&gt;
+                                 &lt;ec:InclusiveNamespaces PrefixList="xs" xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#"/&gt;
+                              &lt;/ds:Transform&gt;
+                           &lt;/ds:Transforms&gt;
+                           &lt;ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/&gt;
+                           &lt;ds:DigestValue&gt;/bEGqsRGHVJbx298WPmGd8I53zs=&lt;/ds:DigestValue&gt;
+                        &lt;/ds:Reference&gt;
+                     &lt;/ds:SignedInfo&gt;
+                     &lt;ds:SignatureValue&gt;
+mYR7w1/dnuh8Z7t9xjCb4XkYQLshj+UuYlGOuTwDYsUPcS2qI0nAgMD1VsDP7y1fDJxeqsq7HYhFKsnqRfebMM4WLH1D/lJ4rD4UO+i9l3tuiHml7SN24WM1/bOqfDUCoDqmwG8afUJ3r4vmTNPxfwfOss8BZ/8ODgZzm08ndlkxDfvcN7OrExbV/3/45JwF/MMPZoqvi2MJGfX56E9fErJNuzezpWnRqPOlWPxyffKMAlVaB9zF6gvVnUqcW2k/Z8X9lN7O5jouBI281ZnIfsIPuBJERFtYNVDHsIXM1pJnrY6FlKIaOsi55LQu3Ruir/n82pU7BT5aWtxwrn7akBg==                    &lt;/ds:SignatureValue&gt;
+                     &lt;ds:KeyInfo&gt;
+                        &lt;ds:X509Data&gt;
+                           &lt;ds:X509Certificate&gt;MIIFHTCCBAWgAwIBAgICJe8wDQYJKoZIhvcNAQEFBQAwXDELMAkGA1UEBhMCVVMxGDAWBgNVBAoT
+D1UuUy4gR292ZXJubWVudDEMMAoGA1UECxMDRG9EMQwwCgYDVQQLEwNQS0kxFzAVBgNVBAMTDkRP
+RCBKSVRDIENBLTI3MB4XDTEzMDUwNzAwMjYzN1oXDTE2MDUwNzAwMjYzN1owbjELMAkGA1UEBhMC
+VVMxGDAWBgNVBAoTD1UuUy4gR292ZXJubWVudDEMMAoGA1UECxMDRG9EMQwwCgYDVQQLEwNQS0kx
+EzARBgNVBAsTCkNPTlRSQUNUT1IxFDASBgNVBAMTC3Rva2VuaXNzdWVyMIIBIjANBgkqhkiG9w0B
+AQEFAAOCAQ8AMIIBCgKCAQEAx01/U4M1wG+wL1JxX2RL1glj101FkJXMk3KFt3zD//N8x/Dcwwvs
+ngCQjXrV6YhbB2V7scHwnThPv3RSwYYiO62z+g6ptfBbKGGBLSZOzLe3fyJR4RxblFKsELFgPHfX
+vgUHS/keG5uSRk9S/Okqps/yxKB7+ZlxeFxsIz5QywXvBpMiXtc2zF+M7BsbSIdSx5LcPcDFBwjF
+c66rE3/y/25VMht9EZX1QoKr7f8rWD4xgd5J6DYMFWEcmiCz4BDJH9sfTw+n1P+CYgrhwslWGqxt
+cDME9t6SWR3GLT4Sdtr8ziIM5uUteEhPIV3rVC3/u23JbYEeS8mpnp0bxt5eHQIDAQABo4IB1TCC
+AdEwHwYDVR0jBBgwFoAUIxQ0IE1fLjc1ksEGWcOMOmU1kmgwHQYDVR0OBBYEFGBjdkdey+bMHMhC
+Z7gwiQ/mJf5VMA4GA1UdDwEB/wQEAwIFoDCB2gYDVR0fBIHSMIHPMDagNKAyhjBodHRwOi8vY3Js
+Lmdkcy5uaXQuZGlzYS5taWwvY3JsL0RPREpJVENDQV8yNy5jcmwwgZSggZGggY6GgYtsZGFwOi8v
+Y3JsLmdkcy5uaXQuZGlzYS5taWwvY24lM2RET0QlMjBKSVRDJTIwQ0EtMjclMmNvdSUzZFBLSSUy
+Y291JTNkRG9EJTJjbyUzZFUuUy4lMjBHb3Zlcm5tZW50JTJjYyUzZFVTP2NlcnRpZmljYXRlcmV2
+b2NhdGlvbmxpc3Q7YmluYXJ5MCMGA1UdIAQcMBowCwYJYIZIAWUCAQsFMAsGCWCGSAFlAgELEjB9
+BggrBgEFBQcBAQRxMG8wPQYIKwYBBQUHMAKGMWh0dHA6Ly9jcmwuZ2RzLm5pdC5kaXNhLm1pbC9z
+aWduL0RPREpJVENDQV8yNy5jZXIwLgYIKwYBBQUHMAGGImh0dHA6Ly9vY3NwLm5zbjAucmN2cy5u
+aXQuZGlzYS5taWwwDQYJKoZIhvcNAQEFBQADggEBAIHZQTINU3bMpJ/PkwTYLWPmwCqAYgEUzSYx
+bNcVY5MWD8b4XCdw5nM3GnFlOqr4IrHeyyOzsEbIebTe3bv0l1pHx0Uyj059nAhx/AP8DjVtuRU1
+/Mp4b6uJ/4yaoMjIGceqBzHqhHIJinG0Y2azua7eM9hVbWZsa912ihbiupCq22mYuHFP7NUNzBvV
+j03YUcsy/sES5sRx9Rops/CBN+LUUYOdJOxYWxo8oAbtF8ABE5ATLAwqz4ttsToKPUYh1sxdx5Ef
+APeZ+wYDmMu4OfLckwnCKZgkEtJOxXpdIJHY+VmyZtQSB0LkR5toeH/ANV4259Ia5ZT8h2/vIJBg
+6B4=&lt;/ds:X509Certificate&gt;
+                        &lt;/ds:X509Data&gt;
+                     &lt;/ds:KeyInfo&gt;
+                  &lt;/ds:Signature&gt;
+                  &lt;saml2:Subject&gt;
+                     &lt;saml2:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified" NameQualifier="http://cxf.apache.org/sts"&gt;pparker&lt;/saml2:NameID&gt;
+                     &lt;saml2:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:holder-of-key"&gt;
+                        &lt;saml2:SubjectConfirmationData xsi:type="saml2:KeyInfoConfirmationDataType"&gt;
+                           &lt;ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#"&gt;
+                              &lt;ds:X509Data&gt;
+                                 &lt;ds:X509Certificate&gt;MIIFGDCCBACgAwIBAgICJe0wDQYJKoZIhvcNAQEFBQAwXDELMAkGA1UEBhMCVVMxGDAWBgNVBAoT
+D1UuUy4gR292ZXJubWVudDEMMAoGA1UECxMDRG9EMQwwCgYDVQQLEwNQS0kxFzAVBgNVBAMTDkRP
+RCBKSVRDIENBLTI3MB4XDTEzMDUwNzAwMjU0OVoXDTE2MDUwNzAwMjU0OVowaTELMAkGA1UEBhMC
+VVMxGDAWBgNVBAoTD1UuUy4gR292ZXJubWVudDEMMAoGA1UECxMDRG9EMQwwCgYDVQQLEwNQS0kx
+EzARBgNVBAsTCkNPTlRSQUNUT1IxDzANBgNVBAMTBmNsaWVudDCCASIwDQYJKoZIhvcNAQEBBQAD
+ggEPADCCAQoCggEBAOq6L1/jjZ5cyhjhHEbOHr5WQpboKACYbrsn8lg85LGNoAfcwImr9KBmOxGb
+ZCxHYIhkW7pJ+kppyH8bbbviIvvdkvrAIU0l8OBRn2wReCBGQ01Imdc3+WzFF2svW75d6wii2ZVd
+eMvUO15p/pAD/sdIfXmAfyu8+tqtiO8KVZGkTnlg3AMzfeSrkci5UHMVWj0qUSuzLk9SAg/9STgb
+Kf2xBpHUYecWFSB+dTpdZN2pC85tj9xIoWGh5dFWG1fPcYRgzGPxsybiGOylbJ7rHDJuL7IIIyx5
+EnkCuxmQwoQ6XQAhiWRGyPlY08w1LZixI2v+Cv/ZjUfIHv49I9P4Mt8CAwEAAaOCAdUwggHRMB8G
+A1UdIwQYMBaAFCMUNCBNXy43NZLBBlnDjDplNZJoMB0GA1UdDgQWBBRPGiX6zZzKTqQSx/tjg6hx
+9opDoTAOBgNVHQ8BAf8EBAMCBaAwgdoGA1UdHwSB0jCBzzA2oDSgMoYwaHR0cDovL2NybC5nZHMu
+bml0LmRpc2EubWlsL2NybC9ET0RKSVRDQ0FfMjcuY3JsMIGUoIGRoIGOhoGLbGRhcDovL2NybC5n
+ZHMubml0LmRpc2EubWlsL2NuJTNkRE9EJTIwSklUQyUyMENBLTI3JTJjb3UlM2RQS0klMmNvdSUz
+ZERvRCUyY28lM2RVLlMuJTIwR292ZXJubWVudCUyY2MlM2RVUz9jZXJ0aWZpY2F0ZXJldm9jYXRp
+b25saXN0O2JpbmFyeTAjBgNVHSAEHDAaMAsGCWCGSAFlAgELBTALBglghkgBZQIBCxIwfQYIKwYB
+BQUHAQEEcTBvMD0GCCsGAQUFBzAChjFodHRwOi8vY3JsLmdkcy5uaXQuZGlzYS5taWwvc2lnbi9E
+T0RKSVRDQ0FfMjcuY2VyMC4GCCsGAQUFBzABhiJodHRwOi8vb2NzcC5uc24wLnJjdnMubml0LmRp
+c2EubWlsMA0GCSqGSIb3DQEBBQUAA4IBAQCGUJPGh4iGCbr2xCMqCq04SFQ+iaLmTIFAxZPFvup1
+4E9Ir6CSDalpF9eBx9fS+Z2xuesKyM/g3YqWU1LtfWGRRIxzEujaC4YpwHuffkx9QqkwSkXXIsim
+EhmzSgzxnT4Q9X8WwalqVYOfNZ6sSLZ8qPPFrLHkkw/zIFRzo62wXLu0tfcpOr+iaJBhyDRinIHr
+hwtE3xo6qQRRWlO3/clC4RnTev1crFVJQVBF3yfpRu8udJ2SOGdqU0vjUSu1h7aMkYJMHIu08Whj
+8KASjJBFeHPirMV1oddJ5ydZCQ+Jmnpbwq+XsCxg1LjC4dmbjKVr9s4QK+/JLNjxD8IkJiZE&lt;/ds:X509Certificate&gt;
+                              &lt;/ds:X509Data&gt;
+                           &lt;/ds:KeyInfo&gt;
+                        &lt;/saml2:SubjectConfirmationData&gt;
+                     &lt;/saml2:SubjectConfirmation&gt;
+                  &lt;/saml2:Subject&gt;
+                  &lt;saml2:Conditions NotBefore="2014-02-19T17:30:43.119Z" NotOnOrAfter="2014-02-19T18:00:43.119Z"/&gt;
+                  &lt;saml2:AuthnStatement AuthnInstant="2014-02-19T17:30:43.117Z"&gt;
+                     &lt;saml2:AuthnContext&gt;
+                        &lt;saml2:AuthnContextClassRef&gt;urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified&lt;/saml2:AuthnContextClassRef&gt;
+                     &lt;/saml2:AuthnContext&gt;
+                  &lt;/saml2:AuthnStatement&gt;
+
+                  &lt;!-- This block will only be included if Claims were requested in the RST. --&gt;
+                  &lt;saml2:AttributeStatement&gt;
+                     &lt;saml2:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"&gt;
+                        &lt;saml2:AttributeValue xsi:type="xs:string"&gt;pparker&lt;/saml2:AttributeValue&gt;
+                     &lt;/saml2:Attribute&gt;
+                     &lt;saml2:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"&gt;
+                        &lt;saml2:AttributeValue xsi:type="xs:string"&gt;pparker@example.com&lt;/saml2:AttributeValue&gt;
+                     &lt;/saml2:Attribute&gt;
+                     &lt;saml2:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"&gt;
+                        &lt;saml2:AttributeValue xsi:type="xs:string"&gt;pparker&lt;/saml2:AttributeValue&gt;
+                     &lt;/saml2:Attribute&gt;
+                     &lt;saml2:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"&gt;
+                        &lt;saml2:AttributeValue xsi:type="xs:string"&gt;Peter Parker&lt;/saml2:AttributeValue&gt;
+                     &lt;/saml2:Attribute&gt;
+                     &lt;saml2:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"&gt;
+                        &lt;saml2:AttributeValue xsi:type="xs:string"&gt;users&lt;/saml2:AttributeValue&gt;
+                     &lt;/saml2:Attribute&gt;
+                     &lt;saml2:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"&gt;
+                        &lt;saml2:AttributeValue xsi:type="xs:string"&gt;users&lt;/saml2:AttributeValue&gt;
+                     &lt;/saml2:Attribute&gt;
+                     &lt;saml2:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"&gt;
+                        &lt;saml2:AttributeValue xsi:type="xs:string"&gt;avengers&lt;/saml2:AttributeValue&gt;
+                     &lt;/saml2:Attribute&gt;
+                     &lt;saml2:Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"&gt;
+                        &lt;saml2:AttributeValue xsi:type="xs:string"&gt;admin&lt;/saml2:AttributeValue&gt;
+                     &lt;/saml2:Attribute&gt;
+                  &lt;/saml2:AttributeStatement&gt;
+               &lt;/saml2:Assertion&gt;
+            &lt;/ns2:RequestedSecurityToken&gt;
+            &lt;ns2:RequestedAttachedReference&gt;
+               &lt;ns4:SecurityTokenReference wsse11:TokenType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0" xmlns:wsse11="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd"&gt;
+                  &lt;ns4:KeyIdentifier ValueType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLID"&gt;_90DBA0754E55B4FE7013928310431176&lt;/ns4:KeyIdentifier&gt;
+               &lt;/ns4:SecurityTokenReference&gt;
+            &lt;/ns2:RequestedAttachedReference&gt;
+            &lt;ns2:RequestedUnattachedReference&gt;
+               &lt;ns4:SecurityTokenReference wsse11:TokenType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0" xmlns:wsse11="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd"&gt;
+                  &lt;ns4:KeyIdentifier ValueType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLID"&gt;_90DBA0754E55B4FE7013928310431176&lt;/ns4:KeyIdentifier&gt;
+               &lt;/ns4:SecurityTokenReference&gt;
+            &lt;/ns2:RequestedUnattachedReference&gt;
+            &lt;ns2:Lifetime&gt;
+               &lt;ns3:Created&gt;2014-02-19T17:30:43.119Z&lt;/ns3:Created&gt;
+               &lt;ns3:Expires&gt;2014-02-19T18:00:43.119Z&lt;/ns3:Expires&gt;
+            &lt;/ns2:Lifetime&gt;
+         &lt;/ns2:RequestSecurityTokenResponse&gt;
+      &lt;/ns2:RequestSecurityTokenResponseCollection&gt;
+   &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>Copyright (c) Codice Foundation.</p>
+  <p>This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0">Creative Commons Attribution 4.0 International License</a>.</p>
+</footer>
+<script type="text/javascript">
+  window.antora = window.antora || {}
+  window.antora.basePath = '../../../..'
+  window.antora.pagePath = '/ddf-docs-site/2.25.0/developing/devcomponents/custom-sts-claims-handlers.html'
+</script>
+<script src="../../../../_/js/site.js"></script>
+<script src="../../../../_/js/vendor/lunr.js"></script>
+<script src="../../../../_/js/vendor/search.js"></script>
+<script async src="../../../../_/../search-index.js"></script>
+<script src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/jquery-1.11.3.min.js"></script>
+<script src="../../../../_/js/script.js"></script>
+<script>hljs.initHighlighting()</script>
+  </body>
+</html>
