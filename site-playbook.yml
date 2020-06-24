@@ -1,6 +1,6 @@
 site:
   title: DDF
-  start_page: docs::index.adoc
+  start_page: ddf-docs-site::index.adoc
   url: https://ricklarsen.github.com/ddf-docs-site
 content:
   sources:
@@ -24,6 +24,7 @@ asciidoc:
     ddf-branding: DDF
     ddf-branding-lowercase: ddf
     ddf-branding-expanded: Distributed Data Framework
+    ddf-version: 2.25.0
     version: 2.25.0
     admin-console: Admin Console
     secure_url: https://localhost:8993
